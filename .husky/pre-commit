@@ -24,7 +24,7 @@ STASHED=$?
 FORMAT_EXIT_CODE=$?
 
 # Run checker and formatter on the staged files
-bun lint-staged
+bun run lint-staged
 
 # Restore working directory state
 if [ $STASHED -eq 0 ]; then
@@ -68,7 +68,7 @@ if [ "$STAGED_HASH" != "$NEW_STAGED_HASH" ]; then
 fi
 
 # Build project
-bun build
+bun run build
 echo "👀👀👀 🧙 Project has been build"
 
 exit $FORMAT_EXIT_CODE

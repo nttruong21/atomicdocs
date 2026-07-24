@@ -8,7 +8,17 @@
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true
   },
-  "cSpell.words": ["Pano", "partialize"],
+  "cSpell.words": [
+    "ACMR",
+    "cnfast",
+    "commitlint",
+    "fumadocs",
+    "oxfmt",
+    "oxlint",
+    "Pano",
+    "partialize",
+    "ultracite"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
