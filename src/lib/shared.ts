@@ -1,13 +1,7 @@
-export const appName = 'Tanstack Start'
-export const docsRoute = '/docs'
-export const docsImageRoute = '/og/docs'
-
-// fill this with your actual GitHub info, for example:
-export const gitConfig = {
-  user: 'fuma-nama',
-  repo: 'fumadocs',
-  branch: 'main',
-}
+export const appName = import.meta.env.VITE_APP_NAME
+export const docsRoute = import.meta.env.VITE_DOCS_ROUTE
+export const docsImageRoute = import.meta.env.VITE_DOCS_IMAGE_ROUTE
+export const githubRepoUrl = import.meta.env.VITE_GITHUB_REPO_URL
 
 export function encodeMarkdownUrl(slugs: string[], locale?: string) {
   const segments = [...slugs]

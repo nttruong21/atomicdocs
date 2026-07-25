@@ -1,12 +1,30 @@
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
 
-html {
-  scrollbar-gutter: stable;
+@theme inline {
+  --font-geist: 'Geist Variable';
+  --font-geist-mono: 'Geist Mono Variable';
+  --default-font-family: var(--font-geist);
 }
 
-html > body[data-scroll-locked] {
-  margin-right: 0px !important;
-  --removed-body-scroll-bar-size: 0px !important;
+@layer base {
+  html {
+    @apply scrollbar-gutter-stable;
+  }
+
+  body {
+    @apply text-base font-normal;
+
+    &[data-scroll-locked] {
+      @apply mr-0!;
+      --removed-body-scroll-bar-size: 0px !important;
+    }
+  }
+
+  code {
+    @apply font-geist-mono text-sm;
+  }
 }
