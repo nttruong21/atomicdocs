@@ -1,57 +1,84 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { HomeLayout } from 'fumadocs-ui/layouts/home'
+import { Button } from '@/components/atoms/button'
 import { baseOptions } from '@/lib/layout.shared'
-import { appName } from '@/lib/shared'
 
 export const Route = createFileRoute('/')({
   component: Home,
 })
 
-function NavTitle() {
-  return (
-    <Link to='/' className='inline-flex items-center gap-2.5 font-semibold'>
-      <svg
-        fill='none'
-        height='43'
-        viewBox='0 0 35 43'
-        width='35'
-        xmlns='http://www.w3.org/2000/svg'
-        className='w-5'
-      >
-        <path d='M0 2H35' stroke='oklch(0.985 0 0)' stroke-width='4' />
-        <path d='M0 40.5518H35' stroke='oklch(0.985 0 0)' stroke-width='4' />
-        <path
-          d='M21.4375 2L7 20.8276L21.4375 41'
-          stroke='oklch(0.985 0 0)'
-          stroke-width='4'
-        />
-      </svg>
-      <div>{appName}</div>
-    </Link>
-  )
-}
-
 function Home() {
   return (
     <HomeLayout
       {...baseOptions}
-      slots={{
-        navTitle: NavTitle,
-      }}
+      links={[
+        {
+          type: 'custom',
+          children: (
+            <Link
+              to='/docs/$'
+              params={{
+                _splat: 'documentation/introduction',
+              }}
+              className='text-fd-muted-foreground hover:text-fd-foreground'
+            >
+              Documentation
+            </Link>
+          ),
+        },
+        {
+          type: 'custom',
+          children: (
+            <Link
+              to='/docs/$'
+              params={{
+                _splat: 'atoms/accordion',
+              }}
+              className='text-fd-muted-foreground hover:text-fd-foreground ml-4'
+            >
+              Components
+            </Link>
+          ),
+        },
+      ]}
     >
-      <div className='flex flex-1 flex-col justify-center px-4 py-8 text-center'>
-        <h1 className='mb-4 text-xl font-medium'>
-          Fumadocs on Tanstack Start.
-        </h1>
-        <Link
-          to='/docs/$'
-          params={{
-            _splat: '',
-          }}
-          className='bg-fd-primary text-fd-primary-foreground mx-auto rounded-lg px-3 py-2 text-sm font-medium'
-        >
-          Open Docs
-        </Link>
+      <div className='mx-auto flex max-w-xl flex-1 flex-col justify-center gap-4 p-8 text-center'>
+        <h1 className='text-4xl font-semibold'>Atomic registry</h1>
+        <p className='text-base'>
+          A set of beautifully designed components that you can customize,
+          extend, and build on with Shadcn/ui and Base UI. Start here then make
+          it your own. Open Source. Open Code.
+        </p>
+        <div className='flex items-center justify-center gap-2'>
+          <Button
+            nativeButton={false}
+            render={
+              <Link
+                to='/docs/$'
+                params={{
+                  _splat: 'documentation/introduction',
+                }}
+              >
+                Get started
+              </Link>
+            }
+          />
+
+          <Button
+            variant='ghost'
+            nativeButton={false}
+            render={
+              <Link
+                to='/docs/$'
+                params={{
+                  _splat: 'atoms/accordion',
+                }}
+              >
+                View components
+              </Link>
+            }
+          />
+        </div>
       </div>
     </HomeLayout>
   )
