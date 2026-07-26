@@ -29,7 +29,7 @@ function RootComponent({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body cz-shortcut-listen='true'>
         <RootProvider>{children}</RootProvider>
         <Scripts />
       </body>
