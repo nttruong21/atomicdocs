@@ -1,10 +1,7 @@
-import {
-  createRootRoute,
-  HeadContent,
-  Outlet,
-  Scripts,
-} from '@tanstack/react-router'
+import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 import { RootProvider } from 'fumadocs-ui/provider/tanstack'
+import type { ReactNode } from 'react'
+import { appName } from '@/lib/shared'
 import appCss from '@/styles/app.css?url'
 
 export const Route = createRootRoute({
@@ -18,24 +15,22 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Fumadocs on TanStack Start',
+        title: appName,
       },
     ],
     links: [{ rel: 'stylesheet', href: appCss }],
   }),
-  component: RootComponent,
+  shellComponent: RootComponent,
 })
 
-function RootComponent() {
+function RootComponent({ children }: { children: ReactNode }) {
   return (
     <html lang='en' suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <body className='flex min-h-screen flex-col'>
-        <RootProvider>
-          <Outlet />
-        </RootProvider>
+      <body>
+        <RootProvider>{children}</RootProvider>
         <Scripts />
       </body>
     </html>

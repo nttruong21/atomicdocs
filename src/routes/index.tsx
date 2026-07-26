@@ -8,7 +8,7 @@ export const Route = createFileRoute('/')({
 
 function Home() {
   return (
-    <HomeLayout {...baseOptions()}>
+    <HomeLayout {...baseOptions}>
       <div className='flex flex-1 flex-col justify-center px-4 py-8 text-center'>
         <h1 className='mb-4 text-xl font-medium'>
           Fumadocs on Tanstack Start.

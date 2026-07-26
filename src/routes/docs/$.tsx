@@ -81,7 +81,7 @@ function Page() {
   )
 
   return (
-    <DocsLayout {...baseOptions()} tree={pageTree}>
+    <DocsLayout {...baseOptions} tree={pageTree}>
       <Suspense>
         {clientLoader.useContent(path, { markdownUrl, path })}
       </Suspense>

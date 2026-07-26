@@ -1,0 +1,85 @@
+---
+title: Accordion
+description: A vertically stacked set of interactive headings that each reveal a section of content.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview
+  path='atoms/accordion/examples/demo'
+  className='[&_.component-container]:items-start'
+/>
+
+## Installation
+
+<InstallationTabs name='accordion' />
+
+## Usage
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/atoms/accordion'
+```
+
+```tsx
+<Accordion defaultValue={['item-1']}>
+  <AccordionItem value='item-1'>
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Examples
+
+### Basic
+
+A basic accordion that shows one item at a time. The first item is open by default.
+
+<ComponentPreview
+  path='atoms/accordion/examples/basic'
+  className='[&_.component-container]:items-start'
+/>
+
+### Multiple
+
+Use the `multiple` prop to allow multiple items to be open at the same time.
+
+<ComponentPreview
+  path='atoms/accordion/examples/multiple'
+  className='[&_.component-container]:items-start'
+/>
+
+### Disabled
+
+Use the `disabled` prop on `AccordionItem` to disable individual items.
+
+<ComponentPreview
+  path='atoms/accordion/examples/disabled'
+  className='[&_.component-container]:items-start'
+/>
+
+### Borders
+
+Add `border` to the `Accordion` and `border-b last:border-b-0` to the `AccordionItem` to add borders to the items.
+
+<ComponentPreview
+  path='atoms/accordion/examples/borders'
+  className='[&_.component-container]:items-start'
+/>
+
+### Card
+
+Wrap the `Accordion` in a `Card` component.
+
+<ComponentPreview
+  path='atoms/accordion/examples/card'
+  className='[&_.component-container]:items-start'
+/>

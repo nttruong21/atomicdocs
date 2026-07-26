@@ -1,3 +1,4 @@
+export const siteUrl = import.meta.env.VITE_SITE_URL
 export const appName = import.meta.env.VITE_APP_NAME
 export const docsRoute = import.meta.env.VITE_DOCS_ROUTE
 export const docsImageRoute = import.meta.env.VITE_DOCS_IMAGE_ROUTE
