@@ -15,7 +15,7 @@ import { Suspense } from 'react'
 import { Separator } from '@/components/atoms/separator'
 import { getMDXComponents } from '@/components/mdx'
 import { baseOptions } from '@/lib/layout.shared'
-import { encodeMarkdownUrl, githubRepoUrl } from '@/lib/shared'
+import { appName, encodeMarkdownUrl, githubRepoUrl } from '@/lib/shared'
 import { source } from '@/lib/source'
 
 export const Route = createFileRoute('/docs/$')({
@@ -25,6 +25,31 @@ export const Route = createFileRoute('/docs/$')({
     const data = await serverLoader({ data: slugs })
     await clientLoader.preload(data.path)
     return data
+  },
+  head: ({ loaderData }) => {
+    if (!loaderData) {
+      return {}
+    }
+
+    const { title, description } = loaderData
+    const metaTitle = `${title} | ${appName}`
+
+    return {
+      title: metaTitle,
+      meta: [
+        {
+          title: metaTitle,
+        },
+        {
+          name: 'title',
+          content: metaTitle,
+        },
+        {
+          name: 'description',
+          content: description,
+        },
+      ],
+    }
   },
 })
 
@@ -40,6 +65,8 @@ const serverLoader = createServerFn({
 
     return {
       path: page.path,
+      title: page.data.title,
+      description: page.data.description,
       markdownUrl: encodeMarkdownUrl(page.slugs, page.locale),
       pageTree: await source.serializePageTree(source.getPageTree()),
     }
