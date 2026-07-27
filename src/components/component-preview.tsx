@@ -65,7 +65,10 @@ export const extractFileContentFn = createServerFn()
   .handler(async ({ data }) => {
     const { path } = data
     try {
-      const fileContent = await fs.readFile(`src/registry/${path}.tsx`, 'utf-8')
+      const fileContent = await fs.readFile(
+        `${process.cwd()}/src/registry/${path}.tsx`,
+        'utf-8'
+      )
       return fileContent
     } catch (error) {
       console.log(error)
