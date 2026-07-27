@@ -1,5 +1,5 @@
 {
-  "name": "registry",
+  "name": "atomicdocs",
   "private": true,
   "type": "module",
   "sideEffects": false,
