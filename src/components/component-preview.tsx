@@ -2,10 +2,10 @@
 import { promises as fs } from 'fs'
 import { createServerFn, useServerFn } from '@tanstack/react-start'
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
-import { LoaderCircle } from 'lucide-react'
 import { type lazy, Suspense, use, useState } from 'react'
 import z from 'zod'
 import { Card, CardContent } from '@/components/atoms/card'
+import { Spinner } from '@/components/atoms/spinner'
 import { cn } from '@/lib/utils'
 import { registryLazyComponents } from '@/registry/lazy-components'
 
@@ -113,16 +113,18 @@ export function ComponentPreview({ path, className }: ComponentPreviewProps) {
         <CardContent className='p-0'>
           <div className='bg-background text-foreground border-b'>
             <div className='not-prose component-container flex min-h-96 items-center justify-center p-6'>
-              <Suspense
-                fallback={<LoaderCircle className='mx-auto animate-spin' />}
-              >
+              <Suspense fallback={<Spinner className='mx-auto' />}>
                 <Component />
               </Suspense>
             </div>
           </div>
 
           <Suspense
-            fallback={<LoaderCircle className='mx-auto animate-spin' />}
+            fallback={
+              <div className='p-6'>
+                <Spinner className='mx-auto' />
+              </div>
+            }
           >
             <FileContent fileContentPromise={fileContentPromise} />
           </Suspense>
@@ -133,10 +135,9 @@ export function ComponentPreview({ path, className }: ComponentPreviewProps) {
 
   return (
     <div className='p-6 text-center'>
-      Component not found for path: <code>{path}</code>.
-      <br />
-      Make sure to run <code>bun run gen-component-lazy-loading</code> after
-      adding new registry examples.
+      Component not found for path: <code>{path}</code>. Make sure to run{' '}
+      <code>bun run gen-lazy-components</code> after adding new registry
+      examples.
     </div>
   )
 }

@@ -13,7 +13,7 @@
  *       -> example name (basic, borders, card, ...)
  *         -> LazyComponent
  *
- * Usage: bun run gen-component-lazy-loading
+ * Usage: bun run gen-lazy-components
  */
 
 import {
