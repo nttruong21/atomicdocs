@@ -1,7 +1,7 @@
 import type { Configuration } from 'lint-staged'
 
 const config: Configuration = {
-  '**/*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}': ['bun fix', 'bun check'],
+  '**/*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}': ['bun check'],
 }
 
 export default config
