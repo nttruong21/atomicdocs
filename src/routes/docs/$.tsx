@@ -20,6 +20,7 @@ import { source } from '@/lib/source'
 
 export const Route = createFileRoute('/docs/$')({
   component: Page,
+  ssr: false,
   loader: async ({ params }) => {
     const slugs = params._splat?.split('/') ?? []
     const data = await serverLoader({ data: slugs })
