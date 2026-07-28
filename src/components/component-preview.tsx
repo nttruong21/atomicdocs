@@ -1,4 +1,3 @@
-import { readFileSync } from 'node:fs'
 import { createServerFn, useServerFn } from '@tanstack/react-start'
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
 import { type lazy, Suspense, use, useState } from 'react'
@@ -6,6 +5,7 @@ import z from 'zod'
 import { Card, CardContent } from '@/components/atoms/card'
 import { Spinner } from '@/components/atoms/spinner'
 import { cn } from '@/lib/utils'
+import { fileContents } from '@/registry/file-contents'
 import { registryLazyComponents } from '@/registry/lazy-components'
 
 // Create a cache to store component instances
@@ -64,7 +64,16 @@ export const extractFileContentFn = createServerFn()
   .handler(({ data }) => {
     const { path } = data
     try {
-      const fileContent = readFileSync(`src/registry/${path}.tsx`, 'utf-8')
+      const parsed = parseComponentPath(path)
+      if (!parsed) {
+        console.warn(`Invalid component path format: ${path}`)
+        return null
+      }
+
+      // const { group, component, example } = parsed
+
+      // const fileContent = fileContents[group]?.[component]?.[example]?.()
+      const fileContent = fileContents.atoms.accordion.basic()
       return fileContent
     } catch (error) {
       console.log(error)
