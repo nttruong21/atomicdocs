@@ -1,5 +1,4 @@
-// oxlint-disable-next-line unicorn/prefer-node-protocol
-import { promises as fs } from 'fs'
+import { readFileSync } from 'node:fs'
 import { createServerFn, useServerFn } from '@tanstack/react-start'
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
 import { type lazy, Suspense, use, useState } from 'react'
@@ -62,10 +61,10 @@ export const extractFileContentFn = createServerFn()
       path: z.string().trim(),
     })
   )
-  .handler(async ({ data }) => {
+  .handler(({ data }) => {
     const { path } = data
     try {
-      const fileContent = await fs.readFile(`src/registry/${path}.tsx`, 'utf-8')
+      const fileContent = readFileSync(`src/registry/${path}.tsx`, 'utf-8')
       return fileContent
     } catch (error) {
       console.log(error)
