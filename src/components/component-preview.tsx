@@ -1,3 +1,5 @@
+import nodeFs from 'node:fs/promises'
+import nodePath from 'node:path'
 import { createServerFn, useServerFn } from '@tanstack/react-start'
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
 import { type lazy, Suspense, use, useState } from 'react'
@@ -5,7 +7,6 @@ import z from 'zod'
 import { Card, CardContent } from '@/components/atoms/card'
 import { Spinner } from '@/components/atoms/spinner'
 import { cn } from '@/lib/utils'
-import { fileContents } from '@/registry/file-contents'
 import { registryLazyComponents } from '@/registry/lazy-components'
 
 // Create a cache to store component instances
@@ -18,8 +19,8 @@ const componentCache = new Map<string, ReturnType<typeof lazy>>()
 function parseComponentPath(
   path: string
 ): { group: string; component: string; example: string } | null {
-  const [group, component, , example] = path.split('/')
   // Expected format: <group>/<component>/examples/<example>
+  const [group, component, , example] = path.split('/')
   if (!group || !component || !example) {
     return null
   }
@@ -61,19 +62,25 @@ export const extractFileContentFn = createServerFn()
       path: z.string().trim(),
     })
   )
-  .handler(({ data }) => {
-    const { path } = data
+  .handler(async ({ data }) => {
     try {
-      const parsed = parseComponentPath(path)
-      if (!parsed) {
+      const { path } = data
+
+      // Expected format: <group>/<component>/examples/<example>
+      const [group, component, , example] = path.split('/')
+      if (!group || !component || !example) {
         console.warn(`Invalid component path format: ${path}`)
         return null
       }
 
-      // const { group, component, example } = parsed
+      const fileContent = await nodeFs.readFile(
+        nodePath.join(
+          process.cwd(),
+          `src/registry/${group}/${component}/examples/${example}.tsx`
+        ),
+        'utf-8'
+      )
 
-      // const fileContent = fileContents[group]?.[component]?.[example]?.()
-      const fileContent = fileContents.atoms.accordion.basic()
       return fileContent
     } catch (error) {
       console.log(error)
