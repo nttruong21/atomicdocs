@@ -1,6 +1,6 @@
 import nodeFs from 'node:fs/promises'
-import nodePath from 'node:path'
 import { createServerFn, useServerFn } from '@tanstack/react-start'
+import { staticFunctionMiddleware } from '@tanstack/start-static-server-functions'
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
 import { type lazy, Suspense, use, useState } from 'react'
 import z from 'zod'
@@ -62,6 +62,7 @@ export const extractFileContentFn = createServerFn()
       path: z.string().trim(),
     })
   )
+  .middleware([staticFunctionMiddleware])
   .handler(async ({ data }) => {
     try {
       const { path } = data
@@ -74,9 +75,7 @@ export const extractFileContentFn = createServerFn()
       }
 
       const fileContent = await nodeFs.readFile(
-        nodePath.resolve(
-          `src/registry/${group}/${component}/examples/${example}.tsx`
-        ),
+        `src/registry/${group}/${component}/examples/${example}.tsx`,
         'utf-8'
       )
 
