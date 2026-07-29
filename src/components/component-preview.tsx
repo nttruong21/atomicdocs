@@ -74,8 +74,7 @@ export const extractFileContentFn = createServerFn()
       }
 
       const fileContent = await nodeFs.readFile(
-        nodePath.join(
-          process.cwd(),
+        nodePath.resolve(
           `src/registry/${group}/${component}/examples/${example}.tsx`
         ),
         'utf-8'
