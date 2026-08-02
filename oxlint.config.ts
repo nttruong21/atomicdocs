@@ -15,6 +15,6 @@ export default defineConfig({
     'no-warning-comments': 'off',
     'sort-keys': 'off',
     'arrow-body-style': 'off',
-    'react/hook-use-state': 'off',
+    'react/hook-use-state': 'off'
   },
 })
