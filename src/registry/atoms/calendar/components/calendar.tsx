@@ -151,7 +151,11 @@ export function Calendar({
   )
 }
 
-function CalendarChevron({ className, orientation, ...props }: ChevronProps) {
+export function CalendarChevron({
+  className,
+  orientation,
+  ...props
+}: ChevronProps) {
   if (orientation === 'left') {
     return (
       <ChevronLeftIcon
@@ -173,7 +177,7 @@ function CalendarChevron({ className, orientation, ...props }: ChevronProps) {
   return <ChevronDownIcon className={cn('size-4', className)} {...props} />
 }
 
-function CalendarDayButton({
+export function CalendarDayButton({
   className,
   day,
   modifiers,
@@ -214,7 +218,7 @@ function CalendarDayButton({
   )
 }
 
-function CalendarRoot({ className, rootRef, ...props }: RootProps) {
+export function CalendarRoot({ className, rootRef, ...props }: RootProps) {
   return (
     <div
       className={cn(className)}
@@ -225,7 +229,7 @@ function CalendarRoot({ className, rootRef, ...props }: RootProps) {
   )
 }
 
-function CalendarWeekNumber({ children, ...props }: WeekNumberProps) {
+export function CalendarWeekNumber({ children, ...props }: WeekNumberProps) {
   return (
     <td {...props}>
       <div className='flex size-(--cell-size) items-center justify-center text-center'>

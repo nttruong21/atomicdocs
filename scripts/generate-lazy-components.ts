@@ -177,12 +177,12 @@ function generate(): void {
     const groupComponents = grouped[group]
     const compKeys = Object.keys(groupComponents).toSorted()
 
-    lines.push(`  ${group}: {`)
+    lines.push(`  '${group}': {`)
     for (let ci = 0; ci < compKeys.length; ci += 1) {
       const component = compKeys[ci]
       const examples = groupComponents[component]
 
-      lines.push(`    ${component}: {`)
+      lines.push(`    '${component}': {`)
       for (let ei = 0; ei < examples.length; ei += 1) {
         const { exampleName, exportName, modulePath } = examples[ei]
         const isDefault = exportName === 'default'
@@ -190,11 +190,11 @@ function generate(): void {
 
         if (isDefault) {
           lines.push(
-            `      ${exampleName}: lazy(async () => { const { default: defaultExport } = await import('${modulePath}'); return { default: defaultExport } })${comma}`
+            `      '${exampleName}': lazy(async () => { const { default: defaultExport } = await import('${modulePath}'); return { default: defaultExport } })${comma}`
           )
         } else {
           lines.push(
-            `      ${exampleName}: lazy(async () => { const m = await import('${modulePath}'); return { default: m.${exportName} } })${comma}`
+            `      '${exampleName}': lazy(async () => { const m = await import('${modulePath}'); return { default: m.${exportName} } })${comma}`
           )
         }
       }
