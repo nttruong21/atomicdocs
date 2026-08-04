@@ -10,7 +10,7 @@
       "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/accordion/components/accordion.tsx",
+          "path": "src/registry/atoms/accordion/components/accordion.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/accordion.tsx"
         },
@@ -29,7 +29,7 @@
       "description": "Displays a callout for user attention.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/alert/components/alert.tsx",
+          "path": "src/registry/atoms/alert/components/alert.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/alert.tsx"
         },
@@ -48,7 +48,7 @@
       "description": "A modal dialog that interrupts the user with important content and expects a response.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/alert-dialog/components/alert-dialog.tsx",
+          "path": "src/registry/atoms/alert-dialog/components/alert-dialog.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/alert-dialog.tsx"
         },
@@ -71,7 +71,7 @@
       "description": "An input that suggests options as you type.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/autocomplete/components/autocomplete.tsx",
+          "path": "src/registry/atoms/autocomplete/components/autocomplete.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/autocomplete.tsx"
         },
@@ -93,7 +93,7 @@
       "description": "An image element with a fallback for representing the user.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/avatar/components/avatar.tsx",
+          "path": "src/registry/atoms/avatar/components/avatar.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/avatar.tsx"
         },
@@ -112,7 +112,7 @@
       "description": "Displays a badge or a component that looks like a badge.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/badge/components/badge.tsx",
+          "path": "src/registry/atoms/badge/components/badge.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/badge.tsx"
         },
@@ -131,7 +131,7 @@
       "description": "Displays the path to the current resource using a hierarchy of links.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/breadcrumb/components/breadcrumb.tsx",
+          "path": "src/registry/atoms/breadcrumb/components/breadcrumb.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/breadcrumb.tsx"
         },
@@ -150,7 +150,7 @@
       "description": "Displays a button or a component that looks like a button.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/button/components/button.tsx",
+          "path": "src/registry/atoms/button/components/button.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/button.tsx"
         },
@@ -172,7 +172,7 @@
       "description": "A container that groups related buttons together with consistent styling.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/button-group/components/button-group.tsx",
+          "path": "src/registry/atoms/button-group/components/button-group.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/button-group.tsx"
         },
@@ -194,7 +194,7 @@
       "description": "A date field component that allows users to enter and edit date.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/calendar/components/calendar.tsx",
+          "path": "src/registry/atoms/calendar/components/calendar.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/calendar.tsx"
         },
@@ -217,7 +217,7 @@
       "description": "Displays a card with header, content, and footer.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/card/components/card.tsx",
+          "path": "src/registry/atoms/card/components/card.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/card.tsx"
         },
@@ -235,7 +235,7 @@
       "description": "A carousel with motion and swipe built using Embla.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/carousel/components/carousel.tsx",
+          "path": "src/registry/atoms/carousel/components/carousel.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/carousel.tsx"
         },
@@ -258,7 +258,7 @@
       "description": "A control that allows the user to toggle between checked and not checked.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/checkbox/components/checkbox.tsx",
+          "path": "src/registry/atoms/checkbox/components/checkbox.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/checkbox.tsx"
         },
@@ -277,7 +277,7 @@
       "description": "Autocomplete input and command palette with a list of suggestions.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/combobox/components/combobox.tsx",
+          "path": "src/registry/atoms/combobox/components/combobox.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/combobox.tsx"
         },
@@ -303,7 +303,7 @@
       "description": "Fast, composable, unstyled command menu for React.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/command/components/command.tsx",
+          "path": "src/registry/atoms/command/components/command.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/command.tsx"
         },
@@ -330,7 +330,7 @@
       "description": "Displays a menu to the user — such as a set of actions or functions — triggered by a right-click.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/context-menu/components/context-menu.tsx",
+          "path": "src/registry/atoms/context-menu/components/context-menu.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/context-menu.tsx"
         },
@@ -349,7 +349,7 @@
       "description": "A date picker component with range and presets.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/date-picker/components/date-picker.tsx",
+          "path": "src/registry/atoms/date-picker/components/date-picker.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/date-picker.tsx"
         }
@@ -369,7 +369,7 @@
       "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/dialog/components/dialog.tsx",
+          "path": "src/registry/atoms/dialog/components/dialog.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/dialog.tsx"
         },
@@ -392,7 +392,7 @@
       "description": "A drawer component for React.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/drawer/components/drawer.tsx",
+          "path": "src/registry/atoms/drawer/components/drawer.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/drawer.tsx"
         },
@@ -411,7 +411,7 @@
       "description": "Displays a menu to the user — such as a set of actions or functions — triggered by a button.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/dropdown-menu/components/dropdown-menu.tsx",
+          "path": "src/registry/atoms/dropdown-menu/components/dropdown-menu.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/dropdown-menu.tsx"
         },
@@ -430,7 +430,7 @@
       "description": "Use the Empty component to display a empty state.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/empty/components/empty.tsx",
+          "path": "src/registry/atoms/empty/components/empty.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/empty.tsx"
         },
@@ -449,7 +449,7 @@
       "description": "Combine labels, controls, and help text to compose accessible form fields and grouped inputs.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/field/components/field.tsx",
+          "path": "src/registry/atoms/field/components/field.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/field.tsx"
         },
@@ -472,7 +472,7 @@
       "description": "For sighted users to preview content available behind a link.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/hover-card/components/hover-card.tsx",
+          "path": "src/registry/atoms/hover-card/components/hover-card.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/hover-card.tsx"
         },
@@ -491,7 +491,7 @@
       "description": "Displays a form input field or a component that looks like an input field.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/input/components/input.tsx",
+          "path": "src/registry/atoms/input/components/input.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/input.tsx"
         },
@@ -510,7 +510,7 @@
       "description": "Display additional information or actions to an input or textarea.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/input-group/components/input-group.tsx",
+          "path": "src/registry/atoms/input-group/components/input-group.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/input-group.tsx"
         },
@@ -535,7 +535,7 @@
       "description": "Accessible one-time password component with copy paste functionality.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/input-otp/components/input-otp.tsx",
+          "path": "src/registry/atoms/input-otp/components/input-otp.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/input-otp.tsx"
         },
@@ -554,7 +554,7 @@
       "description": "A versatile component that you can use to display any content.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/item/components/item.tsx",
+          "path": "src/registry/atoms/item/components/item.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/item.tsx"
         },
@@ -576,7 +576,7 @@
       "description": "Used to display textual user input from keyboard.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/kbd/components/kbd.tsx",
+          "path": "src/registry/atoms/kbd/components/kbd.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/kbd.tsx"
         },
@@ -594,7 +594,7 @@
       "description": "Renders an accessible label associated with controls.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/label/components/label.tsx",
+          "path": "src/registry/atoms/label/components/label.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/label.tsx"
         },
@@ -612,7 +612,7 @@
       "description": "A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/menubar/components/menubar.tsx",
+          "path": "src/registry/atoms/menubar/components/menubar.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/menubar.tsx"
         },
@@ -634,7 +634,7 @@
       "description": "A collection of links for navigating websites.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/navigation-menu/components/navigation-menu.tsx",
+          "path": "src/registry/atoms/navigation-menu/components/navigation-menu.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/navigation-menu.tsx"
         },
@@ -657,7 +657,7 @@
       "description": "Displays rich content in a portal, triggered by a button.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/popover/components/popover.tsx",
+          "path": "src/registry/atoms/popover/components/popover.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/popover.tsx"
         },
@@ -676,7 +676,7 @@
       "description": "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/progress/components/progress.tsx",
+          "path": "src/registry/atoms/progress/components/progress.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/progress.tsx"
         },
@@ -695,7 +695,7 @@
       "description": "A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/radio-group/components/radio-group.tsx",
+          "path": "src/registry/atoms/radio-group/components/radio-group.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/radio-group.tsx"
         },
@@ -714,7 +714,7 @@
       "description": "Accessible resizable panel groups and layouts with keyboard support.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/resizable/components/resizable.tsx",
+          "path": "src/registry/atoms/resizable/components/resizable.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/resizable.tsx"
         },
@@ -733,7 +733,7 @@
       "description": "Augments native scroll functionality for custom, cross-browser styling.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/scroll-area/components/scroll-area.tsx",
+          "path": "src/registry/atoms/scroll-area/components/scroll-area.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/scroll-area.tsx"
         },
@@ -752,7 +752,7 @@
       "description": "Displays a list of options for the user to pick from—triggered by a button.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/select/components/select.tsx",
+          "path": "src/registry/atoms/select/components/select.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/select.tsx"
         },
@@ -771,7 +771,7 @@
       "description": "Visually or semantically separates content.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/separator/components/separator.tsx",
+          "path": "src/registry/atoms/separator/components/separator.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/separator.tsx"
         },
@@ -790,7 +790,7 @@
       "description": "Extends the Dialog component to display content that complements the main content of the screen.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/sheet/components/sheet.tsx",
+          "path": "src/registry/atoms/sheet/components/sheet.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/sheet.tsx"
         },
@@ -813,7 +813,7 @@
       "description": "A composable, themeable and customizable sidebar component.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/sidebar/components/sidebar.tsx",
+          "path": "src/registry/atoms/sidebar/components/sidebar.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/sidebar.tsx"
         },
@@ -850,7 +850,7 @@
       "description": "Use to show a placeholder while content is loading.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/skeleton/components/skeleton.tsx",
+          "path": "src/registry/atoms/skeleton/components/skeleton.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/skeleton.tsx"
         },
@@ -868,7 +868,7 @@
       "description": "An input where the user selects a value from within a given range.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/slider/components/slider.tsx",
+          "path": "src/registry/atoms/slider/components/slider.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/slider.tsx"
         },
@@ -887,7 +887,7 @@
       "description": "An opinionated toast component for React.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/sonner/components/sonner.tsx",
+          "path": "src/registry/atoms/sonner/components/sonner.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/sonner.tsx"
         }
@@ -901,7 +901,7 @@
       "description": "An indicator that can be used to show a loading state.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/spinner/components/spinner.tsx",
+          "path": "src/registry/atoms/spinner/components/spinner.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/spinner.tsx"
         },
@@ -920,7 +920,7 @@
       "description": "A control that allows the user to toggle between checked and not checked.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/switch/components/switch.tsx",
+          "path": "src/registry/atoms/switch/components/switch.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/switch.tsx"
         },
@@ -939,7 +939,7 @@
       "description": "A responsive table component.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/table/components/table.tsx",
+          "path": "src/registry/atoms/table/components/table.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/table.tsx"
         },
@@ -957,7 +957,7 @@
       "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/tabs/components/tabs.tsx",
+          "path": "src/registry/atoms/tabs/components/tabs.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/tabs.tsx"
         },
@@ -976,7 +976,7 @@
       "description": "Displays a form textarea or a component that looks like a textarea.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/textarea/components/textarea.tsx",
+          "path": "src/registry/atoms/textarea/components/textarea.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/textarea.tsx"
         },
@@ -994,7 +994,7 @@
       "description": "A two-state button that can be either on or off.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/toggle/components/toggle.tsx",
+          "path": "src/registry/atoms/toggle/components/toggle.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/toggle.tsx"
         },
@@ -1013,7 +1013,7 @@
       "description": "A set of two-state buttons that can be toggled on or off.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/toggle-group/components/toggle-group.tsx",
+          "path": "src/registry/atoms/toggle-group/components/toggle-group.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/toggle-group.tsx"
         },
@@ -1035,7 +1035,7 @@
       "description": "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
       "files": [
         {
-          "path": "src/registry/new-york/atoms/tooltip/components/tooltip.tsx",
+          "path": "src/registry/atoms/tooltip/components/tooltip.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/tooltip.tsx"
         },
@@ -1054,9 +1054,9 @@
       "description": "Minimal testimonials with clean, modern design.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/animated-testimonial/components/animated-testimonial.tsx",
+          "path": "src/registry/animated-testimonial/components/animated-testimonial.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/animated-testimonial/index.tsx"
+          "target": "src/components/animated-testimonial/index.tsx"
         }
       ]
     },
@@ -1067,9 +1067,9 @@
       "description": "Generates animated text word-by-word with blur, highlights, links, and smooth effects.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/animated-text/components/animated-text.tsx",
+          "path": "src/registry/animated-text/components/animated-text.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/animated-text/animated-text.tsx"
+          "target": "src/components/animated-text/animated-text.tsx"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1086,9 +1086,9 @@
       "description": "A component to pick the color.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/color-picker/components/color-picker.tsx",
+          "path": "src/registry/color-picker/components/color-picker.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/color-picker/color-picker.tsx"
+          "target": "src/components/color-picker/color-picker.tsx"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1111,14 +1111,14 @@
       "description": "A file upload component with drag and drop or upload files.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/file-upload/components/file-upload.tsx",
+          "path": "src/registry/file-upload/components/file-upload.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/file-upload/file-upload.tsx"
+          "target": "src/components/file-upload/file-upload.tsx"
         },
         {
-          "path": "src/registry/new-york/molecules/file-upload/components/lib.ts",
+          "path": "src/registry/file-upload/components/lib.ts",
           "type": "registry:file",
-          "target": "src/components/molecules/file-upload/lib.ts"
+          "target": "src/components/file-upload/lib.ts"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1145,9 +1145,9 @@
       "description": "A set of SVG paths that animate as if being drawn. Great for tech hero backgrounds.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/gradient-path-background/components/gradient-path-background.tsx",
+          "path": "src/registry/gradient-path-background/components/gradient-path-background.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/gradient-path-background/gradient-path-background.tsx"
+          "target": "src/components/gradient-path-background/gradient-path-background.tsx"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1164,9 +1164,9 @@
       "description": "Highlighted text with solid background and decorative markers for emphasis.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/highlighted-text/components/highlighted-text.tsx",
+          "path": "src/registry/highlighted-text/components/highlighted-text.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/highlighted-text/highlighted-text.tsx"
+          "target": "src/components/highlighted-text/highlighted-text.tsx"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1183,9 +1183,9 @@
       "description": "A component to display loading state of the overlay area.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/loading-overlay/components/loading-overlay.tsx",
+          "path": "src/registry/loading-overlay/components/loading-overlay.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/loading-overlay/loading-overlay.tsx"
+          "target": "src/components/loading-overlay/loading-overlay.tsx"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1204,9 +1204,9 @@
       "description": "An input to type number.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/number-input/components/number-input.tsx",
+          "path": "src/registry/number-input/components/number-input.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/number-input/number-input.tsx"
+          "target": "src/components/number-input/number-input.tsx"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1234,9 +1234,9 @@
       "description": "Pagination with page navigation.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/pagination/components/pagination.tsx",
+          "path": "src/registry/pagination/components/pagination.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/pagination/pagination.tsx"
+          "target": "src/components/pagination/pagination.tsx"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1258,9 +1258,9 @@
       "description": "An input that can toggle visibility of the password text.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/password-input/components/password-input.tsx",
+          "path": "src/registry/password-input/components/password-input.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/password-input/password-input.tsx"
+          "target": "src/components/password-input/password-input.tsx"
         }
       ],
       "dependencies": ["lucide-react"],
@@ -1279,9 +1279,9 @@
       "description": "A component to select the country and input the phone number.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/phone-number-input/components/phone-number-input.tsx",
+          "path": "src/registry/phone-number-input/components/phone-number-input.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/phone-number-input/phone-number-input.tsx"
+          "target": "src/components/phone-number-input/phone-number-input.tsx"
         },
         {
           "path": "src/types/base.ts",
@@ -1312,14 +1312,14 @@
       "description": "A button to toggle the theme.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/theme-toggle-button/components/theme-toggle-button.tsx",
+          "path": "src/registry/theme-toggle-button/components/theme-toggle-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/theme-toggle-button/theme-toggle-button.tsx"
+          "target": "src/components/theme-toggle-button/theme-toggle-button.tsx"
         },
         {
-          "path": "src/registry/new-york/molecules/theme-toggle-button/components/lib.ts",
+          "path": "src/registry/theme-toggle-button/components/lib.ts",
           "type": "registry:file",
-          "target": "src/components/molecules/theme-toggle-button/lib.ts"
+          "target": "src/components/theme-toggle-button/lib.ts"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1340,9 +1340,9 @@
       "description": "Smooth tilt card that responds naturally to your cursor, giving the card a more polished, modern look.",
       "files": [
         {
-          "path": "src/registry/new-york/molecules/tilt-card/components/tilt-card.tsx",
+          "path": "src/registry/tilt-card/components/tilt-card.tsx",
           "type": "registry:ui",
-          "target": "src/components/molecules/tilt-card/tilt-card.tsx"
+          "target": "src/components/tilt-card/tilt-card.tsx"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1359,64 +1359,64 @@
       "description": "Powerful table and data grids built using TanStack Table.",
       "files": [
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table-action-cell.tsx",
+          "path": "src/registry/data-table/components/data-table-action-cell.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table-action-cell.tsx"
+          "target": "src/components/data-table/data-table-action-cell.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table-additional-info.tsx",
+          "path": "src/registry/data-table/components/data-table-additional-info.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table-additional-info.tsx"
+          "target": "src/components/data-table/data-table-additional-info.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table-body.tsx",
+          "path": "src/registry/data-table/components/data-table-body.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table-body.tsx"
+          "target": "src/components/data-table/data-table-body.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table-checkbox-cell.tsx",
+          "path": "src/registry/data-table/components/data-table-checkbox-cell.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table-checkbox-cell.tsx"
+          "target": "src/components/data-table/data-table-checkbox-cell.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table-checkbox-header.tsx",
+          "path": "src/registry/data-table/components/data-table-checkbox-header.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table-checkbox-header.tsx"
+          "target": "src/components/data-table/data-table-checkbox-header.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table-column-visibility-select.tsx",
+          "path": "src/registry/data-table/components/data-table-column-visibility-select.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table-column-visibility-select.tsx"
+          "target": "src/components/data-table/data-table-column-visibility-select.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table-footer.tsx",
+          "path": "src/registry/data-table/components/data-table-footer.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table-footer.tsx"
+          "target": "src/components/data-table/data-table-footer.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table-header.tsx",
+          "path": "src/registry/data-table/components/data-table-header.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table-header.tsx"
+          "target": "src/components/data-table/data-table-header.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table-pagination.tsx",
+          "path": "src/registry/data-table/components/data-table-pagination.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table-pagination.tsx"
+          "target": "src/components/data-table/data-table-pagination.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table-row-select.tsx",
+          "path": "src/registry/data-table/components/data-table-row-select.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table-row-select.tsx"
+          "target": "src/components/data-table/data-table-row-select.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/data-table.tsx",
+          "path": "src/registry/data-table/components/data-table.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/data-table/data-table.tsx"
+          "target": "src/components/data-table/data-table.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/data-table/components/lib.ts",
+          "path": "src/registry/data-table/components/lib.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/data-table/lib.ts"
+          "target": "src/components/data-table/lib.ts"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1463,144 +1463,144 @@
       "description": "Rich text editor built with Tiptap providing essential formatting tools and markdown support.",
       "files": [
         {
-          "path": "src/registry/new-york/organisms/editor/components/blockquote-button.tsx",
+          "path": "src/registry/editor/components/blockquote-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/blockquote-button.tsx"
+          "target": "src/components/editor/blockquote-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/bold-button.tsx",
+          "path": "src/registry/editor/components/bold-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/bold-button.tsx"
+          "target": "src/components/editor/bold-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/color-picker-button.tsx",
+          "path": "src/registry/editor/components/color-picker-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/color-picker-button.tsx"
+          "target": "src/components/editor/color-picker-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/custom-image-extension.tsx",
+          "path": "src/registry/editor/components/custom-image-extension.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/custom-image-extension.tsx"
+          "target": "src/components/editor/custom-image-extension.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/custom-youtube-extension.tsx",
+          "path": "src/registry/editor/components/custom-youtube-extension.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/custom-youtube-extension.tsx"
+          "target": "src/components/editor/custom-youtube-extension.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/editor-content.tsx",
+          "path": "src/registry/editor/components/editor-content.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/editor-content.tsx"
+          "target": "src/components/editor/editor-content.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/editor.tsx",
+          "path": "src/registry/editor/components/editor.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/editor.tsx"
+          "target": "src/components/editor/editor.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/file-button.tsx",
+          "path": "src/registry/editor/components/file-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/file-button.tsx"
+          "target": "src/components/editor/file-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/file-extension.tsx",
+          "path": "src/registry/editor/components/file-extension.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/file-extension.tsx"
+          "target": "src/components/editor/file-extension.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/highlight-button.tsx",
+          "path": "src/registry/editor/components/highlight-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/highlight-button.tsx"
+          "target": "src/components/editor/highlight-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/history-buttons.tsx",
+          "path": "src/registry/editor/components/history-buttons.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/history-buttons.tsx"
+          "target": "src/components/editor/history-buttons.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/image-button.tsx",
+          "path": "src/registry/editor/components/image-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/image-button.tsx"
+          "target": "src/components/editor/image-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/internal-editor-content.tsx",
+          "path": "src/registry/editor/components/internal-editor-content.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/internal-editor-content.tsx"
+          "target": "src/components/editor/internal-editor-content.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/italic-button.tsx",
+          "path": "src/registry/editor/components/italic-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/italic-button.tsx"
+          "target": "src/components/editor/italic-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/lib.ts",
+          "path": "src/registry/editor/components/lib.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/editor/lib.ts"
+          "target": "src/components/editor/lib.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/link-button.tsx",
+          "path": "src/registry/editor/components/link-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/link-button.tsx"
+          "target": "src/components/editor/link-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/list-button.tsx",
+          "path": "src/registry/editor/components/list-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/list-button.tsx"
+          "target": "src/components/editor/list-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/preview-button.tsx",
+          "path": "src/registry/editor/components/preview-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/preview-button.tsx"
+          "target": "src/components/editor/preview-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/strike-button.tsx",
+          "path": "src/registry/editor/components/strike-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/strike-button.tsx"
+          "target": "src/components/editor/strike-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/table-button.tsx",
+          "path": "src/registry/editor/components/table-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/table-button.tsx"
+          "target": "src/components/editor/table-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/text-align-button.tsx",
+          "path": "src/registry/editor/components/text-align-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/text-align-button.tsx"
+          "target": "src/components/editor/text-align-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/text-color-button.tsx",
+          "path": "src/registry/editor/components/text-color-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/text-color-button.tsx"
+          "target": "src/components/editor/text-color-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/text-style-button.tsx",
+          "path": "src/registry/editor/components/text-style-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/text-style-button.tsx"
+          "target": "src/components/editor/text-style-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/toolbar-separator.tsx",
+          "path": "src/registry/editor/components/toolbar-separator.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/toolbar-separator.tsx"
+          "target": "src/components/editor/toolbar-separator.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/tooltip-button.tsx",
+          "path": "src/registry/editor/components/tooltip-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/tooltip-button.tsx"
+          "target": "src/components/editor/tooltip-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/underline-button.tsx",
+          "path": "src/registry/editor/components/underline-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/underline-button.tsx"
+          "target": "src/components/editor/underline-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/youtube-button.tsx",
+          "path": "src/registry/editor/components/youtube-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/youtube-button.tsx"
+          "target": "src/components/editor/youtube-button.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/editor/components/zoom-button.tsx",
+          "path": "src/registry/editor/components/zoom-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/editor/zoom-button.tsx"
+          "target": "src/components/editor/zoom-button.tsx"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1664,9 +1664,9 @@
       "description": "Embed PDF files using the browser's native iframe renderer.",
       "files": [
         {
-          "path": "src/registry/new-york/organisms/native-pdf-viewer/components/native-pdf-viewer.tsx",
+          "path": "src/registry/native-pdf-viewer/components/native-pdf-viewer.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/native-pdf-viewer/native-pdf-viewer.tsx"
+          "target": "src/components/native-pdf-viewer/native-pdf-viewer.tsx"
         },
         {
           "path": "src/utils/ui.ts",
@@ -1686,14 +1686,14 @@
       "description": "Embed PDF files without the pain.",
       "files": [
         {
-          "path": "src/registry/new-york/organisms/pdf-viewer/components/lib.ts",
+          "path": "src/registry/pdf-viewer/components/lib.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/pdf-viewer/lib.ts"
+          "target": "src/components/pdf-viewer/lib.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/pdf-viewer/components/pdf-viewer.tsx",
+          "path": "src/registry/pdf-viewer/components/pdf-viewer.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/pdf-viewer/pdf-viewer.tsx"
+          "target": "src/components/pdf-viewer/pdf-viewer.tsx"
         }
       ],
       "dependencies": ["@embedpdf/react-pdf-viewer"]
@@ -1705,94 +1705,94 @@
       "description": "Powerful component with search and filter by multiple conditions that can switch back and forth on top of TanStack Form.",
       "files": [
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/lib/base.ts",
+          "path": "src/registry/smart-filter/components/lib/base.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-filter/lib/base.ts"
+          "target": "src/components/smart-filter/lib/base.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/lib/form.ts",
+          "path": "src/registry/smart-filter/components/lib/form.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-filter/lib/form.ts"
+          "target": "src/components/smart-filter/lib/form.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/lib/query.ts",
+          "path": "src/registry/smart-filter/components/lib/query.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-filter/lib/query.ts"
+          "target": "src/components/smart-filter/lib/query.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-name-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-name-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-name-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-name-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-operation-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-operation-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-operation-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-operation-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-value-date-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-value-date-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-value-date-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-value-date-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-value-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-value-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-value-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-value-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-value-input-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-value-input-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-value-input-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-value-input-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-value-multi-select-with-infinite-query-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-value-multi-select-with-infinite-query-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-value-multi-select-with-infinite-query-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-value-multi-select-with-infinite-query-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-value-multi-select-with-options-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-value-multi-select-with-options-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-value-multi-select-with-options-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-value-multi-select-with-options-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-value-multi-select-with-query-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-value-multi-select-with-query-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-value-multi-select-with-query-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-value-multi-select-with-query-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-value-number-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-value-number-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-value-number-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-value-number-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-value-select-with-infinite-query-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-value-select-with-infinite-query-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-value-select-with-infinite-query-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-value-select-with-infinite-query-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-value-select-with-options-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-value-select-with-options-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-value-select-with-options-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-value-select-with-options-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter-value-select-with-query-field.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter-value-select-with-query-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter-value-select-with-query-field.tsx"
+          "target": "src/components/smart-filter/advanced-filter-value-select-with-query-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/advanced-filter.tsx",
+          "path": "src/registry/smart-filter/components/advanced-filter.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/advanced-filter.tsx"
+          "target": "src/components/smart-filter/advanced-filter.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/basic-search.tsx",
+          "path": "src/registry/smart-filter/components/basic-search.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/basic-search.tsx"
+          "target": "src/components/smart-filter/basic-search.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-filter/components/smart-filter.tsx",
+          "path": "src/registry/smart-filter/components/smart-filter.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-filter/smart-filter.tsx"
+          "target": "src/components/smart-filter/smart-filter.tsx"
         },
         {
           "path": "src/lib/axios.ts",
@@ -1845,84 +1845,84 @@
       "description": "Entire form component with custom field components on top of TanStack Form.",
       "files": [
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/autocomplete.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/autocomplete.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/autocomplete.ts"
+          "target": "src/components/smart-form/lib/schemas/autocomplete.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/checkbox.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/checkbox.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/checkbox.ts"
+          "target": "src/components/smart-form/lib/schemas/checkbox.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/date.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/date.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/date.ts"
+          "target": "src/components/smart-form/lib/schemas/date.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/editor.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/editor.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/editor.ts"
+          "target": "src/components/smart-form/lib/schemas/editor.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/file.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/file.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/file.ts"
+          "target": "src/components/smart-form/lib/schemas/file.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/input.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/input.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/input.ts"
+          "target": "src/components/smart-form/lib/schemas/input.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/multi-file.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/multi-file.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/multi-file.ts"
+          "target": "src/components/smart-form/lib/schemas/multi-file.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/multi-select.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/multi-select.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/multi-select.ts"
+          "target": "src/components/smart-form/lib/schemas/multi-select.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/number.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/number.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/number.ts"
+          "target": "src/components/smart-form/lib/schemas/number.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/password.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/password.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/password.ts"
+          "target": "src/components/smart-form/lib/schemas/password.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/phone-number.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/phone-number.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/phone-number.ts"
+          "target": "src/components/smart-form/lib/schemas/phone-number.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/select.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/select.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/select.ts"
+          "target": "src/components/smart-form/lib/schemas/select.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/schemas/textarea.ts",
+          "path": "src/registry/smart-form/components/lib/schemas/textarea.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/schemas/textarea.ts"
+          "target": "src/components/smart-form/lib/schemas/textarea.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/base.ts",
+          "path": "src/registry/smart-form/components/lib/base.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/base.ts"
+          "target": "src/components/smart-form/lib/base.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/form.ts",
+          "path": "src/registry/smart-form/components/lib/form.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/form.ts"
+          "target": "src/components/smart-form/lib/form.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/lib/query.ts",
+          "path": "src/registry/smart-form/components/lib/query.ts",
           "type": "registry:file",
-          "target": "src/components/organisms/smart-form/lib/query.ts"
+          "target": "src/components/smart-form/lib/query.ts"
         },
         {
           "path": "src/types/base.ts",
@@ -1945,109 +1945,109 @@
           "target": "src/lib/tanstack-query.ts"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/autocomplete-with-infinite-query-field.tsx",
+          "path": "src/registry/smart-form/components/autocomplete-with-infinite-query-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/autocomplete-with-infinite-query-field.tsx"
+          "target": "src/components/smart-form/autocomplete-with-infinite-query-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/autocomplete-with-options-field.tsx",
+          "path": "src/registry/smart-form/components/autocomplete-with-options-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/autocomplete-with-options-field.tsx"
+          "target": "src/components/smart-form/autocomplete-with-options-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/autocomplete-with-query-field.tsx",
+          "path": "src/registry/smart-form/components/autocomplete-with-query-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/autocomplete-with-query-field.tsx"
+          "target": "src/components/smart-form/autocomplete-with-query-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/checkbox-field.tsx",
+          "path": "src/registry/smart-form/components/checkbox-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/checkbox-field.tsx"
+          "target": "src/components/smart-form/checkbox-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/date-field.tsx",
+          "path": "src/registry/smart-form/components/date-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/date-field.tsx"
+          "target": "src/components/smart-form/date-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/editor-field.tsx",
+          "path": "src/registry/smart-form/components/editor-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/editor-field.tsx"
+          "target": "src/components/smart-form/editor-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/field-container.tsx",
+          "path": "src/registry/smart-form/components/field-container.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/field-container.tsx"
+          "target": "src/components/smart-form/field-container.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/file-field.tsx",
+          "path": "src/registry/smart-form/components/file-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/file-field.tsx"
+          "target": "src/components/smart-form/file-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/form-container.tsx",
+          "path": "src/registry/smart-form/components/form-container.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/form-container.tsx"
+          "target": "src/components/smart-form/form-container.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/input-field.tsx",
+          "path": "src/registry/smart-form/components/input-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/input-field.tsx"
+          "target": "src/components/smart-form/input-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/multi-file-field.tsx",
+          "path": "src/registry/smart-form/components/multi-file-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/multi-file-field.tsx"
+          "target": "src/components/smart-form/multi-file-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/multi-select-with-infinite-query-field.tsx",
+          "path": "src/registry/smart-form/components/multi-select-with-infinite-query-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/multi-select-with-infinite-query-field.tsx"
+          "target": "src/components/smart-form/multi-select-with-infinite-query-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/multi-select-with-options-field.tsx",
+          "path": "src/registry/smart-form/components/multi-select-with-options-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/multi-select-with-options-field.tsx"
+          "target": "src/components/smart-form/multi-select-with-options-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/multi-select-with-query-field.tsx",
+          "path": "src/registry/smart-form/components/multi-select-with-query-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/multi-select-with-query-field.tsx"
+          "target": "src/components/smart-form/multi-select-with-query-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/number-field.tsx",
+          "path": "src/registry/smart-form/components/number-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/number-field.tsx"
+          "target": "src/components/smart-form/number-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/password-field.tsx",
+          "path": "src/registry/smart-form/components/password-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/password-field.tsx"
+          "target": "src/components/smart-form/password-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/phone-number-field.tsx",
+          "path": "src/registry/smart-form/components/phone-number-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/phone-number-field.tsx"
+          "target": "src/components/smart-form/phone-number-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/select-with-infinite-query-field.tsx",
+          "path": "src/registry/smart-form/components/select-with-infinite-query-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/select-with-infinite-query-field.tsx"
+          "target": "src/components/smart-form/select-with-infinite-query-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/select-with-options-field.tsx",
+          "path": "src/registry/smart-form/components/select-with-options-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/select-with-options-field.tsx"
+          "target": "src/components/smart-form/select-with-options-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/select-with-query-field.tsx",
+          "path": "src/registry/smart-form/components/select-with-query-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/select-with-query-field.tsx"
+          "target": "src/components/smart-form/select-with-query-field.tsx"
         },
         {
-          "path": "src/registry/new-york/organisms/smart-form/components/textarea-field.tsx",
+          "path": "src/registry/smart-form/components/textarea-field.tsx",
           "type": "registry:ui",
-          "target": "src/components/organisms/smart-form/textarea-field.tsx"
+          "target": "src/components/smart-form/textarea-field.tsx"
         }
       ],
       "dependencies": [
