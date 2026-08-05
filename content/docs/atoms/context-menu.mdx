@@ -1,0 +1,92 @@
+---
+title: Context Menu
+description: Displays a menu to the user — such as a set of actions or functions — triggered by a button.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/context-menu/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='context-menu' />
+
+## Usage
+
+```tsx
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from '@/components/atoms/context-menu'
+```
+
+```tsx
+<ContextMenu>
+  <ContextMenuTrigger>Right click here</ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem>Profile</ContextMenuItem>
+    <ContextMenuItem>Billing</ContextMenuItem>
+    <ContextMenuItem>Team</ContextMenuItem>
+    <ContextMenuItem>Subscription</ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>
+```
+
+## Examples
+
+### Basic
+
+A simple context menu with a few actions.
+
+<ComponentPreview path='atoms/context-menu/examples/basic' />
+
+### Submenu
+
+Use `ContextMenuSub` to nest secondary actions.
+
+<ComponentPreview path='atoms/context-menu/examples/submenu' />
+
+### Shortcuts
+
+Add `ContextMenuShortcut` to show keyboard hints.
+
+<ComponentPreview path='atoms/context-menu/examples/shortcuts' />
+
+### Groups
+
+Group related actions and separate them with dividers.
+
+<ComponentPreview path='atoms/context-menu/examples/groups' />
+
+### Icons
+
+Combine icons with labels for quick scanning.
+
+<ComponentPreview path='atoms/context-menu/examples/icons' />
+
+### Checkboxes
+
+Use `ContextMenuCheckboxItem` for toggles.
+
+<ComponentPreview path='atoms/context-menu/examples/checkboxes' />
+
+### Radio
+
+Use `ContextMenuRadioItem` for exclusive choices.
+
+<ComponentPreview path='atoms/context-menu/examples/radio' />
+
+### Destructive
+
+Use `variant="destructive"` to style the menu item as destructive.
+
+<ComponentPreview path='atoms/context-menu/examples/destructive' />
+
+### Sides
+
+Control submenu placement with side and align props.
+
+<ComponentPreview path='atoms/context-menu/examples/sides' />

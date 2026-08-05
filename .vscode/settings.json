@@ -74,8 +74,11 @@
   },
   "[yaml]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "explicit"
   }
+  // "editor.codeActionsOnSave": {
+  //   "source.fixAll.oxc": "always",
+  //   "source.organizeImports": "always",
+  //   "source.removeUnusedImports": "always",
+  //   "source.sortImports": "always"
+  // }
 }

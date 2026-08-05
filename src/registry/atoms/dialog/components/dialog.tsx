@@ -49,7 +49,7 @@ export function DialogContent({
       <DialogOverlay />
       <DialogPrimitive.Popup
         className={cn(
-          'data-open:fade-in-0 data-open:zoom-in-95 data-closed:fade-out-0 data-closed:zoom-out-95 fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100dvh-2rem)] w-full max-w-[calc(100dvw-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 rounded-xl bg-popover text-popover-foreground text-sm outline-none ring-1 ring-foreground/10 duration-100 has-[div[data-slot=dialog-scroller]]:grid-rows-[auto_1fr_auto] data-closed:animate-out data-open:animate-in',
+          'data-open:fade-in-0 data-open:zoom-in-95 data-closed:fade-out-0 data-closed:zoom-out-95 fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100dvh-2rem)] w-full max-w-[calc(100dvw-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 p-6 rounded-xl bg-popover text-popover-foreground text-sm outline-none ring-1 ring-foreground/10 duration-100 has-[div[data-slot=dialog-scroller]]:grid-rows-[auto_1fr_auto] data-closed:animate-out data-open:animate-in',
           className
         )}
         data-slot='dialog-content'
@@ -82,7 +82,7 @@ export const DialogScroller = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn('no-scrollbar overflow-y-auto px-6', className)}
+    className={cn('no-scrollbar overflow-y-auto', className)}
     data-slot='dialog-scroller'
     {...props}
   >
@@ -93,7 +93,7 @@ export const DialogScroller = ({
 export function DialogHeader({ className, ...props }: ComponentProps<'div'>) {
   return (
     <div
-      className={cn('flex flex-col gap-2 px-6 pt-6', className)}
+      className={cn('flex flex-col gap-2', className)}
       data-slot='dialog-header'
       {...props}
     />
@@ -111,7 +111,7 @@ export function DialogFooter({
   return (
     <div
       className={cn(
-        'flex flex-col-reverse gap-2 px-6 pb-6 sm:flex-row sm:justify-end',
+        'flex flex-col-reverse gap-2 sm:flex-row sm:justify-end',
         className
       )}
       data-slot='dialog-footer'

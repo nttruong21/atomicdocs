@@ -1,0 +1,63 @@
+---
+title: Toggle Group
+description: A set of two-state buttons that can be toggled on or off.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/toggle-group/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='toggle-group' />
+
+## Usage
+
+```tsx
+import { ToggleGroup, ToggleGroupItem } from '@/components/atoms/toggle-group'
+```
+
+```tsx
+<ToggleGroup type='single'>
+  <ToggleGroupItem value='a'>A</ToggleGroupItem>
+  <ToggleGroupItem value='b'>B</ToggleGroupItem>
+  <ToggleGroupItem value='c'>C</ToggleGroupItem>
+</ToggleGroup>
+```
+
+## Examples
+
+### Outline
+
+Use `variant="outline`" for an outline style.
+
+<ComponentPreview path='atoms/toggle-group/examples/outline' />
+
+### Size
+
+Use the `size` prop to change the size of the toggle group.
+
+<ComponentPreview path='atoms/toggle-group/examples/size' />
+
+### Spacing
+
+Use `spacing` to add spacing between toggle group items.
+
+<ComponentPreview path='atoms/toggle-group/examples/spacing' />
+
+### Vertical
+
+Use `orientation="vertical"` for vertical toggle groups.
+
+<ComponentPreview path='atoms/toggle-group/examples/vertical' />
+
+### Disabled
+
+<ComponentPreview path='atoms/toggle-group/examples/disabled' />
+
+### Custom
+
+A custom toggle group example.
+
+<ComponentPreview path='atoms/toggle-group/examples/custom' />

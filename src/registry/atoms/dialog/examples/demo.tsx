@@ -20,7 +20,7 @@ export function DialogDemo() {
         <DialogTrigger
           render={<Button variant='outline'>Open Dialog</Button>}
         />
-        <DialogContent className='sm:max-w-sm'>
+        <DialogContent className='max-w-sm'>
           <DialogHeader>
             <DialogTitle>Edit profile</DialogTitle>
             <DialogDescription>

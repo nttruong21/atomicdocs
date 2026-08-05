@@ -1,0 +1,50 @@
+---
+title: Tooltip
+description: A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/tooltip/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='tooltip' />
+
+## Usage
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/atoms/tooltip'
+```
+
+```tsx
+<Tooltip>
+  <TooltipTrigger>Hover</TooltipTrigger>
+  <TooltipContent>
+    <p>Add to library</p>
+  </TooltipContent>
+</Tooltip>
+```
+
+## Examples
+
+### Side
+
+Use the `side` prop to change the position of the tooltip.
+
+<ComponentPreview path='atoms/tooltip/examples/side' />
+
+### With Keyboard Shortcut
+
+<ComponentPreview path='atoms/tooltip/examples/with-keyboard-shortcut' />
+
+### Disabled Button
+
+Show a tooltip on a disabled button by wrapping it with a span.
+
+<ComponentPreview path='atoms/tooltip/examples/disabled-button' />

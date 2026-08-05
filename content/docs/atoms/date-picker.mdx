@@ -1,0 +1,34 @@
+---
+title: Date Picker
+description: A date picker component with range and presets.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/date-picker/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='date-picker' />
+
+## Usage
+
+```tsx
+import {
+  DatePicker,
+  type DatePickerProps,
+} from '@/components/atoms/date-picker'
+```
+
+```tsx
+const [value, setValue] = useState<DatePickerProps['value']>(null)
+
+<DatePicker className='w-xs' onValueChange={setValue} placeholder='Select date' value={value} />
+```
+
+## Examples
+
+### Range
+
+<ComponentPreview path='atoms/date-picker/examples/range' />

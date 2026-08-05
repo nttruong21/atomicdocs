@@ -116,6 +116,7 @@ export function DateRangePicker({
     <div className={className}>
       <Popover onOpenChange={setOpenPopover} open={openPopover}>
         <PopoverTrigger
+          nativeButton={false}
           render={
             <div className='relative'>
               <Button

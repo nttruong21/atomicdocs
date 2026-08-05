@@ -1,0 +1,64 @@
+---
+title: Sonner
+description: An opinionated toast component for React.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+import { Toaster } from '@/components/atoms/sonner'
+
+<ComponentPreview path='atoms/sonner/examples/demo' />
+
+<Toaster />
+
+## Installation
+
+<InstallationTabs registryName='sonner' />
+
+## Usage
+
+Add the `Toaster` component
+
+```tsx
+import { Toaster } from '@/components/atoms/sonner'
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang='en'>
+      <head />
+      <body>
+        <Toaster />
+        <main>{children}</main>
+      </body>
+    </html>
+  )
+}
+```
+
+```tsx
+import { toast } from 'sonner'
+```
+
+```tsx
+toast('Event has been created.')
+```
+
+## Examples
+
+### Types
+
+<ComponentPreview path='atoms/sonner/examples/types' />
+
+### Description
+
+<ComponentPreview path='atoms/sonner/examples/description' />
+
+### Position
+
+Use the `position` prop to change the position of the toast.
+
+<ComponentPreview path='atoms/sonner/examples/position' />
+
+### Rich color
+
+<ComponentPreview path='atoms/sonner/examples/rich-color' />

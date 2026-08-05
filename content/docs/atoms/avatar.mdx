@@ -1,0 +1,74 @@
+---
+title: Avatar
+description: An image element with a fallback for representing the user.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/avatar/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='avatar' />
+
+## Usage
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/atoms/avatar'
+```
+
+```tsx
+<Avatar>
+  <AvatarImage src='https://github.com/shadcn.png' />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
+```
+
+## Examples
+
+### Basic
+
+<ComponentPreview path='atoms/avatar/examples/basic' />
+
+### Badge
+
+Use the `AvatarBadge` component to add a badge to the avatar. The badge is positioned at the bottom right of the avatar.
+
+<ComponentPreview path='atoms/avatar/examples/badge' />
+
+### Badge with icon
+
+You can also use an icon inside `AvatarBadge`.
+
+<ComponentPreview path='atoms/avatar/examples/badge-with-icon' />
+
+### Avatar Group
+
+Use the `AvatarGroup` component to add a group of avatars.
+
+<ComponentPreview path='atoms/avatar/examples/avatar-group' />
+
+### Avatar Group Count
+
+Use `AvatarGroupCount` to add a count to the group.
+
+<ComponentPreview path='atoms/avatar/examples/avatar-group-count' />
+
+### Avatar Group with Icon
+
+You can also use an icon inside `AvatarGroupCount`.
+
+<ComponentPreview path='atoms/avatar/examples/avatar-group-with-icon' />
+
+### Sizes
+
+Use the `size` prop to change the size of the avatar.
+
+<ComponentPreview path='atoms/avatar/examples/sizes' />
+
+### Dropdown
+
+You can use the `Avatar` component as a trigger for a dropdown menu.
+
+<ComponentPreview path='atoms/avatar/examples/dropdown' />

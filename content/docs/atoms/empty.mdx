@@ -1,0 +1,73 @@
+---
+title: Empty
+description: Use the Empty component to display a empty state.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/empty/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='empty' />
+
+## Usage
+
+```tsx
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from '@/components/atoms/empty'
+```
+
+```tsx
+<Empty>
+  <EmptyHeader>
+    <EmptyMedia variant='icon'>
+      <Icon />
+    </EmptyMedia>
+    <EmptyTitle>No data</EmptyTitle>
+    <EmptyDescription>No data found</EmptyDescription>
+  </EmptyHeader>
+  <EmptyContent>
+    <Button>Add data</Button>
+  </EmptyContent>
+</Empty>
+```
+
+## Examples
+
+### Outline
+
+Use the `border` utility class to create a outline empty state.
+
+<ComponentPreview path='atoms/empty/examples/outline' />
+
+### Background
+
+Use the `bg-*` and `bg-gradient-*` utilities to add a background to the empty state.
+
+<ComponentPreview path='atoms/empty/examples/background' />
+
+### Avatar
+
+Use the `EmptyMedia` component to display an avatar in the empty state.
+
+<ComponentPreview path='atoms/empty/examples/avatar' />
+
+### Avatar Group
+
+Use the `EmptyMedia` component to display an avatar group in the empty state.
+
+<ComponentPreview path='atoms/empty/examples/avatar-group' />
+
+### Input Group
+
+You can add an `InputGroup` component to the `EmptyContent` component.
+
+<ComponentPreview path='atoms/empty/examples/input-group' />

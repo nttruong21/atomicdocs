@@ -1,0 +1,37 @@
+---
+title: Progress
+description: Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/progress/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='progress' />
+
+## Usage
+
+```tsx
+import { Progress } from '@/components/atoms/progress'
+```
+
+```tsx
+<Progress value={33} />
+```
+
+## Examples
+
+### Label
+
+Use `ProgressLabel` and `ProgressValue` to add a label and value display.
+
+<ComponentPreview path='atoms/progress/examples/label' />
+
+### Controlled
+
+A progress bar that can be controlled by a slider.
+
+<ComponentPreview path='atoms/progress/examples/controlled' />

@@ -45,7 +45,7 @@ export function CommandManyItems() {
       <Button className='w-fit' onClick={() => setOpen(true)} variant='outline'>
         Open Menu
       </Button>
-      <CommandDialog onOpenChange={setOpen} open={open}>
+      <CommandDialog className='max-w-sm' onOpenChange={setOpen} open={open}>
         <Command>
           <CommandInput placeholder='Type a command or search...' />
           <CommandList>

@@ -1,0 +1,55 @@
+---
+title: Alert
+description: Displays a callout for user attention.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/alert/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='alert' />
+
+## Usage
+
+```tsx
+import {
+  Alert,
+  AlertAction,
+  AlertDescription,
+  AlertTitle,
+} from '@/components/atoms/alert'
+```
+
+```tsx
+<Alert>
+  <InfoIcon />
+  <AlertTitle>Heads up!</AlertTitle>
+  <AlertDescription>
+    You can add components and dependencies to your app using the cli.
+  </AlertDescription>
+  <AlertAction>
+    <Button variant='outline'>Enable</Button>
+  </AlertAction>
+</Alert>
+```
+
+## Examples
+
+### Basic
+
+<ComponentPreview path='atoms/alert/examples/basic' />
+
+### Destructive
+
+<ComponentPreview path='atoms/alert/examples/destructive' />
+
+### Action
+
+<ComponentPreview path='atoms/alert/examples/action' />
+
+### Custom Colors
+
+<ComponentPreview path='atoms/alert/examples/custom-colors' />

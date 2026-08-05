@@ -28,7 +28,7 @@ export function CommandWithGroups() {
       <Button className='w-fit' onClick={() => setOpen(true)} variant='outline'>
         Open Menu
       </Button>
-      <CommandDialog onOpenChange={setOpen} open={open}>
+      <CommandDialog onOpenChange={setOpen} open={open} className='max-w-sm'>
         <Command>
           <CommandInput placeholder='Type a command or search...' />
           <CommandList>

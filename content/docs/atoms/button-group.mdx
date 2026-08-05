@@ -1,0 +1,92 @@
+---
+title: Button Group
+description: A container that groups related buttons together with consistent styling.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/button-group/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='button-group' />
+
+## Usage
+
+```tsx
+import {
+  ButtonGroup,
+  ButtonGroupSeparator,
+  ButtonGroupText,
+} from '@/components/atoms/button-group'
+```
+
+```tsx
+<ButtonGroup>
+  <Button>Button 1</Button>
+  <Button>Button 2</Button>
+</ButtonGroup>
+```
+
+## Examples
+
+### Orientation
+
+Set the `orientation` prop to change the button group layout.
+
+<ComponentPreview path='atoms/button-group/examples/orientation' />
+
+### Size
+
+Control the size of buttons using the `size` prop on individual buttons.
+
+<ComponentPreview path='atoms/button-group/examples/size' />
+
+### Nested
+
+Nest `ButtonGroup` components to create button groups with spacing.
+
+<ComponentPreview path='atoms/button-group/examples/nested' />
+
+### Separator
+
+The `ButtonGroupSeparator` component visually divides buttons within a group. Buttons with variant `outline` do not need a separator since they have a border. For other variants, a separator is recommended to improve the visual hierarchy.
+
+<ComponentPreview path='atoms/button-group/examples/separator' />
+
+### Split
+
+Create a split button group by adding two buttons separated by a `ButtonGroupSeparator`.
+
+<ComponentPreview path='atoms/button-group/examples/split' />
+
+### Input
+
+Wrap an `Input` component with buttons.
+
+<ComponentPreview path='atoms/button-group/examples/input' />
+
+### Input Group
+
+Wrap an `InputGroup` component to create complex input layouts.
+
+<ComponentPreview path='atoms/button-group/examples/input-group' />
+
+### Dropdown Menu
+
+Create a split button group with a `DropdownMenu` component.
+
+<ComponentPreview path='atoms/button-group/examples/dropdown-menu' />
+
+### Select
+
+Pair with a Select component.
+
+<ComponentPreview path='atoms/button-group/examples/select' />
+
+### Popover
+
+Use with a `Popover` component.
+
+<ComponentPreview path='atoms/button-group/examples/popover' />

@@ -1,0 +1,69 @@
+---
+title: Carousel
+description: A carousel with motion and swipe built using Embla.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/carousel/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='carousel' />
+
+## Usage
+
+```tsx
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/atoms/carousel'
+```
+
+```tsx
+<Carousel>
+  <CarouselContent>
+    <CarouselItem>...</CarouselItem>
+    <CarouselItem>...</CarouselItem>
+    <CarouselItem>...</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>
+```
+
+## Examples
+
+### Sizes
+
+To set the size of the items, you can use the `basis` utility class on the `CarouselItem`.
+
+<ComponentPreview path='atoms/carousel/examples/sizes' />
+
+### Spacing
+
+To set the spacing between the items, we use a `pl-[VALUE]` utility on the `CarouselItem` and a negative `-ml-[VALUE]` on the `CarouselContent`.
+
+<ComponentPreview path='atoms/carousel/examples/spacing' />
+
+### Orientation
+
+Use the `orientation` prop to set the orientation of the carousel.
+
+<ComponentPreview path='atoms/carousel/examples/orientation' />
+
+### API
+
+Use a state and the `setApi` props to get an instance of the carousel API.
+
+<ComponentPreview path='atoms/carousel/examples/api' />
+
+### Plugins
+
+You can use the `plugins` prop to add plugins to the carousel.
+
+<ComponentPreview path='atoms/carousel/examples/plugins' />

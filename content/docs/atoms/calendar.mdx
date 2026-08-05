@@ -1,0 +1,74 @@
+---
+title: Calendar
+description: A calendar component that allows users to select a date or a range of dates.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/calendar/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='calendar' />
+
+## Usage
+
+```tsx
+import { Calendar } from '@/components/atoms/calendar'
+```
+
+```tsx
+const [date, setDate] = React.useState<Date | undefined>(new Date())
+
+return (
+  <Calendar
+    mode='single'
+    selected={date}
+    onSelect={setDate}
+    className='rounded-lg border'
+  />
+)
+```
+
+## Examples
+
+### Basic
+
+A basic calendar component. We used `className="rounded-lg border"` to style the calendar.
+
+<ComponentPreview path='atoms/calendar/examples/basic' />
+
+### Range Calendar
+
+Use the `mode="range"` prop to enable range selection.
+
+<ComponentPreview path='atoms/calendar/examples/range' />
+
+### Month and Year Selector
+
+Use `captionLayout="dropdown"` to show month and year dropdowns.
+
+<ComponentPreview path='atoms/calendar/examples/month-and-year-selector' />
+
+### Presets
+
+<ComponentPreview path='atoms/calendar/examples/presets' />
+
+### Date and Time Picker
+
+<ComponentPreview path='atoms/calendar/examples/date-and-time-picker' />
+
+### Booked Dates
+
+<ComponentPreview path='atoms/calendar/examples/booked-dates' />
+
+### Custom Cell Size
+
+<ComponentPreview path='atoms/calendar/examples/custom-cell-size' />
+
+### Week Numbers
+
+Use `showWeekNumber` to show week numbers.
+
+<ComponentPreview path='atoms/calendar/examples/week-numbers' />

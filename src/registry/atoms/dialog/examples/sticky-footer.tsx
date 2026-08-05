@@ -17,7 +17,7 @@ export function DialogStickyFooter() {
       <DialogTrigger
         render={<Button variant='outline'>Sticky Footer</Button>}
       />
-      <DialogContent>
+      <DialogContent className='max-w-sm'>
         <DialogHeader>
           <DialogTitle>Sticky Footer</DialogTitle>
           <DialogDescription>

@@ -1,7 +1,9 @@
+import { QueryClientProvider } from '@tanstack/react-query'
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 import { RootProvider } from 'fumadocs-ui/provider/tanstack'
 import type { ReactNode } from 'react'
 import { appName } from '@/lib/shared'
+import { queryClient } from '@/lib/tanstack-query'
 import appCss from '@/styles/app.css?url'
 
 export const Route = createRootRoute({
@@ -50,7 +52,11 @@ function RootComponent({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body cz-shortcut-listen='true'>
-        <RootProvider>{children}</RootProvider>
+        <RootProvider>
+          <QueryClientProvider client={queryClient}>
+            {children}
+          </QueryClientProvider>
+        </RootProvider>
         <Scripts />
       </body>
     </html>

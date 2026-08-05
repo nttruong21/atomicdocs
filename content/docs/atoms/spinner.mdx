@@ -1,0 +1,51 @@
+---
+title: Spinner
+description: An indicator that can be used to show a loading state.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/spinner/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='spinner' />
+
+## Usage
+
+```tsx
+import { Spinner } from '@/components/atoms/spinner'
+```
+
+```tsx
+<Spinner />
+```
+
+## Examples
+
+### Size
+
+Use the `size-*` utility class to change the size of the spinner.
+
+<ComponentPreview path='atoms/spinner/examples/size' />
+
+### Button
+
+Add a spinner to a button to indicate a loading state. Place the `Spinner` before the label with `data-icon="inline-start"` for a start position, or after the label with `data-icon="inline-end"` for an end position.
+
+<ComponentPreview path='atoms/spinner/examples/button' />
+
+### Badge
+
+Add a spinner to a badge to indicate a loading state. Place the `Spinner` before the label with `data-icon="inline-start"` for a start position, or after the label with `data-icon="inline-end"` for an end position.
+
+<ComponentPreview path='atoms/spinner/examples/badge' />
+
+### Input Group
+
+<ComponentPreview path='atoms/spinner/examples/input-group' />
+
+### Empty
+
+<ComponentPreview path='atoms/spinner/examples/empty' />

@@ -1,0 +1,122 @@
+---
+title: Combobox
+description: Autocomplete input and command palette with a list of suggestions.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/combobox/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='combobox' />
+
+## Usage
+
+```tsx
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from '@/components/atoms/combobox'
+```
+
+```tsx
+const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix', 'Astro']
+
+export function ExampleCombobox() {
+  return (
+    <Combobox items={frameworks}>
+      <ComboboxInput placeholder='Select a framework' />
+      <ComboboxContent>
+        <ComboboxEmpty>No items found.</ComboboxEmpty>
+        <ComboboxList>
+          {(item) => (
+            <ComboboxItem key={item} value={item}>
+              {item}
+            </ComboboxItem>
+          )}
+        </ComboboxList>
+      </ComboboxContent>
+    </Combobox>
+  )
+}
+```
+
+## Examples
+
+### Basic
+
+A simple combobox with a list of frameworks.
+
+<ComponentPreview path='atoms/combobox/examples/basic' />
+
+### Multiple
+
+A combobox with multiple selection using `multiple` and `ComboboxChips`.
+
+<ComponentPreview path='atoms/combobox/examples/multiple' />
+
+### Clear Button
+
+Use the `showClear` prop to show a clear button.
+
+<ComponentPreview path='atoms/combobox/examples/clear-button' />
+
+### Groups
+
+Use `ComboboxGroup` and `ComboboxSeparator` to group items.
+
+<ComponentPreview path='atoms/combobox/examples/groups' />
+
+### Custom Items
+
+You can render a custom component inside `ComboboxItem`.
+
+<ComponentPreview path='atoms/combobox/examples/custom-items' />
+
+### Invalid
+
+Use the `aria-invalid` prop to make the combobox invalid.
+
+<ComponentPreview path='atoms/combobox/examples/invalid' />
+
+### Disabled
+
+Use the `disabled` prop to disable the combobox.
+
+<ComponentPreview path='atoms/combobox/examples/disabled' />
+
+### Auto Highlight
+
+Use the `autoHighlight` prop to automatically highlight the first item on filter.
+
+<ComponentPreview path='atoms/combobox/examples/auto-highlight' />
+
+### Popup
+
+You can trigger the combobox from a button or any other component by using the `render` prop. Move the `ComboboxInput` inside the `ComboboxContent`.
+
+<ComponentPreview path='atoms/combobox/examples/popup' />
+
+### Input Group
+
+You can add an addon to the combobox by using the `InputGroupAddon` component inside the `ComboboxInput`.
+
+<ComponentPreview path='atoms/combobox/examples/input-group' />
+
+### Async Search With Infinite Scroll (Single)
+
+Load items from a remote source by fetching on input changes and loadd more items when scroll to bottom of list.
+
+<ComponentPreview path='atoms/combobox/examples/async-search-single-with-infinite-scroll' />
+
+### Async Search With Infinite Scroll (Multiple)
+
+Load items from a remote source by fetching on input changes and loadd more items when scroll to bottom of list.
+
+<ComponentPreview path='atoms/combobox/examples/async-search-multiple-with-infinite-scroll' />

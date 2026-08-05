@@ -1,0 +1,95 @@
+---
+title: Item
+description: A versatile component that you can use to display any content.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/item/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='item' />
+
+## Usage
+
+```tsx
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemMedia,
+  ItemTitle,
+} from '@/components/atoms/item'
+```
+
+```tsx
+<Item>
+  <ItemMedia variant='icon'>
+    <Icon />
+  </ItemMedia>
+  <ItemContent>
+    <ItemTitle>Title</ItemTitle>
+    <ItemDescription>Description</ItemDescription>
+  </ItemContent>
+  <ItemActions>
+    <Button>Action</Button>
+  </ItemActions>
+</Item>
+```
+
+## Examples
+
+### Variants
+
+Use the `variant` prop to change the visual style of the item.
+
+<ComponentPreview path='atoms/item/examples/variants' />
+
+### Size
+
+Use the `size` prop to change the size of the item. Available sizes are `default`, `sm`, and `xs`.
+
+<ComponentPreview path='atoms/item/examples/size' />
+
+### Icon
+
+Use `ItemMedia` with `variant="icon"` to display an icon.
+
+<ComponentPreview path='atoms/item/examples/icon' />
+
+### Avatar
+
+You can use `ItemMedia` with `variant="avatar"` to display an avatar.
+
+<ComponentPreview path='atoms/item/examples/avatar' />
+
+### Image
+
+Use `ItemMedia` with `variant="image"` to display an image.
+
+<ComponentPreview path='atoms/item/examples/image' />
+
+### Group
+
+Use `ItemGroup` to group related items together.
+
+<ComponentPreview path='atoms/item/examples/group' />
+
+### Header
+
+Use `ItemHeader` to add a header above the item content.
+
+<ComponentPreview path='atoms/item/examples/header' />
+
+### Link
+
+Use the `render` prop to render the item as a link. The hover and focus states will be applied to the anchor element.
+
+<ComponentPreview path='atoms/item/examples/link' />
+
+### Dropdown
+
+<ComponentPreview path='atoms/item/examples/dropdown' />

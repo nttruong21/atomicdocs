@@ -1,0 +1,59 @@
+---
+title: Button
+description: Displays a button or a component that looks like a button.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/button/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='button' />
+
+## Usage
+
+```tsx
+import { Button } from '@/components/atoms/button'
+```
+
+```tsx
+<Button variant='outline'>Button</Button>
+```
+
+## Examples
+
+### Size
+
+Use the `size` prop to change the size of the button.
+
+<ComponentPreview path='atoms/button/examples/size' />
+
+### Variant
+
+Use the `variant` prop to change the variant of the button.
+
+<ComponentPreview path='atoms/button/examples/variant' />
+
+### Icon
+
+<ComponentPreview path='atoms/button/examples/icon' />
+
+### With Icon
+
+Remember to add the `data-icon="inline-start"` or `data-icon="inline-end"` attribute to the icon for the correct spacing.
+
+<ComponentPreview path='atoms/button/examples/with-icon' />
+
+### Rounded
+
+Use the `rounded-full` class to make the button rounded.
+
+<ComponentPreview path='atoms/button/examples/rounded' />
+
+### Spinner
+
+Use the `loading` prop to show a loading state.
+
+<ComponentPreview path='atoms/button/examples/spinner' />

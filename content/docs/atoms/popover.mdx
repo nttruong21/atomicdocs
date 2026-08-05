@@ -1,0 +1,60 @@
+---
+title: Popover
+description: Displays rich content in a portal, triggered by a button.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/popover/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='popover' />
+
+## Usage
+
+```tsx
+import {
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from '@/components/atoms/popover'
+```
+
+```tsx
+<Popover>
+  <PopoverTrigger render={<Button variant='outline' />}>
+    Open Popover
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverHeader>
+      <PopoverTitle>Title</PopoverTitle>
+      <PopoverDescription>Description text here.</PopoverDescription>
+    </PopoverHeader>
+  </PopoverContent>
+</Popover>
+```
+
+## Examples
+
+### Basic
+
+A simple popover with a header, title, and description.
+
+<ComponentPreview path='atoms/popover/examples/basic' />
+
+### Align
+
+Use the align prop on PopoverContent to control the horizontal alignment.
+
+<ComponentPreview path='atoms/popover/examples/align' />
+
+### With Form
+
+A popover with form fields inside.
+
+<ComponentPreview path='atoms/popover/examples/with-form' />

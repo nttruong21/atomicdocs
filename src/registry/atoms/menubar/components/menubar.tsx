@@ -130,7 +130,6 @@ export function MenubarCheckboxItem({
         </MenuPrimitive.CheckboxItemIndicator>
       </span>
       {children}
-      {children}
     </MenuPrimitive.CheckboxItem>
   )
 }

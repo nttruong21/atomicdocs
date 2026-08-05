@@ -1,0 +1,33 @@
+---
+title: Scroll Area
+description: Augments native scroll functionality for custom, cross-browser styling.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/scroll-area/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='scroll-area' />
+
+## Usage
+
+```tsx
+import { ScrollArea, ScrollBar } from '@/components/atoms/scroll-area'
+```
+
+```tsx
+<ScrollArea className='h-50 w-87.5 rounded-md border p-4'>
+  Your scrollable content here.
+</ScrollArea>
+```
+
+## Examples
+
+### Horizontal
+
+Use `ScrollBar` with `orientation="horizontal"` for horizontal scrolling.
+
+<ComponentPreview path='atoms/scroll-area/examples/horizontal' />

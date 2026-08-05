@@ -1,0 +1,78 @@
+---
+title: Drawer
+description: A drawer component for React.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/drawer/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='drawer' />
+
+## Usage
+
+```tsx
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/atoms/drawer'
+```
+
+```tsx
+<Drawer>
+  <DrawerTrigger>Open</DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+      <DrawerDescription>This action cannot be undone.</DrawerDescription>
+    </DrawerHeader>
+    <DrawerFooter>
+      <Button>Submit</Button>
+      <DrawerClose>
+        <Button variant='outline'>Cancel</Button>
+      </DrawerClose>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>
+```
+
+## Examples
+
+### Position
+
+Use the `swipeDirection` prop to set the side of the drawer. Available options are `up`, `right`, `down`, and `left`.
+
+<ComponentPreview path='atoms/drawer/examples/position' />
+
+### Swipe Handle
+
+Use `showSwipeHandle` on Drawer to render a swipe handle.
+
+<ComponentPreview path='atoms/drawer/examples/swipe-handle' />
+
+### Nested
+
+Open drawers from inside another drawer. Parent drawers stay mounted and stack behind the frontmost drawer.
+
+<ComponentPreview path='atoms/drawer/examples/nested' />
+
+### Non Modal
+
+Set `modal={false}` to allow interaction with the rest of the page while the drawer is open. Combine with `disablePointerDismissal` to prevent the drawer from closing on outside presses. Use `modal="trap-focus"` to keep focus inside the drawer while leaving scroll and pointer interaction unrestricted.
+
+<ComponentPreview path='atoms/drawer/examples/non-modal' />
+
+### Snap Points
+
+Use `snapPoints` to snap a drawer to preset heights. Numbers between `0` and `1` represent fractions of the viewport. Numbers greater than `1` 1are treated as pixel values. String values support `px` and `rem` units. Snap points apply to vertical drawers.
+
+<ComponentPreview path='atoms/drawer/examples/snap-points' />

@@ -1,0 +1,49 @@
+---
+title: Kbd
+description: Used to display textual user input from keyboard.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/kbd/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='kbd' />
+
+## Usage
+
+```tsx
+import { Kbd } from '@/components/atoms/kbd'
+```
+
+```tsx
+<Kbd>Ctrl</Kbd>
+```
+
+## Examples
+
+### Group
+
+Use the `KbdGroup` component to group keyboard keys together.
+
+<ComponentPreview path='atoms/kbd/examples/group' />
+
+### Button
+
+Use the `Kbd` component inside a `Button` component to display a keyboard key inside a button.
+
+<ComponentPreview path='atoms/kbd/examples/button' />
+
+### Tooltip
+
+You can use the `Kbd` component inside a `Tooltip` component to display a tooltip with a keyboard key.
+
+<ComponentPreview path='atoms/kbd/examples/tooltip' />
+
+### Input Group
+
+You can use the `Kbd` component inside a `InputGroupAddon` component to display a keyboard key inside an input group.
+
+<ComponentPreview path='atoms/kbd/examples/input-group' />

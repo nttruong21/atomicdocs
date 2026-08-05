@@ -1,0 +1,80 @@
+---
+title: Autocomplete
+description: An input that suggests options as you type.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/autocomplete/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='autocomplete' />
+
+## Usage
+
+```tsx
+import {
+  Autocomplete,
+  AutocompleteContent,
+  AutocompleteInput,
+  AutocompleteItem,
+  AutocompleteList,
+} from '@/components/atoms/autocomplete'
+```
+
+```tsx
+<Accordion defaultValue={['item-1']}>
+  <AccordionItem value='item-1'>
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Examples
+
+### Basic
+
+A simple autocomplete with a list of frameworks.
+
+<ComponentPreview path='atoms/autocomplete/examples/basic' />
+
+### Clear button
+
+Use the `showClear` prop to show a clear button.
+
+<ComponentPreview path='atoms/autocomplete/examples/clear-button' />
+
+### Groups
+
+Organize related options with `AutocompleteGroup` and `AutocompleteLabel` to add section headings inside the popup.
+
+<ComponentPreview path='atoms/autocomplete/examples/groups' />
+
+### Invalid
+
+Use the `aria-invalid` prop to make the autocomplete invalid.
+
+<ComponentPreview path='atoms/autocomplete/examples/invalid' />
+
+### Disabled
+
+Use the `disabled` prop to disable the autocomplete.
+
+<ComponentPreview path='atoms/autocomplete/examples/disabled' />
+
+### Auto highlight
+
+Use the `autoHighlight` prop to auto highlight the first item.
+
+<ComponentPreview path='atoms/autocomplete/examples/auto-highlight' />
+
+### Input group
+
+You can add an addon to the autocomplete by using the `InputGroupAddon` component inside the `AutocompleteInput`.
+
+<ComponentPreview path='atoms/autocomplete/examples/input-group' />

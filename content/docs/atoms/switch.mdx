@@ -1,0 +1,53 @@
+---
+title: Switch
+description: A control that allows the user to toggle between checked and not checked.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/switch/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='switch' />
+
+## Usage
+
+```tsx
+import { Switch } from '@/components/atoms/switch'
+```
+
+```tsx
+<Switch />
+```
+
+## Examples
+
+### Description
+
+<ComponentPreview path='atoms/switch/examples/description' />
+
+### Choice Card
+
+Card-style selection where `FieldLabel` wraps the entire `Field` for a clickable card pattern.
+
+<ComponentPreview path='atoms/switch/examples/choice-card' />
+
+### Disabled
+
+Add the `disabled` prop to the `Switch` component to disable the switch. Add the `data-disabled` prop to the `Field` component for styling.
+
+<ComponentPreview path='atoms/switch/examples/disabled' />
+
+### Invalid
+
+Add the `aria-invalid` prop to the `Switch` component to indicate an invalid state. Add the `data-invalid` prop to the `Field` component for styling.
+
+<ComponentPreview path='atoms/switch/examples/invalid' />
+
+### Size
+
+Use the `size` prop to change the size of the switch.
+
+<ComponentPreview path='atoms/switch/examples/size' />

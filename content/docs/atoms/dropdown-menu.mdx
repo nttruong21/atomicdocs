@@ -1,0 +1,116 @@
+---
+title: Dropdown Menu
+description: Displays a menu to the user — such as a set of actions or functions — triggered by a button.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='atoms/dropdown-menu/examples/demo' />
+
+## Installation
+
+<InstallationTabs registryName='dropdown-menu' />
+
+## Usage
+
+```tsx
+import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/atoms/dropdown-menu'
+```
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger render={<Button variant='outline' />}>
+    Open
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuGroup>
+      <DropdownMenuLabel>My Account</DropdownMenuLabel>
+      <DropdownMenuItem>Profile</DropdownMenuItem>
+      <DropdownMenuItem>Billing</DropdownMenuItem>
+    </DropdownMenuGroup>
+    <DropdownMenuSeparator />
+    <DropdownMenuGroup>
+      <DropdownMenuItem>Team</DropdownMenuItem>
+      <DropdownMenuItem>Subscription</DropdownMenuItem>
+    </DropdownMenuGroup>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## Examples
+
+### Basic
+
+A basic dropdown menu with labels and separators.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/basic' />
+
+### Submenu
+
+Use `DropdownMenuSub` to nest secondary actions.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/submenu' />
+
+### Shortcuts
+
+Add `DropdownMenuShortcut` to show keyboard hints.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/shortcuts' />
+
+### Icons
+
+Combine icons with labels for quick scanning.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/icons' />
+
+### Checkboxes
+
+Use `DropdownMenuCheckboxItem` for toggles.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/checkboxes' />
+
+### Checkboxes Icons
+
+Add icons to checkbox items.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/checkboxes-icons' />
+
+### Radio group
+
+Use `DropdownMenuRadioGroup` for exclusive choices.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/radio-group' />
+
+### Radio icons
+
+Show radio options with icons.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/radio-icons' />
+
+### Destructive
+
+Use `variant="destructive"` for irreversible actions.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/destructive' />
+
+### Avatar
+
+An account switcher dropdown triggered by an avatar.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/avatar' />
+
+### Complex
+
+Use `DropdownMenu` with `DropdownMenuSub` to nest secondary actions.
+
+<ComponentPreview path='atoms/dropdown-menu/examples/complex' />

@@ -19,13 +19,17 @@ export function CarouselDApiDemo() {
       return
     }
 
-    api.on('init', () => {
-      setCount(api.scrollSnapList().length)
-    })
+    // oxlint-disable-next-line react/react-compiler
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
 
     api.on('select', () => {
       setCurrent(api.selectedScrollSnap() + 1)
     })
+
+    return () => {
+      api.destroy()
+    }
   }, [api])
 
   return (
