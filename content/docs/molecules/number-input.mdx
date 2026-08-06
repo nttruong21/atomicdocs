@@ -1,0 +1,33 @@
+---
+title: Number Input
+description: An input to type number.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='molecules/number-input/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='number-input' />
+
+## Usage
+
+```tsx
+import {
+  NumberInput,
+  type NumberInputProps,
+} from '@/components/molecules/number-input'
+```
+
+```tsx
+const [value, setValue] = useState<NumberInputProps['value']>('')
+
+<NumberInput
+  value={value}
+  placeholder='Enter number'
+  onFieldChange={setValue}
+  onValueChange={({ value }) => setValue(value)}
+/>
+```

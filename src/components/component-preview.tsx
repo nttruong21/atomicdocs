@@ -1,5 +1,9 @@
 import nodeFs from 'node:fs/promises'
-import { createServerFn, useServerFn } from '@tanstack/react-start'
+import {
+  createServerFn,
+  useServerFn,
+  type AnyFunctionMiddleware,
+} from '@tanstack/react-start'
 import { staticFunctionMiddleware } from '@tanstack/start-static-server-functions'
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
 import { type lazy, Suspense, use, useState } from 'react'
@@ -62,7 +66,7 @@ export const extractFileContentFn = createServerFn()
       path: z.string().trim(),
     })
   )
-  .middleware([staticFunctionMiddleware])
+  .middleware([staticFunctionMiddleware as unknown as AnyFunctionMiddleware])
   .handler(async ({ data }) => {
     try {
       const { path } = data

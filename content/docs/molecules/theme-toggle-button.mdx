@@ -1,0 +1,32 @@
+---
+title: Theme Toggle Button
+description: A button to toggle the theme.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='molecules/theme-toggle-button/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='theme-toggle-button' />
+
+## Usage
+
+```tsx
+import React from 'react'
+import {
+  observeTheme,
+  ThemeToggleButton,
+} from '@/components/molecules/theme-toggle-button'
+```
+
+```tsx
+React.useLayoutEffect(() => {
+  const observer = observeTheme('theme')
+  return () => observer.disconnect()
+}, [])
+
+<ThemeToggleButton themeLocalStorageKey='theme' />
+```

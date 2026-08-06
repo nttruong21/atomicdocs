@@ -1,0 +1,25 @@
+---
+title: Pagination
+description: Pagination with page navigation.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='molecules/pagination/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='pagination' />
+
+## Usage
+
+```tsx
+import { Pagination } from '@/components/molecules/pagination'
+```
+
+```tsx
+const [page, setPage] = useState(1)
+
+<Pagination page={page} pageCount={10} onChangePage={setPage} />
+```

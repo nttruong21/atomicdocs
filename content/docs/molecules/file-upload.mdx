@@ -1,0 +1,47 @@
+---
+title: File Upload
+description: A file upload component with drag and drop or upload files.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+import { Toaster } from '@/components/atoms/sonner'
+
+<Toaster />
+
+<ComponentPreview path='molecules/file-upload/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='file-upload' />
+
+## Usage
+
+```tsx
+import {
+  FileUpload,
+  FileUploadContent,
+  FileUploadInput,
+  FileUploadItem,
+  type FileUploadProps,
+} from '@/components/molecules/file-upload'
+```
+
+```tsx
+const [value, setValue] = useState<FileUploadProps['value']>([])
+
+<FileUpload
+  value={value}
+  dropzoneOptions={{
+    maxFiles: 5
+  }}
+  onValueChange={setValue}
+>
+  <FileUploadInput />
+  <FileUploadContent>
+    {value.map((item, index) => (
+      <FileUploadItem key={`${index}-${item instanceof File ? item.name : item.id}`} value={item} index={index} />
+    ))}
+  </FileUploadContent>
+</FileUpload>
+```

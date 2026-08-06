@@ -1,0 +1,29 @@
+---
+title: Tilt Card
+description: Smooth tilt card that responds naturally to your cursor, giving the card a more polished, modern look.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='molecules/tilt-card/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='tilt-card' />
+
+## Usage
+
+```tsx
+import { TiltCard, TiltCardContent } from '@/components/molecules/tilt-card'
+```
+
+```tsx
+<TiltCard className='w-80'>
+  <TiltCardContent className='p-6'>
+    <div className='mb-4 aspect-video rounded-xl bg-muted'></div>
+    <div className='mb-2'>Interactive Tilt</div>
+    <div>Move your cursor over this card to see the 3D tilt effect.</div>
+  </TiltCardContent>
+</TiltCard>
+```

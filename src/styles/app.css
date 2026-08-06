@@ -50,6 +50,28 @@
   --default-font-family: var(--font-geist);
   --font-heading: var(--font-sans);
   --font-sans: 'Geist Variable', sans-serif;
+
+  --animate-canopy-horizontal: canopy-x var(--transition-duration) linear
+    infinite;
+  --animate-canopy-vertical: canopy-y var(--transition-duration) linear infinite;
+
+  @keyframes canopy-x {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes canopy-y {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }
 
 @layer base {

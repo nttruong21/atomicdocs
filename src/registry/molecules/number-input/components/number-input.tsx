@@ -1,0 +1,117 @@
+import { MinusIcon, PlusIcon } from 'lucide-react'
+import type { FocusEvent } from 'react'
+import { NumericFormat, type NumericFormatProps } from 'react-number-format'
+import { Button } from '@/components/atoms/button'
+import { ButtonGroup } from '@/components/atoms/button-group'
+import { Input, type InputProps } from '@/components/atoms/input'
+import { cn } from '@/utils/ui'
+
+export type NumberInputProps = NumericFormatProps<InputProps> & {
+  isDisplayStepper?: boolean
+  invalid?: boolean
+  onFieldChange?: (value: NonNullable<NumberInputProps['value']>) => void
+}
+
+export function NumberInput({
+  value,
+  min = Number.NEGATIVE_INFINITY,
+  max = Number.POSITIVE_INFINITY,
+  step = 1,
+  decimalScale = 3,
+  allowNegative = true,
+  thousandSeparator = '.',
+  decimalSeparator = ',',
+  valueIsNumericString = true,
+  className,
+  isDisplayStepper = true,
+  disabled,
+  invalid,
+  onFieldChange,
+  ...props
+}: NumberInputProps) {
+  const increment = () => {
+    if (value === null || value === undefined) {
+      return
+    }
+    onFieldChange?.(+value + +step)
+  }
+
+  const decrement = () => {
+    if (value === null || value === undefined) {
+      return
+    }
+    onFieldChange?.(+value - +step)
+  }
+
+  const blur = (e: FocusEvent<HTMLInputElement, Element>) => {
+    props.onBlur?.(e)
+
+    // Using == for checking both null or undefined
+    if (value === null || value === undefined) {
+      return
+    }
+    if (value < min) {
+      return onFieldChange?.(min)
+    }
+    if (value > max) {
+      return onFieldChange?.(max)
+    }
+  }
+
+  return (
+    <ButtonGroup
+      className={cn(
+        'w-full aria-invalid:border-destructive! aria-invalid:ring-destructive/20! dark:aria-invalid:ring-destructive/40',
+        className
+      )}
+    >
+      <NumericFormat
+        allowNegative={allowNegative}
+        aria-invalid={invalid}
+        className={cn(isDisplayStepper && 'rounded-r-none')}
+        customInput={Input}
+        decimalScale={decimalScale}
+        decimalSeparator={decimalSeparator}
+        disabled={disabled}
+        max={max}
+        min={min}
+        step={step}
+        thousandSeparator={thousandSeparator}
+        value={value}
+        valueIsNumericString={valueIsNumericString}
+        {...props}
+        onBlur={blur}
+      />
+
+      {isDisplayStepper && (
+        <>
+          <Button
+            aria-label='Decrease value'
+            disabled={
+              disabled ||
+              (value !== null && value !== undefined && +value <= +min)
+            }
+            onClick={decrement}
+            size='icon'
+            variant='outline'
+          >
+            <MinusIcon />
+          </Button>
+
+          <Button
+            aria-label='Increase value'
+            disabled={
+              disabled ||
+              (value !== null && value !== undefined && +value >= +max)
+            }
+            onClick={increment}
+            size='icon'
+            variant='outline'
+          >
+            <PlusIcon />
+          </Button>
+        </>
+      )}
+    </ButtonGroup>
+  )
+}

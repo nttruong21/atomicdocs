@@ -1,0 +1,25 @@
+---
+title: Phone Number Input
+description: A component to select the country and input the phone number.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='molecules/phone-number-input/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='phone-number-input' />
+
+## Usage
+
+```tsx
+import { Pagination } from '@/components/molecules/pagination'
+```
+
+```tsx
+const [value, setValue] = useState('')
+
+<PhoneNumberInput value={value} onValueChange={setValue} />
+```

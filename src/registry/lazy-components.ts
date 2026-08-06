@@ -1341,4 +1341,104 @@ export const registryLazyComponents: Record<
       }),
     },
   },
+  molecules: {
+    'animated-testimonial': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/animated-testimonial/examples/demo')
+        return { default: m.AnimatedTextDemo }
+      }),
+    },
+    'animated-text': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/animated-text/examples/demo')
+        return { default: m.AnimatedTextDemo }
+      }),
+      highlight: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/animated-text/examples/highlight')
+        return { default: m.AnimatedTextHighlight }
+      }),
+      link: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/animated-text/examples/link')
+        return { default: m.AnimatedTextLink }
+      }),
+    },
+    'color-picker': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/color-picker/examples/demo')
+        return { default: m.ColorPickerDemo }
+      }),
+    },
+    'file-upload': {
+      demo: lazy(async () => {
+        const m = await import('@/registry/molecules/file-upload/examples/demo')
+        return { default: m.FileUploadDemo }
+      }),
+    },
+    'gradient-path-background': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/gradient-path-background/examples/demo')
+        return { default: m.GradientPathBackgroundDemo }
+      }),
+    },
+    'highlighted-text': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/highlighted-text/examples/demo')
+        return { default: m.HighlightedTextDemo }
+      }),
+    },
+    'loading-overlay': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/loading-overlay/examples/demo')
+        return { default: m.LoadingOverlayDemo }
+      }),
+    },
+    'number-input': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/number-input/examples/demo')
+        return { default: m.NumberInputDemo }
+      }),
+    },
+    pagination: {
+      demo: lazy(async () => {
+        const m = await import('@/registry/molecules/pagination/examples/demo')
+        return { default: m.PaginationDemo }
+      }),
+    },
+    'password-input': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/password-input/examples/demo')
+        return { default: m.PasswordInputDemo }
+      }),
+    },
+    'phone-number-input': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/phone-number-input/examples/demo')
+        return { default: m.PhoneNumberInputDemo }
+      }),
+    },
+    'theme-toggle-button': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/molecules/theme-toggle-button/examples/demo')
+        return { default: m.ThemeToggleButtonDemo }
+      }),
+    },
+    'tilt-card': {
+      demo: lazy(async () => {
+        const m = await import('@/registry/molecules/tilt-card/examples/demo')
+        return { default: m.GradientPathBackgroundDemo }
+      }),
+    },
+  },
 }

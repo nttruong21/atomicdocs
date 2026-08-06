@@ -1,0 +1,68 @@
+---
+title: Animated Testimonial
+description: Minimal testimonials with clean, modern design.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='molecules/animated-testimonial/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='animated-testimonial' />
+
+Add these animations to `global.css` `theme`
+
+```css
+--animate-canopy-horizontal: canopy-x var(--transition-duration) linear infinite;
+--animate-canopy-vertical: canopy-y var(--transition-duration) linear infinite;
+
+@keyframes canopy-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes canopy-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+```
+
+## Usage
+
+```tsx
+import {
+  AnimatedTestimonial,
+  AnimatedTestimonialCanopy,
+  AnimatedTestimonialCard,
+} from '@/components/molecules/animated-testimonial'
+```
+
+```tsx
+<AnimatedTestimonial>
+  <AnimatedTestimonialCanopy
+    isPauseOnHover
+    isApplyMask
+    maskClassName='rounded-md'
+    className='py-4'
+  >
+    {Array.from({ length: 20 }).map((_, index) => (
+      <AnimatedTestimonialCard
+        key={index}
+        className='flex size-20 items-center justify-center rounded-md bg-primary text-primary-foreground'
+      >
+        {index + 1}
+      </AnimatedTestimonialCard>
+    ))}
+  </AnimatedTestimonialCanopy>
+</AnimatedTestimonial>
+```
