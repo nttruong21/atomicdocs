@@ -308,7 +308,7 @@ export function ColorPickerFormat(props: ColorPickerFormatProps) {
       <SelectContent>
         {formats.map((formatOption) => (
           <SelectItem key={formatOption} value={formatOption}>
-            {formatOption.toUpperCase()}
+            {formatOption}
           </SelectItem>
         ))}
       </SelectContent>

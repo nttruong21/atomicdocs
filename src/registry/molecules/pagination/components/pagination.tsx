@@ -5,8 +5,9 @@ import {
   ChevronsRight,
   MoreHorizontal,
 } from 'lucide-react'
+import { motion } from 'motion/react'
 import { useMemo } from 'react'
-import { Button } from '@/components/atoms/button'
+import { Button, buttonVariants } from '@/components/atoms/button'
 import {
   Tooltip,
   TooltipContent,
@@ -122,78 +123,98 @@ export function Pagination({
         <ChevronLeft />
       </Button>
 
-      {displayedPages.map((displayedPage) => {
-        // Previous jumping
-        if (displayedPage === Number.NEGATIVE_INFINITY) {
+      <div className='relative flex items-center gap-1'>
+        {/* Pages */}
+        {displayedPages.map((displayedPage) => {
+          // Previous jumping
+          if (displayedPage === Number.NEGATIVE_INFINITY) {
+            return (
+              <TooltipProvider delay={400} key={displayedPage}>
+                <Tooltip>
+                  <TooltipTrigger
+                    render={
+                      <Button
+                        className='group'
+                        onClick={jumpPreviousPages}
+                        size='icon'
+                        variant='ghost'
+                      >
+                        <MoreHorizontal className='block group-hover:hidden' />
+                        <ChevronsLeft className='hidden group-hover:block' />
+                      </Button>
+                    }
+                  />
+                  <TooltipContent>
+                    {jumpedPageCount} previous pages
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )
+          }
+
+          // Next jumping
+          if (displayedPage === Number.POSITIVE_INFINITY) {
+            return (
+              <TooltipProvider delay={400} key={displayedPage}>
+                <Tooltip>
+                  <TooltipTrigger
+                    render={
+                      <Button
+                        className='group'
+                        onClick={jumpNextPages}
+                        size='icon'
+                        variant='ghost'
+                      >
+                        <MoreHorizontal className='block group-hover:hidden' />
+                        <ChevronsRight className='hidden group-hover:block' />
+                      </Button>
+                    }
+                  />
+                  <TooltipContent>{jumpedPageCount} next pages</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )
+          }
+
+          const isActive = displayedPage === page
+
+          // Page
           return (
-            <TooltipProvider delay={400} key={displayedPage}>
-              <Tooltip>
-                <TooltipTrigger
-                  render={
-                    <Button
-                      className='group'
-                      onClick={jumpPreviousPages}
-                      size='icon'
-                      variant='ghost'
-                    >
-                      <MoreHorizontal className='block group-hover:hidden' />
-                      <ChevronsLeft className='hidden group-hover:block' />
-                    </Button>
-                  }
-                />
-                <TooltipContent>
-                  {jumpedPageCount} previous pages
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          )
-        }
-
-        // Next jumping
-        if (displayedPage === Number.POSITIVE_INFINITY) {
-          return (
-            <TooltipProvider delay={400} key={displayedPage}>
-              <Tooltip>
-                <TooltipTrigger
-                  render={
-                    <Button
-                      className='group'
-                      onClick={jumpNextPages}
-                      size='icon'
-                      variant='ghost'
-                    >
-                      <MoreHorizontal className='block group-hover:hidden' />
-                      <ChevronsRight className='hidden group-hover:block' />
-                    </Button>
-                  }
-                />
-                <TooltipContent>{jumpedPageCount} next pages</TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          )
-        }
-
-        const isActive = displayedPage === page
-
-        // Page
-        return (
-          <Button
-            key={displayedPage}
-            onClick={() => onChangePage(displayedPage)}
-            size={displayedPage > 9999 ? 'default' : 'icon'}
-            variant={isActive ? 'default' : 'ghost'}
-          >
-            <span
-              className={cn(
-                'z-10 tabular-nums',
-                isActive && 'text-primary-foreground'
+            <div key={displayedPage} className='relative'>
+              {isActive && (
+                <motion.div
+                  layoutId='ribbon-active'
+                  transition={{ type: 'spring', bounce: 0.3, duration: 0.5 }}
+                  className='absolute'
+                >
+                  <div
+                    className={buttonVariants({
+                      size: displayedPage > 9999 ? 'default' : 'icon',
+                    })}
+                  >
+                    <span className='invisible'> {displayedPage}</span>
+                  </div>
+                </motion.div>
               )}
-            >
-              {displayedPage}
-            </span>
-          </Button>
-        )
-      })}
+
+              <Button
+                onClick={() => onChangePage(displayedPage)}
+                size={displayedPage > 9999 ? 'default' : 'icon'}
+                variant='ghost'
+              >
+                <span
+                  className={cn(
+                    'z-10 tabular-nums',
+                    isActive && 'text-primary-foreground'
+                  )}
+                >
+                  {displayedPage}
+                </span>
+              </Button>
+            </div>
+          )
+        })}
+      </div>
 
       {/* Next */}
       <Button
