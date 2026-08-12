@@ -3,7 +3,7 @@ import { NativePDFViewer } from '@/components/organisms/native-pdf-viewer/native
 export function NativePdfViewerDemo() {
   return (
     <NativePDFViewer
-      className='h-[400px]'
+      className='h-100'
       src='https://pdfobject.com/pdf/sample.pdf'
     />
   )

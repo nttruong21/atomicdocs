@@ -10,8 +10,10 @@ export function NativePDFViewer({
 }: IframeHTMLAttributes<HTMLIFrameElement>) {
   const getPdfQuery = useQuery({
     queryFn: src
-      ? async () => {
-          const response = await fetch(src)
+      ? async ({ signal }) => {
+          const response = await fetch(src, {
+            signal,
+          })
           if (!response.ok) {
             throw new Error(`Failed to fetch PDF: ${response.status}`)
           }
@@ -31,9 +33,9 @@ export function NativePDFViewer({
   }
 
   return (
+    // oxlint-disable-next-line react/iframe-missing-sandbox
     <iframe
       title='PDF Viewer'
-      sandbox='allow-same-origin'
       className={cn('w-full', className)}
       src={src}
       {...props}

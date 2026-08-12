@@ -6,7 +6,7 @@ import {
 } from '@tanstack/react-start'
 import { staticFunctionMiddleware } from '@tanstack/start-static-server-functions'
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
-import { type lazy, Suspense, use, useState } from 'react'
+import { Suspense, use, useState, type lazy } from 'react'
 import z from 'zod'
 import { Card, CardContent } from '@/components/atoms/card'
 import { Spinner } from '@/components/atoms/spinner'
@@ -130,7 +130,7 @@ export function ComponentPreview({ path, className }: ComponentPreviewProps) {
         <CardContent className='p-0'>
           <div className='bg-background text-foreground border-b'>
             <div className='not-prose component-container flex min-h-96 items-center justify-center p-6'>
-              <Suspense fallback={<Spinner className='mx-auto' />}>
+              <Suspense fallback={<Spinner className='mx-auto size-6' />}>
                 <Component />
               </Suspense>
             </div>
@@ -139,7 +139,7 @@ export function ComponentPreview({ path, className }: ComponentPreviewProps) {
           <Suspense
             fallback={
               <div className='p-6'>
-                <Spinner className='mx-auto' />
+                <Spinner className='mx-auto size-6' />
               </div>
             }
           >
