@@ -1,0 +1,51 @@
+import { createFormHook, createFormHookContexts } from '@tanstack/react-form'
+import { lazy } from 'react'
+import FormContainer from '../form-container'
+
+const { fieldContext, formContext, useFieldContext, useFormContext } =
+  createFormHookContexts()
+
+const { useAppForm } = createFormHook({
+  fieldComponents: {
+    AutocompleteWithInfiniteQuery: lazy(
+      () => import('../autocomplete-with-infinite-query-field')
+    ),
+    AutocompleteWithOptions: lazy(
+      () => import('../autocomplete-with-options-field')
+    ),
+    AutocompleteWithQuery: lazy(
+      () => import('../autocomplete-with-query-field')
+    ),
+    Checkbox: lazy(() => import('../checkbox-field')),
+    Date: lazy(() => import('../date-field')),
+    Editor: lazy(() => import('../editor-field')),
+    File: lazy(() => import('../file-field')),
+    Input: lazy(() => import('../input-field')),
+    MultiFile: lazy(() => import('../multi-file-field')),
+    MultiSelectWithInfiniteQuery: lazy(
+      () => import('../multi-select-with-infinite-query-field')
+    ),
+    MultiSelectWithOptions: lazy(
+      () => import('../multi-select-with-options-field')
+    ),
+    MultiSelectWithQuery: lazy(
+      () => import('../multi-select-with-query-field')
+    ),
+    Number: lazy(() => import('../number-field')),
+    Password: lazy(() => import('../password-field')),
+    PhoneNumber: lazy(() => import('../phone-number-field')),
+    SelectWithInfiniteQuery: lazy(
+      () => import('../select-with-infinite-query-field')
+    ),
+    SelectWithOptions: lazy(() => import('../select-with-options-field')),
+    SelectWithQuery: lazy(() => import('../select-with-query-field')),
+    Textarea: lazy(() => import('../textarea-field')),
+  },
+  fieldContext,
+  formComponents: {
+    FormContainer,
+  },
+  formContext,
+})
+
+export { useAppForm, useFieldContext, useFormContext }

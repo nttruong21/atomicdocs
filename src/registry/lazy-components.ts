@@ -1441,4 +1441,74 @@ export const registryLazyComponents: Record<
       }),
     },
   },
+  organisms: {
+    'data-table': {
+      'action-column': lazy(async () => {
+        const m =
+          await import('@/registry/organisms/data-table/examples/action-column')
+        return { default: m.DataTableActionCellDemo }
+      }),
+      'column-pinning': lazy(async () => {
+        const m =
+          await import('@/registry/organisms/data-table/examples/column-pinning')
+        return { default: m.DataTableColumnPinning }
+      }),
+      'column-spanning': lazy(async () => {
+        const m =
+          await import('@/registry/organisms/data-table/examples/column-spanning')
+        return { default: m.DataTableColumnSpanning }
+      }),
+      'column-visibility': lazy(async () => {
+        const m =
+          await import('@/registry/organisms/data-table/examples/column-visibility')
+        return { default: m.DataTableColumnVisibility }
+      }),
+      demo: lazy(async () => {
+        const m = await import('@/registry/organisms/data-table/examples/demo')
+        return { default: m.DataTableDemo }
+      }),
+      expanding: lazy(async () => {
+        const m =
+          await import('@/registry/organisms/data-table/examples/expanding')
+        return { default: m.DataTableExpanding }
+      }),
+      selection: lazy(async () => {
+        const m =
+          await import('@/registry/organisms/data-table/examples/selection')
+        return { default: m.DataTableSelection }
+      }),
+    },
+    editor: {
+      demo: lazy(async () => {
+        const m = await import('@/registry/organisms/editor/examples/demo')
+        return { default: m.EditorDemo }
+      }),
+    },
+    'native-pdf-viewer': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/organisms/native-pdf-viewer/examples/demo')
+        return { default: m.NativePdfViewerDemo }
+      }),
+    },
+    'pdf-viewer': {
+      demo: lazy(async () => {
+        const m = await import('@/registry/organisms/pdf-viewer/examples/demo')
+        return { default: m.PdfViewerDemo }
+      }),
+    },
+    'smart-filter': {
+      demo: lazy(async () => {
+        const m =
+          await import('@/registry/organisms/smart-filter/examples/demo')
+        return { default: m.SmartFilterDemo }
+      }),
+    },
+    'smart-form': {
+      demo: lazy(async () => {
+        const m = await import('@/registry/organisms/smart-form/examples/demo')
+        return { default: m.SmartFormDemo }
+      }),
+    },
+  },
 }

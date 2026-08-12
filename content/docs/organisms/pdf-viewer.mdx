@@ -1,0 +1,28 @@
+---
+title: Pdf Viewer
+description: Embed PDF files without the pain.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='organisms/pdf-viewer/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='pdf-viewer' />
+
+## Usage
+
+```tsx
+import { PDFViewer } from '@/components/organisms/pdf-viewer/pdf-viewer'
+```
+
+```tsx
+<PDFViewer
+  className='h-[calc(100dvh-80px)]'
+  config={{
+    src: 'https://snippet.embedpdf.com/ebook.pdf',
+  }}
+/>
+```

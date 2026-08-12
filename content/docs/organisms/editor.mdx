@@ -1,0 +1,25 @@
+---
+title: Editor
+description: Rich text editor built with Tiptap providing essential formatting tools and markdown support.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='organisms/editor/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='editor' />
+
+## Usage
+
+```tsx
+import { Editor } from '@/components/organisms/editor/editor'
+```
+
+```tsx
+const [value, setValue] = React.useState<Content>('')
+
+<Editor value={value} onValueChange={setValue} />
+```

@@ -1,0 +1,86 @@
+---
+title: Data Table
+description: Powerful table and data grids built using TanStack Table.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='organisms/data-table/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='data-table' />
+
+## Usage
+
+### Client Side Pagination
+
+```tsx
+import { type ColumnDef, getPaginationRowModel } from '@tanstack/react-table'
+import { DataTable } from '@/components/organisms/data-table/data-table'
+import { useDataTable } from '@/components/organisms/data-table/lib'
+```
+
+```tsx
+const table = useDataTable({
+  columns: COLUMNS,
+  data: DATA,
+  getPaginationRowModel: getPaginationRowModel()
+})
+
+<DataTable table={table} />
+```
+
+### Server Side Pagination
+
+```tsx
+import { type ColumnDef, type PaginationState } from '@tanstack/react-table'
+import { DataTable } from '@/components/organisms/data-table/data-table'
+import { useDataTable } from '@/components/organisms/data-table/lib'
+```
+
+```tsx
+const rowCount = useState(0)
+const [pagination, setPagination] = useState<PaginationState>({
+  pageIndex: 0,
+  pageSize: 10
+})
+
+const table = useDataTable({
+  columns: COLUMNS,
+  data: DATA,
+  manualPagination: true,
+  rowCount,
+  state: { pagination },
+  onPaginationChange: setPagination
+})
+
+<DataTable table={table} />
+```
+
+## Examples
+
+### Column spanning
+
+<ComponentPreview path='organisms/data-table/examples/column-spanning' />
+
+### Expanding
+
+<ComponentPreview path='organisms/data-table/examples/expanding' />
+
+### Action column
+
+<ComponentPreview path='organisms/data-table/examples/action-column' />
+
+### Selection
+
+<ComponentPreview path='organisms/data-table/examples/selection' />
+
+### Column Visibility
+
+<ComponentPreview path='organisms/data-table/examples/column-visibility' />
+
+### Column Pinning
+
+<ComponentPreview path='organisms/data-table/examples/column-pinning' />

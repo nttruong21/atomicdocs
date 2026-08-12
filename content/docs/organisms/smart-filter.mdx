@@ -1,0 +1,69 @@
+---
+title: Smart Filter
+description: Powerful component with search and filter by multiple conditions that can switch back and forth on top of TanStack Form.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='organisms/smart-filter/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='smart-filter' />
+
+## Usage
+
+```tsx
+import {
+  type Filter,
+  SmartFilter,
+  type SmartFilterProps,
+  SmartFilterType,
+  transformFormValueToApiFiltersParam,
+} from '@/components/organisms/smart-filter'
+```
+
+```tsx
+const filters: Filter[] = [
+  {
+    name: 'fullName',
+    label: 'Full name',
+    type: 'input',
+  },
+  {
+    name: 'age',
+    label: 'Age',
+    type: 'number',
+  },
+  {
+    name: 'graduationDate',
+    label: 'Graduation date',
+    type: 'date',
+  },
+  {
+    name: 'department',
+    label: 'Department',
+    type: 'selectWithOptions',
+    options: [
+      { value: 'front-end', label: 'Front-end' },
+      { value: 'back-end', label: 'Back-end' },
+    ],
+  },
+  {
+    name: 'technologies',
+    label: 'Technologies',
+    type: 'selectWithQuery',
+    apiPath: '/version/1.0/options/role',
+  },
+]
+```
+
+```tsx
+const setFilters: SmartFilterProps['setFilters'] = useCallback((formValue) => {
+  const filtersParam = transformFormValueToApiFiltersParam(formValue, filters)
+  console.log(filtersParam)
+}, [])
+
+<SmartFilter filters={filters} setFilters={setFilters} />
+```

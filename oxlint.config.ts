@@ -16,6 +16,7 @@ export default defineConfig({
     'sort-keys': 'off',
     'arrow-body-style': 'off',
     'react/hook-use-state': 'off',
-    'react/function-component-definition': 'allow',
+    'react/function-component-definition': 'off',
+    'react/jsx-handler-names': 'off',
   },
 })

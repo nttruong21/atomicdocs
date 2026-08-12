@@ -1,0 +1,26 @@
+---
+title: Native Pdf Viewer
+description: Embed PDF files without the pain using native iframe.
+---
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InstallationTabs } from '@/components/installation-tabs'
+
+<ComponentPreview path='organisms/native-pdf-viewer/examples/demo' />
+
+## Installation
+
+<InstallationTabs name='native-pdf-viewer' />
+
+## Usage
+
+```tsx
+import { NativePDFViewer } from '@/components/organisms/native-pdf-viewer/native-pdf-viewer'
+```
+
+```tsx
+<NativePDFViewer
+  className='h-[400px]'
+  src='https://snippet.embedpdf.com/ebook.pdf'
+/>
+```

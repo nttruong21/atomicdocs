@@ -1,0 +1,343 @@
+import { useForm } from '@tanstack/react-form'
+import { useEditorState } from '@tiptap/react'
+import { CheckCircleIcon, ImageIcon } from 'lucide-react'
+import { useState } from 'react'
+import type { DropzoneOptions } from 'react-dropzone'
+import { toast } from 'sonner'
+import z from 'zod'
+import { Button } from '@/components/atoms/button'
+import { Field, FieldError, FieldLabel } from '@/components/atoms/field'
+import { Input } from '@/components/atoms/input'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/atoms/popover'
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/components/atoms/tabs'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/atoms/tooltip'
+import {
+  FileUpload,
+  FileUploadContent,
+  FileUploadInput,
+  FileUploadItem,
+  type FileUploadProps,
+} from '@/components/molecules/file-upload/file-upload'
+import {
+  getFileUrl,
+  useFileUpload,
+} from '@/components/molecules/file-upload/lib'
+import { useInternalEditor } from './lib/base'
+
+const imageFormMode = {
+  url: 'Url',
+  files: 'Files',
+} as const
+
+type ImageFormMode = (typeof imageFormMode)[keyof typeof imageFormMode]
+
+const imageUrlRegex =
+  /(?<protocol>http(?<secure>s?):)(?<path>[/|.|\w|\s|-])*\.(?:jpg|jpeg|png|webp|svg)/u
+
+const imageFormSchema = z
+  .object({
+    files: z.array(z.custom<File>()),
+    mode: z.custom<ImageFormMode>(),
+    url: z.string().trim(),
+  })
+  .superRefine((form, ctx) => {
+    const { mode, url, files } = form
+    switch (mode) {
+      case imageFormMode.url: {
+        if (!url) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'Please enter the URL',
+            path: ['url'],
+          })
+          break
+        }
+
+        if (!imageUrlRegex.test(url)) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'URL is invalid',
+            path: ['url'],
+          })
+          break
+        }
+
+        break
+      }
+      case imageFormMode.files: {
+        if (!files.length) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'Please select the image file',
+            path: ['files'],
+          })
+        }
+        break
+      }
+      default: {
+        break
+      }
+    }
+  })
+
+const defaultImageFormValue: z.input<typeof imageFormSchema> = {
+  files: [],
+  mode: imageFormMode.url,
+  url: '',
+}
+
+const fileUploaderDropzoneOptions: DropzoneOptions = {
+  accept: {
+    'image/jpeg': ['.jpeg', '.jpg'],
+    'image/png': ['.png'],
+    'image/svg+xml': ['.svg'],
+    'image/webp': ['.webp'],
+  },
+  maxFiles: 10,
+  multiple: true,
+}
+
+export default function ImageButton({ id }: { id: string }) {
+  const internalEditor = useInternalEditor()
+  const editorState = useEditorState({
+    editor: internalEditor,
+    selector: ({ editor }) => ({
+      isEditable: editor.isEditable,
+    }),
+  })
+
+  const [openPopover, setOpenPopover] = useState(false)
+  const { fileUploadPending, uploadFile } = useFileUpload()
+
+  const imageForm = useForm({
+    defaultValues: defaultImageFormValue,
+    formId: `${id}-file-form`,
+    onSubmit: async ({ value }) => {
+      try {
+        const { mode, url, files } = imageFormSchema.parse(value)
+
+        // Add image node view
+        switch (mode) {
+          case imageFormMode.url: {
+            internalEditor.chain().focus().setImage({ src: url }).enter().run()
+            break
+          }
+          case imageFormMode.files: {
+            const uploadedFiles = await Promise.all(
+              files.map(async (file) => await uploadFile(file))
+            )
+            for (const uploadedFile of uploadedFiles) {
+              if (!uploadedFile) {
+                return
+              }
+              internalEditor
+                .chain()
+                .focus()
+                .setImage({
+                  src: getFileUrl(uploadedFile.path),
+                })
+                .enter()
+                .run()
+            }
+            break
+          }
+          default: {
+            break
+          }
+        }
+
+        // Close popover
+        setOpenPopover(false)
+      } catch {
+        toast.error('Failure', {
+          description: 'An error occurred, please try again',
+        })
+      }
+    },
+    validators: {
+      onSubmit: imageFormSchema,
+    },
+  })
+
+  return (
+    <Popover
+      onOpenChange={(open) => {
+        setOpenPopover(open)
+        if (!open) {
+          imageForm.reset()
+        }
+      }}
+      open={openPopover}
+    >
+      <Tooltip>
+        <TooltipTrigger
+          render={
+            <PopoverTrigger
+              render={
+                <Button
+                  disabled={!editorState.isEditable}
+                  size='icon'
+                  variant='ghost'
+                >
+                  <ImageIcon />
+                </Button>
+              }
+            />
+          }
+        />
+        <TooltipContent>Image</TooltipContent>
+      </Tooltip>
+
+      <PopoverContent className='w-xs'>
+        <div>Acceptable formats: jpeg, jpg, png, webp, svg</div>
+
+        <form
+          className='space-y-4'
+          id={imageForm.formId}
+          onSubmit={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            imageForm.handleSubmit()
+          }}
+        >
+          <imageForm.Subscribe selector={(state) => state.values.mode}>
+            {(formMode) => (
+              <Tabs
+                className='gap-6'
+                onValueChange={(value) => {
+                  imageForm.setFieldValue('mode', value)
+                  imageForm.validate('submit')
+                }}
+                value={formMode}
+              >
+                {/* Tabs list */}
+                <TabsList className='w-full [&_button]:flex-1'>
+                  <TabsTrigger value={imageFormMode.url}>URL</TabsTrigger>
+                  <TabsTrigger value={imageFormMode.files}>File</TabsTrigger>
+                </TabsList>
+
+                {/* Tabs content */}
+                {/* Url tab */}
+                <TabsContent value={imageFormMode.url}>
+                  <imageForm.Field name='url'>
+                    {(field) => {
+                      const isInvalid =
+                        field.state.meta.isTouched && !field.state.meta.isValid
+                      return (
+                        <Field data-invalid={isInvalid}>
+                          <FieldLabel htmlFor={`editor-${id}-url`}>
+                            URL *
+                          </FieldLabel>
+
+                          <Input
+                            aria-invalid={isInvalid}
+                            id={`editor-${id}-url`}
+                            name={field.name}
+                            onBlur={field.handleBlur}
+                            onChange={(e) => field.handleChange(e.target.value)}
+                            placeholder='Enter URL'
+                            value={field.state.value}
+                          />
+
+                          {isInvalid && (
+                            <FieldError errors={field.state.meta.errors} />
+                          )}
+                        </Field>
+                      )
+                    }}
+                  </imageForm.Field>
+                </TabsContent>
+
+                {/* Files tab */}
+                <TabsContent value={imageFormMode.files}>
+                  <imageForm.Field name='files'>
+                    {(field) => {
+                      const isInvalid =
+                        field.state.meta.isTouched && !field.state.meta.isValid
+                      return (
+                        <Field data-invalid={isInvalid}>
+                          <FieldLabel
+                            htmlFor={`editor-${imageForm.formId}-files`}
+                          >
+                            Files *
+                          </FieldLabel>
+
+                          <FileUpload
+                            className='xl:grid-cols-1'
+                            {...fileUploaderDropzoneOptions}
+                            onValueChange={
+                              field.handleChange as FileUploadProps['onValueChange']
+                            }
+                            value={field.state.value}
+                          >
+                            <FileUploadInput
+                              aria-invalid={isInvalid}
+                              id={`editor-${imageForm.formId}-files`}
+                            />
+                            <FileUploadContent>
+                              {field.state.value.map((value, index) => (
+                                <FileUploadItem
+                                  index={index}
+                                  // biome-ignore lint/suspicious/noArrayIndexKey: ignore
+                                  key={index}
+                                  value={value}
+                                />
+                              ))}
+                            </FileUploadContent>
+                          </FileUpload>
+
+                          {isInvalid && (
+                            <FieldError errors={field.state.meta.errors} />
+                          )}
+                        </Field>
+                      )
+                    }}
+                  </imageForm.Field>
+                </TabsContent>
+              </Tabs>
+            )}
+          </imageForm.Subscribe>
+
+          <div className='flex items-center justify-end gap-2'>
+            <imageForm.Subscribe
+              selector={(state) => [state.canSubmit, state.isSubmitting]}
+            >
+              {([canSubmit, isSubmitting]) => (
+                <Tooltip>
+                  <TooltipTrigger
+                    render={
+                      <Button
+                        disabled={!canSubmit}
+                        form={imageForm.formId}
+                        loading={fileUploadPending || isSubmitting}
+                        size='icon'
+                        type='submit'
+                        variant='outline'
+                      >
+                        <CheckCircleIcon />
+                      </Button>
+                    }
+                  />
+                  <TooltipContent>Save</TooltipContent>
+                </Tooltip>
+              )}
+            </imageForm.Subscribe>
+          </div>
+        </form>
+      </PopoverContent>
+    </Popover>
+  )
+}
