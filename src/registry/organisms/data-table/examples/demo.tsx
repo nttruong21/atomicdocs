@@ -1,4 +1,3 @@
-import { type ColumnDef, tableFeatures, useTable } from '@tanstack/react-table'
 import { Button } from '@/components/atoms/button'
 import {
   Dialog,
@@ -10,6 +9,10 @@ import {
   DialogTrigger,
 } from '@/components/atoms/dialog'
 import { DataTable } from '@/components/organisms/data-table/data-table'
+import {
+  createAppColumnHelper,
+  useAppTable,
+} from '@/components/organisms/data-table/lib/table'
 
 interface Row {
   age: number
@@ -18,25 +21,22 @@ interface Row {
   lastName: string
 }
 
-const features = tableFeatures({})
+const columnHelper = createAppColumnHelper<Row>()
 
-const columns: ColumnDef<typeof features, Row>[] = [
-  {
-    accessorKey: 'firstName',
-    header: 'First name',
+const columns = columnHelper.columns([
+  columnHelper.accessor('firstName', {
     id: 'firstName',
-  },
-  {
-    accessorKey: 'lastName',
-    header: 'Last name',
+    header: ({ header }) => <header.Base />,
+  }),
+  columnHelper.accessor('lastName', {
     id: 'lastName',
-  },
-  {
-    accessorKey: 'age',
-    header: 'Age',
+    header: ({ header }) => <header.Base />,
+  }),
+  columnHelper.accessor('age', {
     id: 'age',
-  },
-]
+    header: ({ header }) => <header.Base />,
+  }),
+])
 
 const data: Row[] = [
   {
@@ -60,10 +60,9 @@ const data: Row[] = [
 ]
 
 export function DataTableDemo() {
-  const table = useTable({
+  const table = useAppTable({
     columns,
     data,
-    features,
   })
 
   return (

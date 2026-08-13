@@ -1,12 +1,8 @@
 import type {
   Column,
-  Column_ColumnVisibility,
   ColumnVisibilityState,
   RowData,
   Table,
-  Table_ColumnVisibility,
-  TableFeatures,
-  TableState_ColumnVisibility,
 } from '@tanstack/react-table'
 import { ChevronDownIcon } from 'lucide-react'
 import { useState } from 'react'
@@ -22,41 +18,39 @@ import {
   ComboboxTrigger,
 } from '@/components/atoms/combobox'
 import { InputGroupAddon } from '@/components/atoms/input-group'
+import type { DataTableFeatures } from './lib/feature'
 
-export function DataTableColumnVisibilitySelect<
-  TFeatures extends TableFeatures,
-  TData extends RowData,
->({ table }: { table: Table<TFeatures, TData> }) {
-  const dataTable = table as typeof table &
-    Table_ColumnVisibility<TFeatures, TData>
-
+export function DataTableColumnVisibilitySelect<TData extends RowData>({
+  table,
+}: {
+  table: Table<DataTableFeatures, TData>
+}) {
   const [columns] = useState(() =>
-    dataTable
+    table
       .getAllLeafColumns()
       .filter(
         (column) =>
           column.id &&
-          (column as typeof column & Column_ColumnVisibility).getCanHide() &&
+          column.getCanHide() &&
           typeof column.columnDef.header === 'string'
       )
   )
 
-  const { columnVisibility } = dataTable.store
-    .state as TableState_ColumnVisibility
+  const { columnVisibility } = table.store.state
 
   const visibleColumns = columns.filter(
     (column) => columnVisibility[column.id] !== false
   )
 
-  const allColumnsVisible = dataTable.getIsAllColumnsVisible()
-  const someColumnsVisible = dataTable.getIsSomeColumnsVisible()
+  const allColumnsVisible = table.getIsAllColumnsVisible()
+  const someColumnsVisible = table.getIsSomeColumnsVisible()
 
   return (
     <Combobox
       items={columns}
       multiple
       onValueChange={(value) => {
-        dataTable.setColumnVisibility(() => {
+        table.setColumnVisibility(() => {
           const newColumnVisibility: ColumnVisibilityState = {}
 
           for (const column of columns) {
@@ -96,7 +90,7 @@ export function DataTableColumnVisibilitySelect<
               className='cursor-default'
               indeterminate={!allColumnsVisible && someColumnsVisible}
               onCheckedChange={(checked) => {
-                dataTable.toggleAllColumnsVisible(checked)
+                table.toggleAllColumnsVisible(checked)
               }}
             />
           </InputGroupAddon>
@@ -104,7 +98,7 @@ export function DataTableColumnVisibilitySelect<
 
         <ComboboxEmpty>No columns found.</ComboboxEmpty>
         <ComboboxList>
-          {(column: Column<TFeatures, TData, unknown>) => (
+          {(column: Column<DataTableFeatures, TData, unknown>) => (
             <ComboboxItem key={column.id} value={column}>
               {column.columnDef.header as string}
             </ComboboxItem>

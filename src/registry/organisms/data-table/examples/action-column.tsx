@@ -1,10 +1,4 @@
-import {
-  type ColumnDef,
-  createPaginatedRowModel,
-  rowPaginationFeature,
-  tableFeatures,
-  useTable,
-} from '@tanstack/react-table'
+import { type ColumnDef, useTable } from '@tanstack/react-table'
 import { FilePenLineIcon, SearchIcon, TrashIcon } from 'lucide-react'
 import { Button } from '@/components/atoms/button'
 import {
@@ -18,6 +12,7 @@ import {
 } from '@/components/atoms/dialog'
 import { DataTable } from '@/components/organisms/data-table/data-table'
 import { DataTableActionCell } from '@/components/organisms/data-table/data-table-action-cell'
+import { dataTableFeatures } from '@/components/organisms/data-table/lib/feature'
 
 interface Row {
   age: number
@@ -26,12 +21,7 @@ interface Row {
   lastName: string
 }
 
-const features = tableFeatures({
-  rowPaginationFeature,
-  paginatedRowModel: createPaginatedRowModel(),
-})
-
-const columns: ColumnDef<typeof features, Row>[] = [
+const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
   {
     accessorKey: 'firstName',
     header: 'First name',
@@ -112,7 +102,7 @@ export function DataTableActionCellDemo() {
   const table = useTable({
     columns,
     data,
-    features,
+    features: dataTableFeatures,
   })
 
   return (

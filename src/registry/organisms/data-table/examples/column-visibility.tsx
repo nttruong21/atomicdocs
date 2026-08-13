@@ -1,9 +1,4 @@
-import {
-  type ColumnDef,
-  columnVisibilityFeature,
-  tableFeatures,
-  useTable,
-} from '@tanstack/react-table'
+import { type ColumnDef, useTable } from '@tanstack/react-table'
 import { Button } from '@/components/atoms/button'
 import {
   Dialog,
@@ -16,6 +11,7 @@ import {
 } from '@/components/atoms/dialog'
 import { DataTable } from '@/components/organisms/data-table/data-table'
 import { DataTableColumnVisibilitySelect } from '@/components/organisms/data-table/data-table-column-visibility-select'
+import { dataTableFeatures } from '@/components/organisms/data-table/lib/feature'
 
 interface Row {
   age: number
@@ -24,11 +20,7 @@ interface Row {
   lastName: string
 }
 
-const features = tableFeatures({
-  columnVisibilityFeature,
-})
-
-const columns: ColumnDef<typeof features, Row>[] = [
+const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
   {
     accessorKey: 'firstName',
     header: 'First name',
@@ -71,7 +63,7 @@ export function DataTableColumnVisibility() {
   const table = useTable({
     columns,
     data,
-    features,
+    features: dataTableFeatures,
   })
 
   return (

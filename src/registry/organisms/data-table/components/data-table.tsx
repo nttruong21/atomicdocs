@@ -1,9 +1,4 @@
-import type {
-  Table as ReactTable,
-  Row,
-  RowData,
-  TableFeatures,
-} from '@tanstack/react-table'
+import type { RowData } from '@tanstack/react-table'
 import type { ReactNode } from 'react'
 import { Table } from '@/components/atoms/table'
 import { LoadingOverlay } from '@/components/molecules/loading-overlay'
@@ -14,11 +9,9 @@ import DataTableFooter from './data-table-footer'
 import DataTableHeader from './data-table-header'
 import DataTablePagination from './data-table-pagination'
 import DataTableRowSelect from './data-table-row-select'
+import type { AppDataTable } from './lib/table'
 
-export interface DataTableProps<
-  TFeatures extends TableFeatures,
-  TData extends RowData,
-> {
+export interface DataTableProps<TData extends RowData> {
   className?: {
     container?: string
     table?: string
@@ -30,17 +23,16 @@ export interface DataTableProps<
   error?: boolean
   id?: string
   loading?: boolean
-  onRenderAdditionalRow?: (table: ReactTable<TFeatures, TData>) => ReactNode
-  onRenderSubComponent?: (row: Row<TFeatures, TData>) => ReactNode
+  onRenderAdditionalRow?: (table: AppDataTable<TData>) => ReactNode
+  onRenderSubComponent?: (
+    row: ReturnType<AppDataTable<TData>['getRow']>
+  ) => ReactNode
   showFooter?: boolean
   showPagination?: boolean
-  table: ReactTable<TFeatures, TData>
+  table: AppDataTable<TData>
 }
 
-export function DataTable<
-  TFeatures extends TableFeatures,
-  TData extends RowData,
->({
+export function DataTable<TData extends RowData>({
   id,
   table,
   loading = false,
@@ -50,49 +42,45 @@ export function DataTable<
   className,
   onRenderSubComponent,
   onRenderAdditionalRow,
-}: DataTableProps<TFeatures, TData>) {
+}: DataTableProps<TData>) {
   return (
-    <div
-      className={cn(
-        'flex max-h-[calc(100dvh-2rem)] w-full flex-col overflow-hidden rounded-md border',
-        className?.container
-      )}
-      id={id}
-    >
-      <Table className={className?.table}>
-        {/* Table header */}
-        <DataTableHeader className={className?.tableHeader} table={table} />
-
-        {/* Table body */}
-        <DataTableBody
-          className={className?.tableBody}
-          onRenderAdditionalRow={onRenderAdditionalRow}
-          onRenderSubComponent={onRenderSubComponent}
-          table={table}
-        />
-
-        {/* Table footer */}
-        {showFooter && (
-          <DataTableFooter className={className?.tableFooter} table={table} />
+    <table.AppTable>
+      <div
+        id={id}
+        className={cn(
+          'flex max-h-[calc(100dvh-2rem)] w-full flex-col overflow-hidden rounded-md border',
+          className?.container
         )}
-      </Table>
+      >
+        <Table className={className?.table}>
+          {/* Table header */}
+          <DataTableHeader className={className?.tableHeader} />
 
-      {/* Additional info */}
-      <DataTableAdditionalInfo error={error} loading={loading} table={table} />
+          {/* Table body */}
+          <DataTableBody
+            className={className?.tableBody}
+            onRenderAdditionalRow={onRenderAdditionalRow}
+            onRenderSubComponent={onRenderSubComponent}
+          />
 
-      {/* Row select */}
-      <DataTableRowSelect table={table} />
+          {/* Table footer */}
+          {showFooter && <DataTableFooter className={className?.tableFooter} />}
+        </Table>
 
-      {/* Pagination */}
-      {showPagination && (
-        <DataTablePagination
-          className={className?.tablePagination}
-          table={table}
-        />
-      )}
+        {/* Additional info */}
+        <DataTableAdditionalInfo error={error} loading={loading} />
 
-      {/* Loading overlay */}
-      <LoadingOverlay loading={loading} />
-    </div>
+        {/* Row select */}
+        <DataTableRowSelect />
+
+        {/* Pagination */}
+        {showPagination && (
+          <DataTablePagination className={className?.tablePagination} />
+        )}
+
+        {/* Loading overlay */}
+        <LoadingOverlay loading={loading} />
+      </div>
+    </table.AppTable>
   )
 }

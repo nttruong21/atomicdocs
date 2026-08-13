@@ -1,9 +1,4 @@
-import {
-  type ColumnDef,
-  columnPinningFeature,
-  tableFeatures,
-  useTable,
-} from '@tanstack/react-table'
+import { type ColumnDef, useTable } from '@tanstack/react-table'
 import { Button } from '@/components/atoms/button'
 import {
   Dialog,
@@ -15,6 +10,7 @@ import {
   DialogTrigger,
 } from '@/components/atoms/dialog'
 import { DataTable } from '@/components/organisms/data-table/data-table'
+import { dataTableFeatures } from '@/components/organisms/data-table/lib/feature'
 
 interface Row {
   address: string
@@ -25,11 +21,7 @@ interface Row {
   lastName: string
 }
 
-const features = tableFeatures({
-  columnPinningFeature,
-})
-
-const columns: ColumnDef<typeof features, Row>[] = [
+const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
   {
     accessorKey: 'firstName',
     header: 'First name',
@@ -88,7 +80,7 @@ export function DataTableColumnPinning() {
   const table = useTable({
     columns,
     data,
-    features,
+    features: dataTableFeatures,
   })
 
   return (

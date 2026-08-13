@@ -1,46 +1,42 @@
 import {
   FlexRender,
   type Row_ColumnVisibility,
-  type Row_RowExpanding,
   type Row_RowSelection,
   type RowData,
-  type TableFeatures,
 } from '@tanstack/react-table'
 import React from 'react'
 import { TableBody, TableCell, TableRow } from '@/components/atoms/table'
 import { cn } from '@/utils/ui'
 import type { DataTableProps } from './data-table'
-import { getCommonPinningStyles } from './lib'
+import type { DataTableFeatures } from './lib/feature'
+import { getCommonPinningStyles } from './lib/pinning'
+import { useTableContext } from './lib/table'
 
-export default function DataTableBody<
-  TFeatures extends TableFeatures,
-  TData extends RowData,
->({
-  table,
+type DataTableBodyProps<TData extends RowData> = Pick<
+  DataTableProps<TData>,
+  'onRenderSubComponent' | 'onRenderAdditionalRow'
+> & {
+  className?: string
+}
+
+export default function DataTableBody<TData extends RowData>({
   className,
   onRenderSubComponent,
   onRenderAdditionalRow,
-}: Pick<
-  DataTableProps<TFeatures, TData>,
-  'table' | 'onRenderSubComponent' | 'onRenderAdditionalRow'
-> & {
-  className?: string
-}) {
+}: DataTableBodyProps<TData>) {
+  const table = useTableContext()
   const { rows } = table.getRowModel()
 
   return (
     <TableBody className={cn('relative', className)}>
       {rows.map((row) => {
-        const dataTableRow = row as typeof row &
-          Row_RowExpanding &
-          Row_ColumnVisibility<TFeatures, TData>
-        const isExpanded = dataTableRow.getIsExpanded()
-        const rowClassName: string =
-          (typeof row.original === 'object' &&
+        const isExpanded = row.getIsExpanded()
+        const rowClassName =
           row.original &&
+          typeof row.original === 'object' &&
           'className' in row.original
-            ? (row.original.className as string)
-            : '') ?? ''
+            ? (row.original.className as string | undefined)
+            : undefined
 
         return (
           <React.Fragment key={row.id}>
@@ -55,12 +51,19 @@ export default function DataTableBody<
                 'selected'
               }
             >
-              {(row as typeof row & Row_ColumnVisibility<TFeatures, TData>)
+              {(
+                row as typeof row &
+                  Row_ColumnVisibility<DataTableFeatures, TData>
+              )
                 .getVisibleCells()
                 .map((cell) => (
                   <TableCell
                     key={cell.id}
-                    style={{ ...getCommonPinningStyles(cell.column) }}
+                    style={{
+                      ...getCommonPinningStyles({
+                        column: cell.column,
+                      }),
+                    }}
                   >
                     <FlexRender cell={cell} />
                   </TableCell>
@@ -74,7 +77,7 @@ export default function DataTableBody<
                   'table-row': isExpanded,
                 })}
               >
-                <TableCell colSpan={dataTableRow.getVisibleCells().length}>
+                <TableCell colSpan={row.getVisibleCells().length}>
                   {onRenderSubComponent(row)}
                 </TableCell>
               </TableRow>

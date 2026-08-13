@@ -1,9 +1,3 @@
-import type {
-  RowData,
-  Table_RowPagination,
-  TableFeatures,
-  TableState_RowPagination,
-} from '@tanstack/react-table'
 import debounce from 'lodash.debounce'
 import type { NumberFormatValues } from 'react-number-format'
 import {
@@ -16,36 +10,33 @@ import {
 import { NumberInput } from '@/components/molecules/number-input'
 import { Pagination } from '@/components/molecules/pagination'
 import { cn } from '@/utils/ui'
-import type { DataTableProps } from './data-table'
+import { useTableContext } from './lib/table'
 
 const pageSizeOptions = [10, 20, 30, 50, 100]
 
-export default function DataTablePagination<
-  TFeatures extends TableFeatures,
-  TData extends RowData,
->({
-  table,
-  className,
-}: Pick<DataTableProps<TFeatures, TData>, 'table'> & {
+interface DataTablePaginationProps {
   className?: string
-}) {
-  const dataTable = table as typeof table &
-    Table_RowPagination<TFeatures, TData>
+}
+
+export default function DataTablePagination({
+  className,
+}: DataTablePaginationProps) {
+  const table = useTableContext()
 
   const {
     pagination: { pageIndex, pageSize },
-  } = dataTable.store.state as TableState_RowPagination
+  } = table.store.state
   const page = pageIndex + 1
-  const pageCount = dataTable.getPageCount()
+  const pageCount = table.getPageCount()
 
   const changeNumberInputValue = debounce((values: NumberFormatValues) => {
     if (values.floatValue === undefined || values.floatValue < 1) {
       return
     }
     if (values.floatValue > pageCount) {
-      return dataTable.setPageIndex(pageCount - 1)
+      return table.setPageIndex(pageCount - 1)
     }
-    return dataTable.setPageIndex(values.floatValue - 1)
+    return table.setPageIndex(values.floatValue - 1)
   }, 400)
 
   return (
@@ -76,7 +67,7 @@ export default function DataTablePagination<
           <span>Number of rows per page</span>
           <Select
             onValueChange={(value) => {
-              dataTable.setPageSize(Number(value))
+              table.setPageSize(Number(value))
             }}
             value={`${pageSize}`}
           >
@@ -95,11 +86,11 @@ export default function DataTablePagination<
       </div>
 
       <Pagination
-        isHasNextPage={dataTable.getCanNextPage()}
-        isHasPreviousPage={dataTable.getCanPreviousPage()}
-        onChangePage={(newPage) => dataTable.setPageIndex(newPage - 1)}
-        onGoToNextPage={dataTable.nextPage}
-        onGoToPreviousPage={dataTable.previousPage}
+        isHasNextPage={table.getCanNextPage()}
+        isHasPreviousPage={table.getCanPreviousPage()}
+        onChangePage={(newPage) => table.setPageIndex(newPage - 1)}
+        onGoToNextPage={table.nextPage}
+        onGoToPreviousPage={table.previousPage}
         page={page}
         pageCount={pageCount}
       />

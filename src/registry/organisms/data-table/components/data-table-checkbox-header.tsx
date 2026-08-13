@@ -1,25 +1,18 @@
-import type {
-  HeaderContext,
-  RowData,
-  Table_RowSelection,
-  TableFeatures,
-} from '@tanstack/react-table'
+import type { HeaderContext, RowData } from '@tanstack/react-table'
 import { Checkbox } from '@/components/atoms/checkbox'
+import type { DataTableFeatures } from './lib/feature'
 
-export function DataTableCheckboxHeader<
-  TFeatures extends TableFeatures,
-  TData extends RowData,
->({ table }: HeaderContext<TFeatures, TData, unknown>) {
-  const dataTable = table as typeof table & Table_RowSelection<TFeatures, TData>
-
+export function DataTableCheckboxHeader<TData extends RowData>({
+  table,
+}: HeaderContext<DataTableFeatures, TData, unknown>) {
   return (
     <div className='flex h-full w-full items-center justify-center'>
       <Checkbox
-        checked={dataTable.getIsAllPageRowsSelected()}
-        indeterminate={dataTable.getIsSomePageRowsSelected()}
+        checked={table.getIsAllPageRowsSelected()}
+        indeterminate={table.getIsSomePageRowsSelected()}
         onCheckedChange={(value) => {
-          dataTable.toggleAllPageRowsSelected(!!value)
-          dataTable.options.meta?.setIsSelectAllRows?.(false)
+          table.toggleAllPageRowsSelected(!!value)
+          table.options.meta?.setIsSelectAllRows?.(false)
         }}
       />
     </div>

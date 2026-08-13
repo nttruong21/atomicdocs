@@ -1,14 +1,17 @@
-import type { RowData, TableFeatures } from '@tanstack/react-table'
+import type { RowData } from '@tanstack/react-table'
 import type { DataTableProps } from './data-table'
+import { useTableContext } from './lib/table'
 
-export default function DataTableAdditionalInfo<
-  TFeatures extends TableFeatures,
-  TData extends RowData,
->({
-  table,
+type DataTableAdditionalInfoProps<TData extends RowData> = Pick<
+  DataTableProps<TData>,
+  'error' | 'loading'
+>
+
+export default function DataTableAdditionalInfo<TData extends RowData>({
   loading,
   error,
-}: Pick<DataTableProps<TFeatures, TData>, 'table' | 'error' | 'loading'>) {
+}: DataTableAdditionalInfoProps<TData>) {
+  const table = useTableContext()
   const rowLength = table.getRowModel().rows.length
   const empty = !(rowLength || loading)
 

@@ -1,10 +1,4 @@
-import {
-  type ColumnDef,
-  createExpandedRowModel,
-  rowExpandingFeature,
-  tableFeatures,
-  useTable,
-} from '@tanstack/react-table'
+import { type ColumnDef, useTable } from '@tanstack/react-table'
 import { ChevronRight } from 'lucide-react'
 import { Button } from '@/components/atoms/button'
 import {
@@ -17,6 +11,7 @@ import {
   DialogTrigger,
 } from '@/components/atoms/dialog'
 import { DataTable } from '@/components/organisms/data-table/data-table'
+import { dataTableFeatures } from '@/components/organisms/data-table/lib/feature'
 import { cn } from '@/utils/ui'
 
 type Row = {
@@ -28,12 +23,7 @@ type Row = {
   subRows: Row[]
 }
 
-const features = tableFeatures({
-  rowExpandingFeature,
-  expandedRowModel: createExpandedRowModel(),
-})
-
-const columns: ColumnDef<typeof features, Row>[] = [
+const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
   {
     cell: ({ row }) => {
       if (row.getCanExpand()) {
@@ -156,7 +146,7 @@ const data: Row[] = [
 
 export function DataTableExpanding() {
   const table = useTable({
-    features,
+    features: dataTableFeatures,
     columns,
     data,
     autoResetExpanded: false,

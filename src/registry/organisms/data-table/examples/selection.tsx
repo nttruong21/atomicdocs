@@ -1,9 +1,4 @@
-import {
-  type ColumnDef,
-  rowSelectionFeature,
-  tableFeatures,
-  useTable,
-} from '@tanstack/react-table'
+import { type ColumnDef, useTable } from '@tanstack/react-table'
 import { Button } from '@/components/atoms/button'
 import {
   Dialog,
@@ -17,6 +12,7 @@ import {
 import { DataTable } from '@/components/organisms/data-table/data-table'
 import { DataTableCheckboxCell } from '@/components/organisms/data-table/data-table-checkbox-cell'
 import { DataTableCheckboxHeader } from '@/components/organisms/data-table/data-table-checkbox-header'
+import { dataTableFeatures } from '@/components/organisms/data-table/lib/feature'
 
 interface Row {
   age: number
@@ -25,11 +21,7 @@ interface Row {
   lastName: string
 }
 
-const features = tableFeatures({
-  rowSelectionFeature,
-})
-
-const columns: ColumnDef<typeof features, Row>[] = [
+const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
   {
     cell: DataTableCheckboxCell,
     header: DataTableCheckboxHeader,
@@ -75,7 +67,7 @@ const data: Row[] = [
 
 export function DataTableSelection() {
   const table = useTable({
-    features,
+    features: dataTableFeatures,
     columns,
     data,
     initialState: {

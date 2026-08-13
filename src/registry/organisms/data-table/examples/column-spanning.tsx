@@ -1,9 +1,4 @@
-import {
-  columnGroupingFeature,
-  tableFeatures,
-  useTable,
-  type ColumnDef,
-} from '@tanstack/react-table'
+import { useTable, type ColumnDef } from '@tanstack/react-table'
 import { Button } from '@/components/atoms/button'
 import {
   Dialog,
@@ -15,6 +10,7 @@ import {
   DialogTrigger,
 } from '@/components/atoms/dialog'
 import { DataTable } from '@/components/organisms/data-table/data-table'
+import { dataTableFeatures } from '@/components/organisms/data-table/lib/feature'
 
 interface Row {
   age: number
@@ -26,11 +22,7 @@ interface Row {
   visits: number
 }
 
-const features = tableFeatures({
-  columnGroupingFeature,
-})
-
-const columns: ColumnDef<typeof features, Row>[] = [
+const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
   {
     columns: [
       {
@@ -115,7 +107,7 @@ export function DataTableColumnSpanning() {
   const table = useTable({
     columns,
     data,
-    features,
+    features: dataTableFeatures,
   })
 
   return (

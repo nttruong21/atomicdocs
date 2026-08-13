@@ -1,10 +1,4 @@
-import type {
-  RowData,
-  Table_RowPagination,
-  Table_RowSelection,
-  TableFeatures,
-  TableState_RowSelection,
-} from '@tanstack/react-table'
+import type { RowData } from '@tanstack/react-table'
 import { ListChecksIcon } from 'lucide-react'
 import type { Dispatch, SetStateAction } from 'react'
 import { Button } from '@/components/atoms/button'
@@ -15,30 +9,23 @@ import {
   TooltipTrigger,
 } from '@/components/atoms/tooltip'
 import { cn } from '@/utils/ui'
-import type { DataTableProps } from './data-table'
+import { useTableContext } from './lib/table'
 
-export default function DataTableRowSelection<
-  TFeatures extends TableFeatures,
-  TData extends RowData,
->({ table }: Pick<DataTableProps<TFeatures, TData>, 'table'>) {
-  const dataTable = table as typeof table &
-    Table_RowPagination<TFeatures, TData> &
-    Table_RowSelection<TFeatures, TData>
+export default function DataTableRowSelection<TData extends RowData>() {
+  const table = useTableContext<TData>()
 
-  const rowCount = dataTable.getRowCount()
-  const rowSelectionLength = Object.keys(
-    (dataTable.store.state as TableState_RowSelection).rowSelection
-  ).length
-  const pageRowCount = dataTable.getFilteredRowModel().rows.length
+  const rowCount = table.getRowCount()
+  const rowSelectionLength = Object.keys(table.store.state.rowSelection).length
+  const pageRowCount = table.getFilteredRowModel().rows.length
   const { isSelectAllRows, setIsSelectAllRows } =
-    (dataTable.options.meta as {
+    (table.options.meta as {
       isSelectAllRows: boolean
       setIsSelectAllRows: Dispatch<SetStateAction<boolean>>
     }) ?? {}
 
   const toggleSelectAllRows = () => {
     setIsSelectAllRows?.((prev) => !prev)
-    dataTable.toggleAllPageRowsSelected(!isSelectAllRows)
+    table.toggleAllPageRowsSelected(!isSelectAllRows)
   }
 
   if (!rowSelectionLength) {
