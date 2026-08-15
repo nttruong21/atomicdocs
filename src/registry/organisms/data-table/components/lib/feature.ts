@@ -23,12 +23,15 @@ import {
   rowSortingFeature,
   tableFeatures,
 } from '@tanstack/react-table'
+import type { Dispatch, SetStateAction } from 'react'
 
 export interface DataTableColumnMeta {
-  label?: string
-  variant?: 'text' | 'number' | 'date' | 'boolean' | 'select' | 'multi-select'
-  options?: { label: string; value: string; count?: number }[]
   className?: string
+}
+
+export interface DataTableMeta {
+  isSelectAllRows?: boolean
+  setIsSelectAllRows?: Dispatch<SetStateAction<boolean>>
 }
 
 export const dataTableFeatures = tableFeatures({
@@ -47,6 +50,7 @@ export const dataTableFeatures = tableFeatures({
   columnGroupingFeature,
   globalFilteringFeature,
   columnMeta: metaHelper<DataTableColumnMeta>(),
+  tableMeta: metaHelper<DataTableMeta>(),
   filteredRowModel: createFilteredRowModel(),
   facetedRowModel: createFacetedRowModel(),
   facetedUniqueValues: createFacetedUniqueValues(),

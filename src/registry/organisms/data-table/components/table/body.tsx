@@ -1,16 +1,17 @@
 import { FlexRender, type RowData } from '@tanstack/react-table'
-import React from 'react'
+import React, { type ReactNode } from 'react'
+// oxlint-disable import/no-cycle
 import { TableBody, TableCell, TableRow } from '@/components/atoms/table'
 import { cn } from '@/utils/ui'
-import type { DataTableProps } from './data-table'
-import { getCommonPinningStyles } from './lib/pinning'
-import { useTableContext } from './lib/table'
+import { getCommonPinningStyles } from '../lib/pinning'
+import { useTableContext, type AppDataTable } from '../lib/table'
 
-type DataTableBodyProps<TData extends RowData> = Pick<
-  DataTableProps<TData>,
-  'onRenderSubComponent' | 'onRenderAdditionalRow'
-> & {
+interface DataTableBodyProps<TData extends RowData> {
   className?: string
+  onRenderAdditionalRow?: (table: AppDataTable<TData>) => ReactNode
+  onRenderSubComponent?: (
+    row: ReturnType<AppDataTable<TData>['getRow']>
+  ) => ReactNode
 }
 
 export default function DataTableBody<TData extends RowData>({

@@ -24,8 +24,8 @@ import { useDataTable } from '@/components/organisms/data-table/lib'
 
 ```tsx
 const table = useDataTable({
-  columns: COLUMNS,
-  data: DATA,
+  columns,
+  data,
   getPaginationRowModel: getPaginationRowModel()
 })
 
@@ -48,8 +48,8 @@ const [pagination, setPagination] = useState<PaginationState>({
 })
 
 const table = useDataTable({
-  columns: COLUMNS,
-  data: DATA,
+  columns,
+  data,
   manualPagination: true,
   rowCount,
   state: { pagination },
@@ -57,6 +57,22 @@ const table = useDataTable({
 })
 
 <DataTable table={table} />
+```
+
+## Composition
+
+Use the following composition to build a `DataTable`:
+
+```text
+table.AppTable
+├── table.Container
+│   ├── table.Table
+│   │   ├── table.Header
+│   │   ├── table.Body
+│   │   └── table.Footer
+│   ├── table.AdditionalInfo
+│   ├── table.RowSelection
+│   └── table.Pagination
 ```
 
 ## Examples

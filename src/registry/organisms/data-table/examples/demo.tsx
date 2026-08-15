@@ -1,14 +1,3 @@
-import { Button } from '@/components/atoms/button'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogScroller,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/atoms/dialog'
-import { DataTable } from '@/components/organisms/data-table/data-table'
 import {
   createAppColumnHelper,
   useAppTable,
@@ -26,15 +15,15 @@ const columnHelper = createAppColumnHelper<Row>()
 const columns = columnHelper.columns([
   columnHelper.accessor('firstName', {
     id: 'firstName',
-    header: ({ header }) => <header.Base />,
+    header: ({ header }) => <header.Base label='First name' />,
   }),
   columnHelper.accessor('lastName', {
     id: 'lastName',
-    header: ({ header }) => <header.Base />,
+    header: ({ header }) => <header.Base label='Last name' />,
   }),
   columnHelper.accessor('age', {
     id: 'age',
-    header: ({ header }) => <header.Base />,
+    header: ({ header }) => <header.Base label='Age' />,
   }),
 ])
 
@@ -66,19 +55,16 @@ export function DataTableDemo() {
   })
 
   return (
-    <Dialog>
-      <DialogTrigger render={<Button>Open</Button>} />
-
-      <DialogContent className='w-7xl'>
-        <DialogHeader>
-          <DialogTitle>Data table</DialogTitle>
-          <DialogDescription>Demo</DialogDescription>
-        </DialogHeader>
-
-        <DialogScroller>
-          <DataTable table={table} />
-        </DialogScroller>
-      </DialogContent>
-    </Dialog>
+    <table.AppTable>
+      <table.Container>
+        <table.Table>
+          <table.Header />
+          <table.Body />
+        </table.Table>
+        <table.AdditionalInfo />
+        <table.RowSelection />
+        <table.Pagination />
+      </table.Container>
+    </table.AppTable>
   )
 }

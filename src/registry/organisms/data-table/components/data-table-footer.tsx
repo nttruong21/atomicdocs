@@ -1,4 +1,4 @@
-import { FlexRender } from '@tanstack/react-table'
+import { FlexRender, type RowData } from '@tanstack/react-table'
 import { TableCell, TableFooter, TableRow } from '@/components/atoms/table'
 import { useTableContext } from './lib/table'
 
@@ -6,8 +6,10 @@ interface DataTableFooterProps {
   className?: string
 }
 
-export default function DataTableFooter({ className }: DataTableFooterProps) {
-  const table = useTableContext()
+export default function DataTableFooter<TData extends RowData>({
+  className,
+}: DataTableFooterProps) {
+  const table = useTableContext<TData>()
 
   return (
     <TableFooter className={className}>

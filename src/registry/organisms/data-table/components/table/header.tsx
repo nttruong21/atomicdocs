@@ -1,17 +1,16 @@
-import { FlexRender, type RowData } from '@tanstack/react-table'
+import { FlexRender } from '@tanstack/react-table'
+// oxlint-disable import/no-cycle
 import { TableHead, TableHeader, TableRow } from '@/components/atoms/table'
 import { cn } from '@/utils/ui'
-import { getCommonPinningStyles } from './lib/pinning'
-import { useTableContext } from './lib/table'
+import { getCommonPinningStyles } from '../lib/pinning'
+import { useTableContext } from '../lib/table'
 
 interface DataTableHeaderProps {
   className?: string
 }
 
-export default function DataTableHeader<TData extends RowData>({
-  className,
-}: DataTableHeaderProps) {
-  const table = useTableContext<TData>()
+export default function DataTableHeader({ className }: DataTableHeaderProps) {
+  const table = useTableContext()
 
   return (
     <TableHeader className={cn('sticky top-0 z-20', className)}>
