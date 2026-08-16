@@ -26,6 +26,7 @@ import {
 import type { Dispatch, SetStateAction } from 'react'
 
 export interface DataTableColumnMeta {
+  label?: string
   className?: string
 }
 

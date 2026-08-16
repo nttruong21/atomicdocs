@@ -1,17 +1,9 @@
-import { type ColumnDef, useTable } from '@tanstack/react-table'
 import { ChevronRight } from 'lucide-react'
 import { Button } from '@/components/atoms/button'
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogScroller,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/atoms/dialog'
-import { DataTable } from '@/components/organisms/data-table/data-table'
-import { dataTableFeatures } from '@/components/organisms/data-table/lib/feature'
+  createAppColumnHelper,
+  useAppTable,
+} from '@/components/organisms/data-table/lib/table'
 import { cn } from '@/utils/ui'
 
 type Row = {
@@ -23,8 +15,11 @@ type Row = {
   subRows: Row[]
 }
 
-const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
-  {
+const columnHelper = createAppColumnHelper<Row>()
+
+const columns = columnHelper.columns([
+  columnHelper.display({
+    id: 'expanding',
     cell: ({ row }) => {
       if (row.getCanExpand()) {
         const style = {
@@ -48,9 +43,10 @@ const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
 
       return null
     },
-    id: 'expanding',
-  },
-  {
+  }),
+  columnHelper.display({
+    id: 'no',
+    header: 'No',
     cell: ({ row }) => {
       const parentRowIndexes = row
         .getParentRows()
@@ -58,27 +54,23 @@ const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
       const index = [...parentRowIndexes, row.index + 1].join('.')
       return index
     },
-    header: 'No',
-    id: 'no',
-  },
-  {
-    accessorKey: 'firstName',
-    cell: (info) => info.getValue(),
-    header: 'First name',
+  }),
+  columnHelper.accessor('firstName', {
     id: 'firstName',
-  },
-  {
-    accessorKey: 'lastName',
-    cell: (info) => info.getValue(),
-    header: 'Last name',
+    header: ({ header }) => <header.Base label='First name' />,
+    cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
+  }),
+  columnHelper.accessor('lastName', {
     id: 'lastName',
-  },
-  {
-    accessorKey: 'age',
-    header: () => 'Age',
+    header: ({ header }) => <header.Base label='Last name' />,
+    cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
+  }),
+  columnHelper.accessor('age', {
     id: 'age',
-  },
-]
+    header: ({ header }) => <header.Base label='Age' />,
+    cell: ({ cell }) => <cell.Number value={cell.getValue()} />,
+  }),
+])
 
 const data: Row[] = [
   {
@@ -145,29 +137,21 @@ const data: Row[] = [
 ]
 
 export function DataTableExpanding() {
-  const table = useTable({
-    features: dataTableFeatures,
+  const table = useAppTable({
     columns,
     data,
     autoResetExpanded: false,
-    // Need getSubRows for expanding
     getSubRows: (row) => row.subRows,
   })
 
   return (
-    <Dialog>
-      <DialogTrigger render={<Button>Open</Button>} />
-
-      <DialogContent className='w-7xl'>
-        <DialogHeader>
-          <DialogTitle>Data table</DialogTitle>
-          <DialogDescription>Expanding</DialogDescription>
-        </DialogHeader>
-
-        <DialogScroller>
-          <DataTable table={table} />
-        </DialogScroller>
-      </DialogContent>
-    </Dialog>
+    <table.AppTable>
+      <table.Container>
+        <table.Table>
+          <table.Header />
+          <table.Body />
+        </table.Table>
+      </table.Container>
+    </table.AppTable>
   )
 }

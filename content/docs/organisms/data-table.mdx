@@ -65,21 +65,22 @@ Use the following composition to build a `DataTable`:
 
 ```text
 table.AppTable
-├── table.Container
-│   ├── table.Table
-│   │   ├── table.Header
-│   │   ├── table.Body
-│   │   └── table.Footer
-│   ├── table.AdditionalInfo
-│   ├── table.RowSelection
-│   └── table.Pagination
+├── table.ColumnVisibilitySelection
+└── table.Container
+    ├── table.Table
+    │   ├── table.Header
+    │   ├── table.Body
+    │   └── table.Footer
+    ├── table.AdditionalInfo
+    ├── table.RowSelection
+    └── table.Pagination
 ```
 
 ## Examples
 
-### Column spanning
+### Header group
 
-<ComponentPreview path='organisms/data-table/examples/column-spanning' />
+<ComponentPreview path='organisms/data-table/examples/header-group' />
 
 ### Expanding
 
@@ -89,9 +90,9 @@ table.AppTable
 
 <ComponentPreview path='organisms/data-table/examples/action-column' />
 
-### Selection
+### Row selection
 
-<ComponentPreview path='organisms/data-table/examples/selection' />
+<ComponentPreview path='organisms/data-table/examples/row-selection' />
 
 ### Column Visibility
 

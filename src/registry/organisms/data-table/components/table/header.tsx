@@ -25,47 +25,56 @@ export default function DataTableHeader({ className }: DataTableHeaderProps) {
               const { column } = header
               const columnMeta = column.columnDef.meta
 
-              const columnRelativeDepth = header.depth - column.depth
-              if (columnRelativeDepth > 1) {
-                return null
-              }
+              // const columnRelativeDepth = header.depth - column.depth
+              // if (columnRelativeDepth > 1) {
+              //   return null
+              // }
 
-              let rowSpan = 1
-              if (header.isPlaceholder) {
-                const leafs = header.getLeafHeaders()
-                const lastLeftDepth = leafs.at(-1)?.depth
-                if (lastLeftDepth) {
-                  rowSpan = lastLeftDepth - header.depth
-                }
-              }
+              // let rowSpan = 1
+              // if (header.isPlaceholder) {
+              //   const leafs = header.getLeafHeaders()
+              //   const lastLeftDepth = leafs.at(-1)?.depth
+              //   if (lastLeftDepth) {
+              //     rowSpan = lastLeftDepth - header.depth
+              //   }
+              // }
 
               return (
                 <table.AppHeader key={header.id} header={header}>
-                  {(headerInstance) => (
-                    <TableHead
-                      className={cn(
-                        'border-b border-l',
-                        columnMeta?.className,
-                        {
-                          'first:border-l-0': headerIndex === 0,
-                          'text-center *:[[role=checkbox]]:mx-auto':
-                            headerInstance.column.id === 'checkbox',
-                        }
-                      )}
-                      colSpan={headerInstance.colSpan}
-                      rowSpan={rowSpan}
-                      style={{
-                        flexGrow: headerInstance.getSize(),
-                        width: headerInstance.getSize(),
-                        ...getCommonPinningStyles({ column }),
-                      }}
-                    >
-                      {headerInstance.isPlaceholder ? null : (
-                        <FlexRender header={header} />
-                      )}
-                      <headerInstance.ResizeHandler />
-                    </TableHead>
-                  )}
+                  {(headerInstance) =>
+                    headerInstance.rowSpan ? (
+                      <TableHead
+                        className={cn(
+                          'border-b border-l',
+                          columnMeta?.className,
+                          {
+                            'first:border-l-0': headerIndex === 0,
+                          }
+                        )}
+                        colSpan={headerInstance.colSpan}
+                        rowSpan={headerInstance.rowSpan}
+                        style={{
+                          flexGrow: headerInstance.getSize(),
+                          width: headerInstance.getSize(),
+                          ...getCommonPinningStyles({ column }),
+                        }}
+                      >
+                        <FlexRender header={headerInstance} />
+                        {headerInstance.column.getCanResize() && (
+                          <div
+                            role='none'
+                            className={cn(
+                              'absolute -right-0.5 z-10 top-1/2 h-6 w-0.75 -translate-y-1/2 cursor-e-resize select-none touch-none rounded-md transition-colors hover:bg-blue-600 before:absolute before:-left-1 before:-right-1 before:top-0 before:h-full before:content-[""]',
+                              header.column.getIsResizing() && 'bg-blue-600'
+                            )}
+                            onDoubleClick={() => header.column.resetSize()}
+                            onMouseDown={header.getResizeHandler()}
+                            onTouchStart={header.getResizeHandler()}
+                          />
+                        )}
+                      </TableHead>
+                    ) : null
+                  }
                 </table.AppHeader>
               )
             })}

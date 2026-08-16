@@ -96,10 +96,11 @@ const data: Row[] = [
   },
 ]
 
-export function DataTableColumnPinning() {
+export function DataTableHeaderGroup() {
   const table = useAppTable({
     columns,
     data,
+    // manualGrouping: true, // if using manual server-side grouping
   })
 
   return (
@@ -109,7 +110,6 @@ export function DataTableColumnPinning() {
           <table.Header />
           <table.Body />
         </table.Table>
-        <table.RowSelection />
       </table.Container>
     </table.AppTable>
   )

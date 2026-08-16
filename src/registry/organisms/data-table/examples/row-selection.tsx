@@ -13,6 +13,13 @@ interface Row {
 const columnHelper = createAppColumnHelper<Row>()
 
 const columns = columnHelper.columns([
+  columnHelper.display({
+    id: 'selection',
+    header: ({ header }) => <header.Checkbox />,
+    cell: ({ cell }) => <cell.Checkbox />,
+    minSize: 40,
+    maxSize: 40,
+  }),
   columnHelper.accessor('firstName', {
     id: 'firstName',
     header: ({ header }) => <header.Base label='First name' />,
@@ -51,7 +58,7 @@ const data: Row[] = [
   },
 ]
 
-export function DataTableDemo() {
+export function DataTableRowSelection() {
   const table = useAppTable({
     columns,
     data,
@@ -64,9 +71,7 @@ export function DataTableDemo() {
           <table.Header />
           <table.Body />
         </table.Table>
-        <table.AdditionalInfo />
         <table.RowSelection />
-        <table.Pagination />
       </table.Container>
     </table.AppTable>
   )

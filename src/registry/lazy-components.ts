@@ -1453,11 +1453,6 @@ export const registryLazyComponents: Record<
           await import('@/registry/organisms/data-table/examples/column-pinning')
         return { default: m.DataTableColumnPinning }
       }),
-      'column-spanning': lazy(async () => {
-        const m =
-          await import('@/registry/organisms/data-table/examples/column-spanning')
-        return { default: m.DataTableColumnSpanning }
-      }),
       'column-visibility': lazy(async () => {
         const m =
           await import('@/registry/organisms/data-table/examples/column-visibility')
@@ -1472,10 +1467,15 @@ export const registryLazyComponents: Record<
           await import('@/registry/organisms/data-table/examples/expanding')
         return { default: m.DataTableExpanding }
       }),
-      selection: lazy(async () => {
+      'header-group': lazy(async () => {
         const m =
-          await import('@/registry/organisms/data-table/examples/selection')
-        return { default: m.DataTableSelection }
+          await import('@/registry/organisms/data-table/examples/header-group')
+        return { default: m.DataTableHeaderGroup }
+      }),
+      'row-selection': lazy(async () => {
+        const m =
+          await import('@/registry/organisms/data-table/examples/row-selection')
+        return { default: m.DataTableRowSelection }
       }),
     },
     editor: {

@@ -1,18 +1,8 @@
-import { type ColumnDef, useTable } from '@tanstack/react-table'
 import { FilePenLineIcon, SearchIcon, TrashIcon } from 'lucide-react'
-import { Button } from '@/components/atoms/button'
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogScroller,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/atoms/dialog'
-import { DataTable } from '@/components/organisms/data-table/data-table'
-import { DataTableActionCell } from '@/components/organisms/data-table/data-table-action-cell'
-import { dataTableFeatures } from '@/components/organisms/data-table/lib/feature'
+  createAppColumnHelper,
+  useAppTable,
+} from '@/components/organisms/data-table/lib/table'
 
 interface Row {
   age: number
@@ -21,25 +11,29 @@ interface Row {
   lastName: string
 }
 
-const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
-  {
-    accessorKey: 'firstName',
-    header: 'First name',
+const columnHelper = createAppColumnHelper<Row>()
+
+const columns = columnHelper.columns([
+  columnHelper.accessor('firstName', {
     id: 'firstName',
-  },
-  {
-    accessorKey: 'lastName',
-    header: 'Last name',
+    header: ({ header }) => <header.Base label='First name' />,
+    cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
+  }),
+  columnHelper.accessor('lastName', {
     id: 'lastName',
-  },
-  {
-    accessorKey: 'age',
-    header: 'Age',
+    header: ({ header }) => <header.Base label='Last name' />,
+    cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
+  }),
+  columnHelper.accessor('age', {
     id: 'age',
-  },
-  {
-    cell: () => (
-      <DataTableActionCell
+    header: ({ header }) => <header.Base label='Age' />,
+    cell: ({ cell }) => <cell.Number value={cell.getValue()} />,
+  }),
+  columnHelper.display({
+    id: 'action',
+    header: 'Action',
+    cell: ({ cell }) => (
+      <cell.Action
         menus={[
           {
             icon: <SearchIcon />,
@@ -72,10 +66,11 @@ const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
         ]}
       />
     ),
-    header: 'Action',
-    id: 'action',
-  },
-]
+    enableHiding: false,
+    enableResizing: false,
+    maxSize: 40,
+  }),
+])
 
 const data: Row[] = [
   {
@@ -99,26 +94,25 @@ const data: Row[] = [
 ]
 
 export function DataTableActionCellDemo() {
-  const table = useTable({
+  const table = useAppTable({
     columns,
     data,
-    features: dataTableFeatures,
+    initialState: {
+      columnPinning: {
+        start: [],
+        end: ['action'],
+      },
+    },
   })
 
   return (
-    <Dialog>
-      <DialogTrigger render={<Button>Open</Button>} />
-
-      <DialogContent className='w-7xl'>
-        <DialogHeader>
-          <DialogTitle>Data table</DialogTitle>
-          <DialogDescription>Action column</DialogDescription>
-        </DialogHeader>
-
-        <DialogScroller>
-          <DataTable table={table} />
-        </DialogScroller>
-      </DialogContent>
-    </Dialog>
+    <table.AppTable>
+      <table.Container>
+        <table.Table>
+          <table.Header />
+          <table.Body />
+        </table.Table>
+      </table.Container>
+    </table.AppTable>
   )
 }

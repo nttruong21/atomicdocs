@@ -44,16 +44,19 @@ export default function DataTableBody<TData extends RowData>({
               data-state={row.getIsSelected() && 'selected'}
             >
               {row.getVisibleCells().map((cell) => (
-                <TableCell
-                  key={cell.id}
-                  style={{
-                    ...getCommonPinningStyles({
-                      column: cell.column,
-                    }),
-                  }}
-                >
-                  <FlexRender cell={cell} />
-                </TableCell>
+                <table.AppCell key={cell.id} cell={cell}>
+                  {(cellInstance) => (
+                    <TableCell
+                      style={{
+                        ...getCommonPinningStyles({
+                          column: cellInstance.column,
+                        }),
+                      }}
+                    >
+                      <FlexRender cell={cellInstance} />
+                    </TableCell>
+                  )}
+                </table.AppCell>
               ))}
             </TableRow>
 

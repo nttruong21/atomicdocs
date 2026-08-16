@@ -1,4 +1,8 @@
-import { Subscribe, type SortDirection } from '@tanstack/react-table'
+import {
+  Subscribe,
+  type ColumnPinningPosition,
+  type SortDirection,
+} from '@tanstack/react-table'
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -21,13 +25,24 @@ import {
 import { cn } from '@/utils/ui'
 import { useHeaderContext, useTableContext } from '../lib/table'
 
-function getSortIcon(sort: false | SortDirection) {
-  if (sort === 'asc') {
+function getIcon(
+  sortDirection: SortDirection | false,
+  pinningPosition: ColumnPinningPosition | false
+) {
+  if (sortDirection === 'asc') {
     return <ArrowUpIcon />
   }
 
-  if (sort === 'desc') {
+  if (sortDirection === 'desc') {
     return <ArrowDownIcon />
+  }
+
+  if (pinningPosition === 'start') {
+    return <PinIcon />
+  }
+
+  if (pinningPosition === 'end') {
+    return <PinIcon className='rotate-180' />
   }
 
   return (
@@ -35,15 +50,15 @@ function getSortIcon(sort: false | SortDirection) {
   )
 }
 
-interface DataTableHeaderBaseProps {
+interface DataTableBaseHeaderProps {
   label: string
   className?: string
 }
 
-export default function DataTableHeaderBase({
+export default function DataTableBaseHeader({
   label,
   className,
-}: DataTableHeaderBaseProps) {
+}: DataTableBaseHeaderProps) {
   const header = useHeaderContext()
   const table = useTableContext()
   const { column } = header
@@ -68,8 +83,8 @@ export default function DataTableHeaderBase({
         })}
       >
         {() => {
-          const sort = canSort ? column.getIsSorted() : false
-          const pinned = canPin ? column.getIsPinned() : false
+          const sortDirection = canSort ? column.getIsSorted() : false
+          const pinningPosition = canPin ? column.getIsPinned() : false
           const grouped = canGroup ? column.getIsGrouped() : false
 
           return (
@@ -81,7 +96,7 @@ export default function DataTableHeaderBase({
                     <Button variant='ghost' size='icon-sm' className='group' />
                   }
                 >
-                  {getSortIcon(sort)}
+                  {getIcon(sortDirection, pinningPosition)}
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align='start'>
                   {canSort && (
@@ -89,13 +104,13 @@ export default function DataTableHeaderBase({
                       <DropdownMenuItem
                         onClick={() => column.toggleSorting(false)}
                       >
-                        <ArrowUpIcon className='text-muted-foreground/70 mr-2 size-3.5' />
+                        <ArrowUpIcon className='text-muted-foreground/70 mr-2' />
                         Asc
                       </DropdownMenuItem>
                       <DropdownMenuItem
                         onClick={() => column.toggleSorting(true)}
                       >
-                        <ArrowDownIcon className='text-muted-foreground/70 mr-2 size-3.5' />
+                        <ArrowDownIcon className='text-muted-foreground/70 mr-2' />
                         Desc
                       </DropdownMenuItem>
                     </>
@@ -108,12 +123,12 @@ export default function DataTableHeaderBase({
                       >
                         {grouped ? (
                           <>
-                            <UngroupIcon className='text-muted-foreground/70 mr-2 size-3.5' />
+                            <UngroupIcon className='text-muted-foreground/70 mr-2' />
                             Ungroup
                           </>
                         ) : (
                           <>
-                            <GroupIcon className='text-muted-foreground/70 mr-2 size-3.5' />
+                            <GroupIcon className='text-muted-foreground/70 mr-2' />
                             Group by
                           </>
                         )}
@@ -125,21 +140,21 @@ export default function DataTableHeaderBase({
                       {canSort || canGroup ? <DropdownMenuSeparator /> : null}
                       <DropdownMenuItem
                         onClick={() => column.pin('start')}
-                        disabled={pinned === 'start'}
+                        disabled={pinningPosition === 'start'}
                       >
-                        <PinIcon className='text-muted-foreground/70 mr-2 size-3.5' />
+                        <PinIcon className='text-muted-foreground/70 mr-2' />
                         Pin left
                       </DropdownMenuItem>
                       <DropdownMenuItem
                         onClick={() => column.pin('end')}
-                        disabled={pinned === 'end'}
+                        disabled={pinningPosition === 'end'}
                       >
-                        <PinIcon className='text-muted-foreground/70 mr-2 size-3.5 rotate-180' />
+                        <PinIcon className='text-muted-foreground/70 mr-2 rotate-180' />
                         Pin right
                       </DropdownMenuItem>
-                      {pinned ? (
+                      {pinningPosition ? (
                         <DropdownMenuItem onClick={() => column.pin(false)}>
-                          <PinOffIcon className='text-muted-foreground/70 mr-2 size-3.5' />
+                          <PinOffIcon className='text-muted-foreground/70 mr-2' />
                           Unpin
                         </DropdownMenuItem>
                       ) : null}
@@ -151,7 +166,7 @@ export default function DataTableHeaderBase({
                       <DropdownMenuItem
                         onClick={() => column.toggleVisibility(false)}
                       >
-                        <EyeOffIcon className='text-muted-foreground/70 mr-2 size-3.5' />
+                        <EyeOffIcon className='text-muted-foreground/70 mr-2' />
                         Hide
                       </DropdownMenuItem>
                     </>

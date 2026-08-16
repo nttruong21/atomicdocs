@@ -63,6 +63,7 @@ export function getCommonPinningStyles<TData extends RowData>({
       isSelected,
       pinningPosition,
     }),
+    width: column.getSize(),
     zIndex: isPinned ? 1 : 0,
   }
 }

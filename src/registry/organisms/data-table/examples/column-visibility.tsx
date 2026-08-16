@@ -1,17 +1,7 @@
-import { type ColumnDef, useTable } from '@tanstack/react-table'
-import { Button } from '@/components/atoms/button'
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogScroller,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/atoms/dialog'
-import { DataTable } from '@/components/organisms/data-table/data-table'
-import { DataTableColumnVisibilitySelect } from '@/components/organisms/data-table/data-table-column-visibility-select'
-import { dataTableFeatures } from '@/components/organisms/data-table/lib/feature'
+  createAppColumnHelper,
+  useAppTable,
+} from '@/components/organisms/data-table/lib/table'
 
 interface Row {
   age: number
@@ -20,23 +10,34 @@ interface Row {
   lastName: string
 }
 
-const columns: ColumnDef<typeof dataTableFeatures, Row>[] = [
-  {
-    accessorKey: 'firstName',
-    header: 'First name',
+const columnHelper = createAppColumnHelper<Row>()
+
+const columns = columnHelper.columns([
+  columnHelper.accessor('firstName', {
     id: 'firstName',
-  },
-  {
-    accessorKey: 'lastName',
-    header: 'Last name',
+    header: ({ header }) => <header.Base label='First name' />,
+    cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
+    meta: {
+      label: 'First name',
+    },
+  }),
+  columnHelper.accessor('lastName', {
     id: 'lastName',
-  },
-  {
-    accessorKey: 'age',
-    header: 'Age',
+    header: ({ header }) => <header.Base label='Last name' />,
+    cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
+    meta: {
+      label: 'Last name',
+    },
+  }),
+  columnHelper.accessor('age', {
     id: 'age',
-  },
-]
+    header: ({ header }) => <header.Base label='Age' />,
+    cell: ({ cell }) => <cell.Number value={cell.getValue()} />,
+    meta: {
+      label: 'Age',
+    },
+  }),
+])
 
 const data: Row[] = [
   {
@@ -60,31 +61,23 @@ const data: Row[] = [
 ]
 
 export function DataTableColumnVisibility() {
-  const table = useTable({
+  const table = useAppTable({
     columns,
     data,
-    features: dataTableFeatures,
   })
 
   return (
-    <Dialog>
-      <DialogTrigger render={<Button>Open</Button>} />
-
-      <DialogContent className='w-7xl'>
-        <DialogHeader>
-          <DialogTitle>Data table</DialogTitle>
-          <DialogDescription>Column visibility</DialogDescription>
-        </DialogHeader>
-
-        <DialogScroller>
-          <div className='space-y-4'>
-            <div className='flex justify-end'>
-              <DataTableColumnVisibilitySelect table={table} />
-            </div>
-            <DataTable table={table} />
-          </div>
-        </DialogScroller>
-      </DialogContent>
-    </Dialog>
+    <table.AppTable>
+      <div className='flex w-full flex-col gap-4'>
+        <table.ColumnVisibilitySelection className='ml-auto' />
+        <table.Container>
+          <table.Table>
+            <table.Header />
+            <table.Body />
+          </table.Table>
+          <table.RowSelection />
+        </table.Container>
+      </div>
+    </table.AppTable>
   )
 }

@@ -1,10 +1,14 @@
 // oxlint-disable import/no-cycle
 import { createTableHook, type RowData } from '@tanstack/react-table'
-import DataTableHeaderBase from '../header/base'
-import DataTableHeaderCheckbox from '../header/checkbox'
-import DataTableHeaderResizeHandler from '../header/resize-handler'
+import DataTableActionCell from '../cell/action'
+import DataTableCheckboxCell from '../cell/checkbox'
+import DataTableNumberCell from '../cell/number'
+import DataTableTextCell from '../cell/text'
+import DataTableBaseHeader from '../header/base'
+import DataTableCheckboxHeader from '../header/checkbox'
 import DataTableAdditionalInfo from '../table/additional-info'
 import DataTableBody from '../table/body'
+import DataTableColumnVisibilitySelection from '../table/column-visibility-selection'
 import DataTableContainer from '../table/container'
 import DataTableFooter from '../table/footer'
 import DataTableHeader from '../table/header'
@@ -36,16 +40,20 @@ export const {
     AdditionalInfo: DataTableAdditionalInfo,
     RowSelection: DataTableRowSelection,
     Pagination: DataTablePagination,
+    ColumnVisibilitySelection: DataTableColumnVisibilitySelection,
     // FilterList: DataTableFilterList,
     // SortList: DataTableSortList,
     // ViewOptions: DataTableViewOptions,
   },
   headerComponents: {
-    Base: DataTableHeaderBase,
-    Checkbox: DataTableHeaderCheckbox,
-    ResizeHandler: DataTableHeaderResizeHandler,
+    Base: DataTableBaseHeader,
+    Checkbox: DataTableCheckboxHeader,
   },
   cellComponents: {
+    Text: DataTableTextCell,
+    Number: DataTableNumberCell,
+    Checkbox: DataTableCheckboxCell,
+    Action: DataTableActionCell,
     // SelectCell,
     // TextCell,
     // AgeCell,
