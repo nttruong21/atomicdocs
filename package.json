@@ -19,6 +19,7 @@
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@embedpdf/react-pdf-viewer": "^2.15.0",
+    "@faker-js/faker": "^10.6.0",
     "@fontsource-variable/geist": "^5.3.0",
     "@fontsource-variable/geist-mono": "^5.3.0",
     "@fuma-translate/react": "^1.0.2",

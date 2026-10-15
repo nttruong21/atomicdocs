@@ -1448,6 +1448,11 @@ export const registryLazyComponents: Record<
           await import('@/registry/organisms/data-table/examples/action-column')
         return { default: m.DataTableActionCellDemo }
       }),
+      'cell-spanning': lazy(async () => {
+        const m =
+          await import('@/registry/organisms/data-table/examples/cell-spanning')
+        return { default: m.DataTableActionCellDemo }
+      }),
       'column-pinning': lazy(async () => {
         const m =
           await import('@/registry/organisms/data-table/examples/column-pinning')

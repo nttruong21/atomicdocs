@@ -1,4 +1,5 @@
 import {
+  cellSpanningFeature,
   columnFacetingFeature,
   columnFilteringFeature,
   columnGroupingFeature,
@@ -50,6 +51,7 @@ export const dataTableFeatures = tableFeatures({
   columnPinningFeature,
   columnGroupingFeature,
   globalFilteringFeature,
+  cellSpanningFeature,
   columnMeta: metaHelper<DataTableColumnMeta>(),
   tableMeta: metaHelper<DataTableMeta>(),
   filteredRowModel: createFilteredRowModel(),

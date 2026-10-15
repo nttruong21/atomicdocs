@@ -38,7 +38,4 @@ export default defineConfig({
       tslib: 'tslib/tslib.es6.js',
     },
   },
-  optimizeDeps: {
-    include: ['@tanstack/react-form-start'],
-  },
 })

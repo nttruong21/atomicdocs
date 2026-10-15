@@ -1,5 +1,5 @@
 import { FlexRender, type RowData } from '@tanstack/react-table'
-import React, { type ReactNode } from 'react'
+import { Fragment, useState, type ReactNode } from 'react'
 // oxlint-disable import/no-cycle
 import { TableBody, TableCell, TableRow } from '@/components/atoms/table'
 import { cn } from '@/utils/ui'
@@ -21,10 +21,25 @@ export default function DataTableBody<TData extends RowData>({
 }: DataTableBodyProps<TData>) {
   const table = useTableContext<TData>()
   const { rows } = table.getRowModel()
+  const [hoveredCell, setHoveredCell] = useState<{
+    rowId: string
+    cellId: string
+  } | null>(null)
+  // Resolve against the current row model so sorting and pagination cannot
+  // leave a hover range pointing at unrelated rows.
+  const hoveredRowIndex = rows.findIndex((row) => row.id === hoveredCell?.rowId)
+  const hoveredRowSpan =
+    rows[hoveredRowIndex]
+      ?.getVisibleCells()
+      .find((cell) => cell.id === hoveredCell?.cellId)
+      ?.getRowSpan() ?? 0
 
   return (
-    <TableBody className={cn('relative', className)}>
-      {rows.map((row) => {
+    <TableBody
+      className={cn('relative', className)}
+      onMouseLeave={() => setHoveredCell(null)}
+    >
+      {rows.map((row, rowIndex) => {
         const isExpanded = row.getIsExpanded()
         const rowClassName =
           row.original &&
@@ -34,30 +49,53 @@ export default function DataTableBody<TData extends RowData>({
             : undefined
 
         return (
-          <React.Fragment key={row.id}>
+          <Fragment key={row.id}>
             <TableRow
               className={cn(
                 '[&:not(:last-child)_td]:border-b',
+                rowIndex >= hoveredRowIndex &&
+                  rowIndex < hoveredRowIndex + hoveredRowSpan &&
+                  'bg-muted/50',
                 isExpanded && 'border-b-0',
                 rowClassName
               )}
               data-state={row.getIsSelected() && 'selected'}
             >
-              {row.getVisibleCells().map((cell) => (
-                <table.AppCell key={cell.id} cell={cell}>
-                  {(cellInstance) => (
-                    <TableCell
-                      style={{
-                        ...getCommonPinningStyles({
-                          column: cellInstance.column,
-                        }),
-                      }}
-                    >
-                      <FlexRender cell={cellInstance} />
-                    </TableCell>
-                  )}
-                </table.AppCell>
-              ))}
+              {row.getVisibleCells().map((cell) => {
+                const rowSpan = cell.getRowSpan()
+                const colSpan = cell.getColSpan()
+
+                // A span of 0 means this cell is covered by a cell above
+                // or to its left. Skip it. Do NOT render `rowSpan={0}`:
+                // in HTML that means "span to the end of the row group",
+                // so forgetting this check merges the cell down the whole
+                // tbody instead of rendering nothing.
+                if (rowSpan === 0 || colSpan === 0) {
+                  return null
+                }
+
+                return (
+                  <table.AppCell key={cell.id} cell={cell}>
+                    {(cellInstance) => (
+                      <TableCell
+                        onMouseEnter={() =>
+                          setHoveredCell({ rowId: row.id, cellId: cell.id })
+                        }
+                        onMouseLeave={() => setHoveredCell(null)}
+                        rowSpan={cellInstance.getRowSpan()}
+                        colSpan={cellInstance.getColSpan()}
+                        style={{
+                          ...getCommonPinningStyles({
+                            column: cellInstance.column,
+                          }),
+                        }}
+                      >
+                        <FlexRender cell={cellInstance} />
+                      </TableCell>
+                    )}
+                  </table.AppCell>
+                )
+              })}
             </TableRow>
 
             {/* Sub component */}
@@ -72,7 +110,7 @@ export default function DataTableBody<TData extends RowData>({
                 </TableCell>
               </TableRow>
             )}
-          </React.Fragment>
+          </Fragment>
         )
       })}
 
