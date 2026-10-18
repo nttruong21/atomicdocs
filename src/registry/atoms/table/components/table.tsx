@@ -66,7 +66,7 @@ export function TableHead({ className, ...props }: ComponentProps<'th'>) {
   return (
     <th
       className={cn(
-        'h-10 whitespace-nowrap px-4 py-2 text-left align-middle font-medium text-foreground',
+        'h-10 whitespace-nowrap px-4 py-3 text-left align-middle font-medium text-foreground not-last:border-r',
         className
       )}
       data-slot='table-head'
@@ -78,7 +78,10 @@ export function TableHead({ className, ...props }: ComponentProps<'th'>) {
 export function TableCell({ className, ...props }: ComponentProps<'td'>) {
   return (
     <td
-      className={cn('whitespace-nowrap px-4 py-2 align-middle', className)}
+      className={cn(
+        'whitespace-nowrap px-4 py-3 align-middle not-last:border-r',
+        className
+      )}
       data-slot='table-cell'
       {...props}
     />

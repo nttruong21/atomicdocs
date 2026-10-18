@@ -1,17 +1,9 @@
+import { Subscribe, type ColumnPinningPosition } from '@tanstack/react-table'
 import {
-  Subscribe,
-  type ColumnPinningPosition,
-  type SortDirection,
-} from '@tanstack/react-table'
-import {
-  ArrowDownIcon,
-  ArrowUpIcon,
   ChevronsUpDownIcon,
   EyeOffIcon,
-  GroupIcon,
   PinIcon,
   PinOffIcon,
-  UngroupIcon,
 } from 'lucide-react'
 // oxlint-disable import/no-cycle
 import { Button } from '@/components/atoms/button'
@@ -25,18 +17,7 @@ import {
 import { cn } from '@/utils/ui'
 import { useHeaderContext, useTableContext } from '../lib/table'
 
-function getIcon(
-  sortDirection: SortDirection | false,
-  pinningPosition: ColumnPinningPosition | false
-) {
-  if (sortDirection === 'asc') {
-    return <ArrowUpIcon />
-  }
-
-  if (sortDirection === 'desc') {
-    return <ArrowDownIcon />
-  }
-
+function getIcon(pinningPosition: ColumnPinningPosition | false) {
   if (pinningPosition === 'start') {
     return <PinIcon />
   }
@@ -63,13 +44,11 @@ export default function DataTableBaseHeader({
   const table = useTableContext()
   const { column } = header
 
-  const canSort = column.getCanSort()
   const canHide = column.getCanHide()
   const canPin = column.getCanPin()
-  const canGroup = column.getCanGroup()
 
-  if (!canSort && !canHide && !canPin && !canGroup) {
-    return <div className={cn(className)}>{label}</div>
+  if (!canHide && !canPin) {
+    return <div className={className}>{label}</div>
   }
 
   return (
@@ -83,9 +62,7 @@ export default function DataTableBaseHeader({
         })}
       >
         {() => {
-          const sortDirection = canSort ? column.getIsSorted() : false
           const pinningPosition = canPin ? column.getIsPinned() : false
-          const grouped = canGroup ? column.getIsGrouped() : false
 
           return (
             <div className='flex items-center gap-1'>
@@ -96,48 +73,12 @@ export default function DataTableBaseHeader({
                     <Button variant='ghost' size='icon-sm' className='group' />
                   }
                 >
-                  {getIcon(sortDirection, pinningPosition)}
+                  {getIcon(pinningPosition)}
                 </DropdownMenuTrigger>
+
                 <DropdownMenuContent align='start'>
-                  {canSort && (
-                    <>
-                      <DropdownMenuItem
-                        onClick={() => column.toggleSorting(false)}
-                      >
-                        <ArrowUpIcon className='text-muted-foreground/70 mr-2' />
-                        Asc
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => column.toggleSorting(true)}
-                      >
-                        <ArrowDownIcon className='text-muted-foreground/70 mr-2' />
-                        Desc
-                      </DropdownMenuItem>
-                    </>
-                  )}
-                  {canGroup && (
-                    <>
-                      {canSort ? <DropdownMenuSeparator /> : null}
-                      <DropdownMenuItem
-                        onClick={column.getToggleGroupingHandler()}
-                      >
-                        {grouped ? (
-                          <>
-                            <UngroupIcon className='text-muted-foreground/70 mr-2' />
-                            Ungroup
-                          </>
-                        ) : (
-                          <>
-                            <GroupIcon className='text-muted-foreground/70 mr-2' />
-                            Group by
-                          </>
-                        )}
-                      </DropdownMenuItem>
-                    </>
-                  )}
                   {canPin && (
                     <>
-                      {canSort || canGroup ? <DropdownMenuSeparator /> : null}
                       <DropdownMenuItem
                         onClick={() => column.pin('start')}
                         disabled={pinningPosition === 'start'}
@@ -160,9 +101,10 @@ export default function DataTableBaseHeader({
                       ) : null}
                     </>
                   )}
+
                   {canHide && (
                     <>
-                      <DropdownMenuSeparator />
+                      {canPin ? <DropdownMenuSeparator /> : null}
                       <DropdownMenuItem
                         onClick={() => column.toggleVisibility(false)}
                       >

@@ -21,10 +21,12 @@ export default function DataTableBody<TData extends RowData>({
 }: DataTableBodyProps<TData>) {
   const table = useTableContext<TData>()
   const { rows } = table.getRowModel()
+
   const [hoveredCell, setHoveredCell] = useState<{
     rowId: string
     cellId: string
   } | null>(null)
+
   // Resolve against the current row model so sorting and pagination cannot
   // leave a hover range pointing at unrelated rows.
   const hoveredRowIndex = rows.findIndex((row) => row.id === hoveredCell?.rowId)
@@ -52,10 +54,7 @@ export default function DataTableBody<TData extends RowData>({
           <Fragment key={row.id}>
             <TableRow
               className={cn(
-                '[&:not(:last-child)_td]:border-b',
-                rowIndex >= hoveredRowIndex &&
-                  rowIndex < hoveredRowIndex + hoveredRowSpan &&
-                  'bg-muted/50',
+                'hover:bg-transparent [&:not(:last-child)_td]:border-b',
                 isExpanded && 'border-b-0',
                 rowClassName
               )}
@@ -74,6 +73,13 @@ export default function DataTableBody<TData extends RowData>({
                   return null
                 }
 
+                // Highlight intersecting spans: the hovered group, its children,
+                // and ancestor cells covering it, without including sibling rows.
+                const isHovered =
+                  hoveredRowIndex !== -1 &&
+                  rowIndex < hoveredRowIndex + hoveredRowSpan &&
+                  rowIndex + rowSpan > hoveredRowIndex
+
                 return (
                   <table.AppCell key={cell.id} cell={cell}>
                     {(cellInstance) => (
@@ -87,8 +93,13 @@ export default function DataTableBody<TData extends RowData>({
                         style={{
                           ...getCommonPinningStyles({
                             column: cellInstance.column,
+                            isSelected: row.getIsSelected(),
                           }),
                         }}
+                        className={cn({
+                          'bg-muted/50 hover:bg-muted/50':
+                            isHovered && !row.getIsSelected(),
+                        })}
                       >
                         <FlexRender cell={cellInstance} />
                       </TableCell>

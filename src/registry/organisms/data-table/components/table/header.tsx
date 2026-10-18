@@ -44,13 +44,9 @@ export default function DataTableHeader({ className }: DataTableHeaderProps) {
                   {(headerInstance) =>
                     headerInstance.rowSpan ? (
                       <TableHead
-                        className={cn(
-                          'border-b border-l',
-                          columnMeta?.className,
-                          {
-                            'first:border-l-0': headerIndex === 0,
-                          }
-                        )}
+                        className={cn('relative', columnMeta?.className, {
+                          'first:border-l-0': headerIndex === 0,
+                        })}
                         colSpan={headerInstance.colSpan}
                         rowSpan={headerInstance.rowSpan}
                         style={{
@@ -64,8 +60,8 @@ export default function DataTableHeader({ className }: DataTableHeaderProps) {
                           <div
                             role='none'
                             className={cn(
-                              'absolute -right-0.5 z-10 top-1/2 h-6 w-0.75 -translate-y-1/2 cursor-e-resize select-none touch-none rounded-md transition-colors hover:bg-blue-600 before:absolute before:-left-1 before:-right-1 before:top-0 before:h-full before:content-[""]',
-                              header.column.getIsResizing() && 'bg-blue-600'
+                              'absolute right-1 z-10 top-1/2 h-6 w-0.75 -translate-y-1/2 cursor-e-resize select-none touch-none rounded-md transition-colors hover:bg-primary before:absolute before:-left-1 before:-right-1 before:top-0 before:h-full before:content-[""]',
+                              header.column.getIsResizing() && 'bg-primary'
                             )}
                             onDoubleClick={() => header.column.resetSize()}
                             onMouseDown={header.getResizeHandler()}
