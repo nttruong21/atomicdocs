@@ -84,10 +84,6 @@ export default function DataTableBody<TData extends RowData>({
                   <table.AppCell key={cell.id} cell={cell}>
                     {(cellInstance) => (
                       <TableCell
-                        onMouseEnter={() =>
-                          setHoveredCell({ rowId: row.id, cellId: cell.id })
-                        }
-                        onMouseLeave={() => setHoveredCell(null)}
                         rowSpan={cellInstance.getRowSpan()}
                         colSpan={cellInstance.getColSpan()}
                         style={{
@@ -100,6 +96,10 @@ export default function DataTableBody<TData extends RowData>({
                           'bg-muted/50 hover:bg-muted/50':
                             isHovered && !row.getIsSelected(),
                         })}
+                        onMouseEnter={() =>
+                          setHoveredCell({ rowId: row.id, cellId: cell.id })
+                        }
+                        onMouseLeave={() => setHoveredCell(null)}
                       >
                         <FlexRender cell={cellInstance} />
                       </TableCell>

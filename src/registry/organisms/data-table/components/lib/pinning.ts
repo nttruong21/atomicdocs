@@ -3,6 +3,7 @@ import type {
   ColumnPinningPosition,
   RowData,
 } from '@tanstack/react-table'
+import type { CSSProperties } from 'react'
 import type { DataTableFeatures } from './feature'
 
 function getBoxShadow({
@@ -41,9 +42,8 @@ export function getCommonPinningStyles<TData extends RowData>({
 }: {
   column: Column<DataTableFeatures, TData>
   isSelected?: boolean
-}): React.CSSProperties {
+}): CSSProperties {
   const pinningPosition = column.getIsPinned()
-  const isPinned = pinningPosition
   const isLastLeftPinnedColumn =
     pinningPosition === 'start' && column.getIsLastColumn('start')
   const isFirstRightPinnedColumn =
@@ -51,8 +51,8 @@ export function getCommonPinningStyles<TData extends RowData>({
 
   return {
     boxShadow: getBoxShadow({
-      isFirstRightPinnedColumn,
       isLastLeftPinnedColumn,
+      isFirstRightPinnedColumn,
     }),
     insetInlineStart:
       pinningPosition === 'start' ? `${column.getStart('start')}px` : undefined,
@@ -63,7 +63,7 @@ export function getCommonPinningStyles<TData extends RowData>({
       isSelected,
       pinningPosition,
     }),
-    width: column.getSize(),
-    zIndex: isPinned ? 1 : 0,
+    minWidth: column.getSize(),
+    zIndex: pinningPosition ? 1 : 0,
   }
 }

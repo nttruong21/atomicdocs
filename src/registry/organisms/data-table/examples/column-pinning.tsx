@@ -16,53 +16,41 @@ interface Row {
 const columnHelper = createAppColumnHelper<Row>()
 
 const columns = columnHelper.columns([
-  columnHelper.group({
-    id: 'name',
-    header: 'Name',
-    meta: {
-      className: 'text-center',
-    },
-    columns: columnHelper.columns([
-      columnHelper.accessor('firstName', {
-        id: 'firstName',
-        header: ({ header }) => <header.Base label='First name' />,
-        cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
-      }),
-      columnHelper.accessor('lastName', {
-        id: 'lastName',
-        header: ({ header }) => <header.Base label='Last name' />,
-        cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
-      }),
-    ]),
+  columnHelper.accessor('firstName', {
+    id: 'firstName',
+    size: 240,
+    header: ({ header }) => <header.Base label='First name' />,
+    cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
+  }),
+  columnHelper.accessor('lastName', {
+    id: 'lastName',
+    size: 240,
+    header: ({ header }) => <header.Base label='Last name' />,
+    cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
   }),
   columnHelper.accessor('age', {
     id: 'age',
+    size: 240,
     header: ({ header }) => <header.Base label='Age' />,
     cell: ({ cell }) => <cell.Number value={cell.getValue()} />,
   }),
-  columnHelper.group({
-    id: 'info',
-    header: 'Info',
-    meta: {
-      className: 'text-center',
-    },
-    columns: columnHelper.columns([
-      columnHelper.accessor('visits', {
-        id: 'visits',
-        header: ({ header }) => <header.Base label='Visits' />,
-        cell: ({ cell }) => <cell.Number value={cell.getValue()} />,
-      }),
-      columnHelper.accessor('status', {
-        id: 'status',
-        header: ({ header }) => <header.Base label='Status' />,
-        cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
-      }),
-      columnHelper.accessor('progress', {
-        id: 'progress',
-        header: ({ header }) => <header.Base label='Progress' />,
-        cell: ({ cell }) => <cell.Number value={cell.getValue()} />,
-      }),
-    ]),
+  columnHelper.accessor('visits', {
+    id: 'visits',
+    size: 240,
+    header: ({ header }) => <header.Base label='Visits' />,
+    cell: ({ cell }) => <cell.Number value={cell.getValue()} />,
+  }),
+  columnHelper.accessor('status', {
+    id: 'status',
+    size: 240,
+    header: ({ header }) => <header.Base label='Status' />,
+    cell: ({ cell }) => <cell.Text value={cell.getValue()} />,
+  }),
+  columnHelper.accessor('progress', {
+    id: 'progress',
+    size: 240,
+    header: ({ header }) => <header.Base label='Progress' />,
+    cell: ({ cell }) => <cell.Number value={cell.getValue()} />,
   }),
 ])
 

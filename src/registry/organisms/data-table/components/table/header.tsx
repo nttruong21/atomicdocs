@@ -25,20 +25,6 @@ export default function DataTableHeader({ className }: DataTableHeaderProps) {
               const { column } = header
               const columnMeta = column.columnDef.meta
 
-              // const columnRelativeDepth = header.depth - column.depth
-              // if (columnRelativeDepth > 1) {
-              //   return null
-              // }
-
-              // let rowSpan = 1
-              // if (header.isPlaceholder) {
-              //   const leafs = header.getLeafHeaders()
-              //   const lastLeftDepth = leafs.at(-1)?.depth
-              //   if (lastLeftDepth) {
-              //     rowSpan = lastLeftDepth - header.depth
-              //   }
-              // }
-
               return (
                 <table.AppHeader key={header.id} header={header}>
                   {(headerInstance) =>

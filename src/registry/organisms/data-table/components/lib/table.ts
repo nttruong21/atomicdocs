@@ -25,11 +25,11 @@ export const {
   useHeaderContext,
 } = createTableHook({
   features: dataTableFeatures,
-  // defaultColumn: {
-  //   size: 120,
-  //   minSize: 120,
-  //   maxSize: 800,
-  // },
+  defaultColumn: {
+    size: 120,
+    minSize: 120,
+    maxSize: 800,
+  },
   columnResizeMode: 'onChange' as const,
   tableComponents: {
     Container: DataTableContainer,
@@ -54,14 +54,6 @@ export const {
     Number: DataTableNumberCell,
     Checkbox: DataTableCheckboxCell,
     Action: DataTableActionCell,
-    // SelectCell,
-    // TextCell,
-    // AgeCell,
-    // StatusCell,
-    // DepartmentCell,
-    // DateCell,
-    // GroupedCell,
-    // ActionsCell,
   },
 })
 
