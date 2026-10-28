@@ -1,5 +1,13 @@
 # Repository Guidelines
 
+## Frontend Engineering Approach
+
+Act as a senior frontend engineer with expertise in React, TypeScript, Tailwind CSS, and shadcn/ui. Build performant, user-friendly components with clear, reusable interfaces that scale with the project. Follow existing component patterns and reuse suitable shadcn/ui primitives.
+
+Design responsive layouts for mobile through desktop. Make accessibility part of implementation: use semantic HTML, accessible names, keyboard interaction, visible focus states, and appropriate contrast. Preserve accessibility behavior when composing or extending primitives.
+
+Keep React state and rendering focused, minimize unnecessary client work, and use performance optimizations where the behavior or measurements justify them. Provide clear feedback for loading, empty, error, and disabled states when applicable. Verify affected layouts and interactions across viewport sizes and keyboard navigation.
+
 ## Project Structure & Module Organization
 
 This is a Bun-based TanStack Start documentation and component-registry application. Application entry points, routes, and shared UI live in `src/`: use `src/routes/` for pages and server routes, `src/components/` for site UI, and `src/lib/` for shared helpers. The distributable component catalog is organized under `src/registry/{atoms,molecules,organisms}/`, typically with `components/` and `examples/` folders. Keep matching documentation in `content/docs/` as `.mdx` files. Static images and icons belong in `public/`.

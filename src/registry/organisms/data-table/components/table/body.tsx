@@ -38,7 +38,7 @@ export default function DataTableBody<TData extends RowData>({
 
   return (
     <TableBody
-      className={cn('relative', className)}
+      className={cn('relative [&_tr:last-child]:border-0', className)}
       onMouseLeave={() => setHoveredCell(null)}
     >
       {rows.map((row, rowIndex) => {
@@ -54,7 +54,7 @@ export default function DataTableBody<TData extends RowData>({
           <Fragment key={row.id}>
             <TableRow
               className={cn(
-                'hover:bg-transparent [&:not(:last-child)_td]:border-b',
+                'border-b hover:bg-transparent [&:not(:last-child)_td]:border-b',
                 isExpanded && 'border-b-0',
                 rowClassName
               )}
@@ -92,7 +92,7 @@ export default function DataTableBody<TData extends RowData>({
                             isSelected: row.getIsSelected(),
                           }),
                         }}
-                        className={cn({
+                        className={cn('not-last:border-r', {
                           'bg-muted/50 hover:bg-muted/50':
                             isHovered && !row.getIsSelected(),
                         })}
@@ -112,11 +112,14 @@ export default function DataTableBody<TData extends RowData>({
             {/* Sub component */}
             {onRenderSubComponent && (
               <TableRow
-                className={cn('hidden', {
+                className={cn('border-b hidden', {
                   'table-row': isExpanded,
                 })}
               >
-                <TableCell colSpan={row.getVisibleCells().length}>
+                <TableCell
+                  className='not-last:border-r'
+                  colSpan={row.getVisibleCells().length}
+                >
                   {onRenderSubComponent(row)}
                 </TableCell>
               </TableRow>
@@ -126,8 +129,11 @@ export default function DataTableBody<TData extends RowData>({
       })}
 
       {onRenderAdditionalRow && (
-        <TableRow>
-          <TableCell colSpan={table.getAllFlatColumns().length}>
+        <TableRow className='border-b'>
+          <TableCell
+            className='not-last:border-r'
+            colSpan={table.getAllFlatColumns().length}
+          >
             {onRenderAdditionalRow(table)}
           </TableCell>
         </TableRow>

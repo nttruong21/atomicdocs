@@ -13,11 +13,11 @@ export default function DataTableHeader({ className }: DataTableHeaderProps) {
   const table = useTableContext()
 
   return (
-    <TableHeader className={cn('sticky top-0 z-20', className)}>
+    <TableHeader className={cn('sticky top-0 z-20 [&_th]:border-b', className)}>
       {table.getHeaderGroups().map((headerGroup) => (
         <TableRow
           key={headerGroup.id}
-          className='bg-background hover:bg-background'
+          className='bg-background hover:bg-background border-b'
         >
           {headerGroup.headers
             .filter((header) => header.column.getIsVisible())
@@ -30,9 +30,13 @@ export default function DataTableHeader({ className }: DataTableHeaderProps) {
                   {(headerInstance) =>
                     headerInstance.rowSpan ? (
                       <TableHead
-                        className={cn('relative', columnMeta?.className, {
-                          'first:border-l-0': headerIndex === 0,
-                        })}
+                        className={cn(
+                          'relative not-last:border-r',
+                          columnMeta?.className,
+                          {
+                            'first:border-l-0': headerIndex === 0,
+                          }
+                        )}
                         colSpan={headerInstance.colSpan}
                         rowSpan={headerInstance.rowSpan}
                         style={{

@@ -8,7 +8,10 @@ export function Table({ className, ...props }: ComponentProps<'table'>) {
       data-slot='table-container'
     >
       <table
-        className={cn('w-full caption-bottom text-sm', className)}
+        className={cn(
+          'w-full caption-bottom border-separate border-spacing-0',
+          className
+        )}
         data-slot='table'
         {...props}
       />
@@ -26,23 +29,14 @@ export function TableHeader({ className, ...props }: ComponentProps<'thead'>) {
   )
 }
 
-export function TableBody({ className, ...props }: ComponentProps<'tbody'>) {
-  return (
-    <tbody
-      className={cn('[&_tr:last-child]:border-0', className)}
-      data-slot='table-body'
-      {...props}
-    />
-  )
+export function TableBody(props: ComponentProps<'tbody'>) {
+  return <tbody data-slot='table-body' {...props} />
 }
 
 export function TableFooter({ className, ...props }: ComponentProps<'tfoot'>) {
   return (
     <tfoot
-      className={cn(
-        'border-t bg-muted/50 font-medium [&>tr]:last:border-b-0',
-        className
-      )}
+      className={cn('bg-muted/50 font-medium', className)}
       data-slot='table-footer'
       {...props}
     />
@@ -52,7 +46,7 @@ export function TableFooter({ className, ...props }: ComponentProps<'tfoot'>) {
 export function TableRow({ className, ...props }: ComponentProps<'tr'>) {
   return (
     <tr
-      className={cn('border-b transition-colors', className)}
+      className={cn('transition-colors', className)}
       data-slot='table-row'
       {...props}
     />
@@ -63,7 +57,7 @@ export function TableHead({ className, ...props }: ComponentProps<'th'>) {
   return (
     <th
       className={cn(
-        'h-10 whitespace-nowrap px-4 py-3 text-left align-middle font-medium text-foreground not-last:border-r',
+        'h-10 whitespace-nowrap px-4 py-3 text-left align-middle font-medium text-foreground',
         className
       )}
       data-slot='table-head'
@@ -75,10 +69,7 @@ export function TableHead({ className, ...props }: ComponentProps<'th'>) {
 export function TableCell({ className, ...props }: ComponentProps<'td'>) {
   return (
     <td
-      className={cn(
-        'whitespace-nowrap px-4 py-3 align-middle not-last:border-r',
-        className
-      )}
+      className={cn('whitespace-nowrap px-4 py-3 align-middle', className)}
       data-slot='table-cell'
       {...props}
     />
