@@ -52,10 +52,7 @@ export function getPasswordFieldSchema(args?: GetPasswordFieldSchemaArgs) {
 
   // Regex
   if (regex) {
-    const value = regex.value as {
-      pattern: string
-      flags: string
-    }
+    const { value } = regex
     fieldSchema = fieldSchema.regex(
       new RegExp(value.pattern, value.flags),
       regex.message

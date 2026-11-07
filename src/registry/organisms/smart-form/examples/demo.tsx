@@ -100,14 +100,14 @@ const defaultFormValue: z.input<typeof formSchema> = {
 
 export const SmartFormDemo = () => {
   const form = useAppForm({
-    defaultValues: defaultFormValue,
     formId: 'smart-form-demo',
+    defaultValues: defaultFormValue,
+    validators: {
+      onSubmit: formSchema,
+    },
     onSubmit: ({ value }) => {
       const safeValue = formSchema.parse(value)
       console.log(safeValue)
-    },
-    validators: {
-      onSubmit: formSchema,
     },
   })
 

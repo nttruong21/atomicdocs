@@ -1,4 +1,5 @@
 import { cn } from 'cn'
+import { Suspense } from 'react'
 import {
   Field,
   FieldDescription,
@@ -7,6 +8,7 @@ import {
   FieldLabel,
   type FieldProps,
 } from '@/components/atoms/field'
+import { Skeleton } from '@/components/atoms/skeleton'
 import { useFieldContext } from './lib/form'
 
 export type SmartFormFieldContainerProps = FieldProps & {
@@ -37,9 +39,10 @@ export default function SmartFormFieldContainer({
       {...props}
     >
       <FieldLabel htmlFor={`${field.form.formId}-${field.name}`}>
-        {label} <span className='text-destructive'>{required && '*'}</span>
+        <span>{label}</span>
+        <span className='text-destructive'>{required && '*'}</span>
       </FieldLabel>
-      {children}
+      <Suspense fallback={<Skeleton className='h-9' />}>{children}</Suspense>
       {description && <FieldDescription>{description}</FieldDescription>}
       {invalid && <FieldError errors={errors} />}
     </Field>

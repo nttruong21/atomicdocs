@@ -29,13 +29,13 @@ function resolveApiPath(
 }
 
 // Use get options query
-export const useGetOptionsQuery = ({
+export function useGetOptionsQuery({
   originalApiPath,
   dependencyFieldsValue,
 }: {
   originalApiPath: string
   dependencyFieldsValue?: Record<string, unknown>
-}) => {
+}) {
   const apiPath = resolveApiPath(originalApiPath, dependencyFieldsValue)
   const enabled = !apiPath.includes('/{')
 
