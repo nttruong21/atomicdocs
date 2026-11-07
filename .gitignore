@@ -17,3 +17,6 @@ node_modules
 .tanstack
 
 .source
+
+# Local Graphify outputs
+/graphify-out/

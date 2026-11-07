@@ -7,14 +7,19 @@ import type { BaseSmartFormFieldComponentProps } from './lib/base'
 import { useFieldContext } from './lib/form'
 import type { DateFieldInputValue } from './lib/schemas/date'
 
+export type DateFieldProps = BaseSmartFormFieldComponentProps & {
+  datePickerProps?: Omit<
+    DatePickerProps,
+    'value' | 'onValueChange' | 'id' | 'disabled' | 'invalid'
+  >
+}
+
 export default function DateField({
   label,
   disabled,
   datePickerProps,
   ...props
-}: BaseSmartFormFieldComponentProps & {
-  datePickerProps?: Partial<DatePickerProps>
-}) {
+}: DateFieldProps) {
   const field = useFieldContext<DateFieldInputValue>()
   const invalid = field.state.meta.isTouched && !field.state.meta.isValid
 
@@ -27,13 +32,13 @@ export default function DateField({
       {...props}
     >
       <DatePicker
-        disabled={disabled}
-        id={`${field.form.formId}-${field.name}`}
-        invalid={invalid}
-        onValueChange={field.handleChange as DatePickerProps['onValueChange']}
         placeholder={`Select ${typeof label === 'string' ? label.toLowerCase() : 'information'}`}
-        value={field.state.value}
         {...datePickerProps}
+        id={`${field.form.formId}-${field.name}`}
+        value={field.state.value}
+        invalid={invalid}
+        disabled={disabled}
+        onValueChange={field.handleChange as DatePickerProps['onValueChange']}
       />
     </SmartFormFieldContainer>
   )
