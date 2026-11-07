@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Calendar } from '@/components/atoms/calendar'
 
 export function CalendarDemo() {
-  const [date, setDate] = useState<Date | undefined>(new Date())
+  const [date, setDate] = useState<Date | undefined>(() => new Date())
 
   return (
     <Calendar

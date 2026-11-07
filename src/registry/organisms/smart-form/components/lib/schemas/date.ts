@@ -1,5 +1,5 @@
 import { isDate } from 'date-fns'
-import z from 'zod'
+import { z } from 'zod'
 
 /**
  * @summary Get date field schema args type

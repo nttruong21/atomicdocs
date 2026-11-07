@@ -1,10 +1,10 @@
+import { cn } from 'cn'
 import { ChevronRight } from 'lucide-react'
 import { Button } from '@/components/atoms/button'
 import {
   createAppColumnHelper,
   useAppTable,
 } from '@/components/organisms/data-table/lib/table'
-import { cn } from '@/utils/ui'
 
 type Row = {
   id: string

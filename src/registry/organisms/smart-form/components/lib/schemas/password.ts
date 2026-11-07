@@ -1,4 +1,4 @@
-import z from 'zod'
+import { z } from 'zod'
 
 /**
  * @summary Get password field schema args type

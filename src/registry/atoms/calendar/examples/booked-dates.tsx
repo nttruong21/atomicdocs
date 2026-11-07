@@ -9,7 +9,7 @@ const bookedDates = Array.from(
 
 export function CalendarBookedDates() {
   const [date, setDate] = useState<Date | undefined>(
-    new Date(new Date().getFullYear(), 0, 6)
+    () => new Date(new Date().getFullYear(), 0, 6)
   )
 
   return (

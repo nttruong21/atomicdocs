@@ -19,6 +19,7 @@
     "oxlint",
     "Pano",
     "partialize",
+    "tiptap",
     "ultracite"
   ],
   "editor.defaultFormatter": "oxc.oxc-vscode",

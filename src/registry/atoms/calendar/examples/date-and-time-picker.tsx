@@ -11,7 +11,7 @@ import {
 
 export function CalendarWithTime() {
   const [date, setDate] = useState<Date | undefined>(
-    new Date(new Date().getFullYear(), new Date().getMonth(), 12)
+    () => new Date(new Date().getFullYear(), new Date().getMonth(), 12)
   )
 
   return (

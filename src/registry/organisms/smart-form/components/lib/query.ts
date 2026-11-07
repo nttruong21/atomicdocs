@@ -8,11 +8,25 @@ import {
   useQuery,
 } from '@tanstack/react-query'
 import { useDebounce } from '@uidotdev/usehooks'
-import { type UIEvent, useEffect, useMemo, useState } from 'react'
-// oxlint-disable unicorn/no-array-reduce react/react-compiler
+import { type UIEvent, useMemo, useState } from 'react'
 import { executeAxios } from '@/lib/axios'
 import type { OptionsInfiniteQueryData, PaginationQueryData } from '@/types/api'
 import type { Option } from '@/types/base'
+
+function resolveApiPath(
+  originalApiPath: string,
+  dependencyFieldsValue?: Record<string, unknown>
+) {
+  let apiPath = originalApiPath
+  for (const [fieldName, value] of Object.entries(
+    dependencyFieldsValue ?? {}
+  )) {
+    if (typeof value === 'number' || typeof value === 'string') {
+      apiPath = apiPath.replace(`{${fieldName}}`, value.toString())
+    }
+  }
+  return apiPath
+}
 
 // Use get options query
 export const useGetOptionsQuery = ({
@@ -22,8 +36,8 @@ export const useGetOptionsQuery = ({
   originalApiPath: string
   dependencyFieldsValue?: Record<string, unknown>
 }) => {
-  const [apiPath, setApiPath] = useState(originalApiPath)
-  const [enabled, setEnabled] = useState(!originalApiPath.includes('/{'))
+  const apiPath = resolveApiPath(originalApiPath, dependencyFieldsValue)
+  const enabled = !apiPath.includes('/{')
 
   const getOptionsQuery = useQuery<{
     responseData: {
@@ -35,29 +49,6 @@ export const useGetOptionsQuery = ({
       executeAxios({ method: 'GET', signal, url: apiPath }),
     queryKey: apiPath.split('?'),
   })
-
-  useEffect(() => {
-    if (!dependencyFieldsValue) {
-      return
-    }
-
-    const newApiPath = Object.keys(dependencyFieldsValue).reduce<string>(
-      (result, fieldName) => {
-        const value = dependencyFieldsValue[fieldName]
-        if (
-          value === null ||
-          (typeof value !== 'number' && typeof value !== 'string')
-        ) {
-          return result
-        }
-        return result.replace(`{${fieldName}}`, value.toString())
-      },
-      originalApiPath
-    )
-
-    setApiPath(newApiPath)
-    setEnabled(!newApiPath?.includes('/{'))
-  }, [dependencyFieldsValue, originalApiPath])
 
   const options = useMemo<Option[]>(
     () =>
@@ -128,8 +119,8 @@ export function useGetOptionsInfiniteQuery({
   dependencyFieldsValue?: Record<string, unknown>
   valueAsLabel?: boolean
 }) {
-  const [apiPath, setApiPath] = useState(originalApiPath)
-  const [enabled, setEnabled] = useState(!originalApiPath.includes('/{'))
+  const apiPath = resolveApiPath(originalApiPath, dependencyFieldsValue)
+  const enabled = !apiPath.includes('/{')
   const [searchKeyword, setSearchKeyword] = useState('')
 
   const debouncedSearchKeyword = useDebounce(
@@ -157,29 +148,6 @@ export function useGetOptionsInfiniteQuery({
       }),
     queryKey: [...apiPath.split('?'), debouncedSearchKeyword],
   })
-
-  useEffect(() => {
-    if (!dependencyFieldsValue) {
-      return
-    }
-
-    const newApiPath = Object.keys(dependencyFieldsValue).reduce<string>(
-      (result, fieldName) => {
-        const value = dependencyFieldsValue[fieldName]
-        if (
-          value === null ||
-          (typeof value !== 'number' && typeof value !== 'string')
-        ) {
-          return result
-        }
-        return result.replace(`{${fieldName}}`, value.toString())
-      },
-      apiPath
-    )
-
-    setApiPath(newApiPath)
-    setEnabled(!newApiPath?.includes('/{'))
-  }, [dependencyFieldsValue, apiPath])
 
   const options = useMemo<Option[]>(
     () =>

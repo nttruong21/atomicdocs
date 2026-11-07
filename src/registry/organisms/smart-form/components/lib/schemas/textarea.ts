@@ -1,4 +1,4 @@
-import z from 'zod'
+import { z } from 'zod'
 
 /**
  * @summary Get textarea field schema args type

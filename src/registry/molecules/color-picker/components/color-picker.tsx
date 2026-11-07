@@ -1,4 +1,5 @@
 import { Slider as SliderPrimitive } from '@base-ui/react/slider'
+import { cn } from 'cn'
 import colorInstance, { type ColorInstance } from 'color'
 import { Check, Copy } from 'lucide'
 import { PipetteIcon } from 'lucide-react'
@@ -28,7 +29,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/atoms/select'
-import { cn } from '@/utils/ui'
 
 const formats = ['hex', 'rgb', 'hsl'] as const
 type Format = (typeof formats)[number]
@@ -88,7 +88,7 @@ export function ColorPicker({
   useEffect(() => {
     if (value) {
       const color = colorInstance.rgb(value).rgb().object()
-      // oxlint-disable-next-line react/react-compiler
+      // oxlint-disable-next-line react/react-compiler react/set-state-in-effect
       setHue(color.r)
       setSaturation(color.g)
       setLightness(color.b)

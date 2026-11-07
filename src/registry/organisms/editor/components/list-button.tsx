@@ -1,4 +1,5 @@
 import { useEditorState } from '@tiptap/react'
+import { cn } from 'cn'
 import {
   ChevronDownIcon,
   ListIcon,
@@ -18,7 +19,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/atoms/tooltip'
-import { cn } from '@/utils/ui'
 import { useInternalEditor } from './lib/base'
 
 export default function ListButton() {

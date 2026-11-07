@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/atoms/card'
 
 export function CalendarWeekNumbers() {
   const [date, setDate] = useState<Date | undefined>(
-    new Date(new Date().getFullYear(), 0, 12)
+    () => new Date(new Date().getFullYear(), 0, 12)
   )
 
   return (

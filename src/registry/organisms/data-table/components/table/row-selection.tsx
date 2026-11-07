@@ -1,3 +1,4 @@
+import { cn } from 'cn'
 import { ListChecksIcon } from 'lucide-react'
 // oxlint-disable import/no-cycle
 import { Button } from '@/components/atoms/button'
@@ -7,7 +8,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/atoms/tooltip'
-import { cn } from '@/utils/ui'
 import { useTableContext } from '../lib/table'
 
 export default function DataTableRowSelection() {

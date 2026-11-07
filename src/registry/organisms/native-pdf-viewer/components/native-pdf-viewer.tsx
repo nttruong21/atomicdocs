@@ -1,7 +1,7 @@
 import { skipToken, useQuery } from '@tanstack/react-query'
+import { cn } from 'cn'
 import type { IframeHTMLAttributes } from 'react'
 import { Spinner } from '@/components/atoms/spinner'
-import { cn } from '@/utils/ui'
 
 export function NativePDFViewer({
   src,

@@ -1,3 +1,4 @@
+import { cn } from 'cn'
 import debounce from 'lodash.debounce'
 import type { NumberFormatValues } from 'react-number-format'
 // oxlint-disable import/no-cycle
@@ -10,7 +11,6 @@ import {
 } from '@/components/atoms/select'
 import { NumberInput } from '@/components/molecules/number-input'
 import { Pagination } from '@/components/molecules/pagination'
-import { cn } from '@/utils/ui'
 import { useTableContext } from '../lib/table'
 
 const pageSizeOptions = [10, 20, 30, 50, 100]

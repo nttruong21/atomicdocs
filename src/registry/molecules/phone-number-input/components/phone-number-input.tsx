@@ -1,3 +1,4 @@
+import { cn } from 'cn'
 import { ChevronDownIcon, GlobeIcon } from 'lucide-react'
 import { type InputHTMLAttributes, useMemo } from 'react'
 import RPNInput, {
@@ -27,7 +28,6 @@ import {
   ItemTitle,
 } from '@/components/atoms/item'
 import type { Option } from '@/types/base'
-import { cn } from '@/utils/ui'
 
 function FlagComponent({ country, countryName }: FlagProps) {
   const Flag = flags[country]

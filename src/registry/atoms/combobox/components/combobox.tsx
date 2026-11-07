@@ -1,4 +1,5 @@
 import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox'
+import { cn } from 'cn'
 import { CheckIcon, ChevronDownIcon, XIcon } from 'lucide-react'
 import { type ComponentPropsWithRef, useRef } from 'react'
 import { Button } from '@/components/atoms/button'
@@ -8,7 +9,6 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from '@/components/atoms/input-group'
-import { cn } from '@/utils/ui'
 
 export const Combobox = ComboboxPrimitive.Root
 

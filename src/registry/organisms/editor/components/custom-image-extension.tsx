@@ -6,6 +6,7 @@ import {
   ReactNodeViewRenderer,
   useCurrentEditor,
 } from '@tiptap/react'
+import { cn } from 'cn'
 import { AlignLeftIcon, ChevronDownIcon, TrashIcon } from 'lucide-react'
 import {
   type CSSProperties,
@@ -28,7 +29,6 @@ import {
 } from '@/components/atoms/popover'
 import { Separator } from '@/components/atoms/separator'
 import { Skeleton } from '@/components/atoms/skeleton'
-import { cn } from '@/utils/ui'
 import {
   type Alignment,
   alignments,

@@ -1,5 +1,5 @@
 import { isValidPhoneNumber } from 'react-phone-number-input'
-import z from 'zod'
+import { z } from 'zod'
 
 /**
  * @summary Get phone number field schema args type

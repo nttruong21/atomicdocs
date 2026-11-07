@@ -1,5 +1,5 @@
 import { Switch as SwitchPrimitive } from '@base-ui/react/switch'
-import { cn } from '@/utils/ui'
+import { cn } from 'cn'
 
 export function Switch({
   className,

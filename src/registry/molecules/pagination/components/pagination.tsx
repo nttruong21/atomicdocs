@@ -1,3 +1,4 @@
+import { cn } from 'cn'
 import {
   ChevronLeft,
   ChevronRight,
@@ -14,7 +15,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/atoms/tooltip'
-import { cn } from '@/utils/ui'
 
 export interface PaginationProps {
   isHasNextPage?: boolean

@@ -1,4 +1,5 @@
 import { Command as CommandPrimitive } from 'cmdk'
+import { cn } from 'cn'
 import { CheckIcon, SearchIcon } from 'lucide-react'
 import type { ComponentProps, ReactNode } from 'react'
 import {
@@ -9,7 +10,6 @@ import {
   DialogTitle,
 } from '@/components/atoms/dialog'
 import { InputGroup, InputGroupAddon } from '@/components/atoms/input-group'
-import { cn } from '@/utils/ui'
 
 export function Command({
   className,

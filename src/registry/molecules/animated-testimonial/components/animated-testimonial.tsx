@@ -1,5 +1,5 @@
+import { cn } from 'cn'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import { cn } from '@/utils/ui'
 
 export interface AnimatedTestimonialCanopyProps extends HTMLAttributes<HTMLDivElement> {
   isApplyMask?: boolean

@@ -1,3 +1,4 @@
+import { cn } from 'cn'
 import {
   Field,
   FieldDescription,
@@ -6,7 +7,6 @@ import {
   FieldLabel,
   type FieldProps,
 } from '@/components/atoms/field'
-import { cn } from '@/utils/ui'
 import { useFieldContext } from './lib/form'
 
 export type SmartFormFieldContainerProps = FieldProps & {

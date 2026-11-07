@@ -1,3 +1,4 @@
+import { cn } from 'cn'
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
@@ -14,7 +15,6 @@ import {
 } from 'react-day-picker'
 import { enUS } from 'react-day-picker/locale'
 import { Button, buttonVariants } from '@/components/atoms/button'
-import { cn } from '@/utils/ui'
 
 const defaultClassNames = getDefaultClassNames()
 

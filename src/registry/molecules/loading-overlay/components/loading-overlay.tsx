@@ -1,6 +1,6 @@
+import { cn } from 'cn'
 import type { PropsWithChildren } from 'react'
 import { Spinner } from '@/components/atoms/spinner'
-import { cn } from '@/utils/ui'
 
 export function LoadingOverlay({
   className,

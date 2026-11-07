@@ -4,7 +4,7 @@ import { CheckCircleIcon, PaperclipIcon } from 'lucide-react'
 import { useState } from 'react'
 import type { DropzoneOptions } from 'react-dropzone'
 import { toast } from 'sonner'
-import z from 'zod'
+import { z } from 'zod'
 import { Button } from '@/components/atoms/button'
 import { Field, FieldError, FieldLabel } from '@/components/atoms/field'
 import {

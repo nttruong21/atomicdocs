@@ -1,5 +1,6 @@
 import type { Level } from '@tiptap/extension-heading'
 import { useEditorState } from '@tiptap/react'
+import { cn } from 'cn'
 import { ChevronDownIcon, TypeIcon } from 'lucide-react'
 import { Button } from '@/components/atoms/button'
 import {
@@ -15,7 +16,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/atoms/tooltip'
-import { cn } from '@/utils/ui'
 import { useInternalEditor } from './lib/base'
 
 const textStyles: {

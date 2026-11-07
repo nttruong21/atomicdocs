@@ -1,4 +1,5 @@
 import { Autocomplete as AutocompletePrimitive } from '@base-ui/react'
+import { cn } from 'cn'
 import { XIcon } from 'lucide-react'
 import {
   InputGroup,
@@ -6,7 +7,6 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from '@/components/atoms/input-group'
-import { cn } from '@/utils/ui'
 
 export const Autocomplete = AutocompletePrimitive.Root
 

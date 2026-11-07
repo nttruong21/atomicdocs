@@ -1,5 +1,6 @@
 import type { Editor } from '@tiptap/react'
 import { useEditorState } from '@tiptap/react'
+import { cn } from 'cn'
 import { AlignLeft, ChevronDown } from 'lucide-react'
 import { useRef, useTransition } from 'react'
 import { Button } from '@/components/atoms/button'
@@ -15,10 +16,17 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/atoms/tooltip'
-import { cn } from '@/utils/ui'
 import type { CallbackRef, SetExtensions } from './editor'
-import { alignments } from './lib/alignment'
+import { alignments, type Alignment } from './lib/alignment'
 import { useInternalEditor } from './lib/base'
+
+const loadTextAlignExtension = () => import('@tiptap/extension-text-align')
+
+function createSetTextAlign(alignment: Alignment) {
+  return (editor: Editor) => {
+    editor.chain().focus().setTextAlign(alignment).run()
+  }
+}
 
 export default function TextAlignButton({
   callbackRef,
@@ -77,11 +85,7 @@ export default function TextAlignButton({
               })}
               key={alignment.value}
               onClick={() => {
-                const setTextAlign: NonNullable<CallbackRef['current']> = (
-                  editor: Editor
-                ) => {
-                  editor.chain().focus().setTextAlign(alignment.value).run()
-                }
+                const setTextAlign = createSetTextAlign(alignment.value)
 
                 if (isExtensionLoadedRef.current) {
                   return setTextAlign(internalEditor)
@@ -90,8 +94,7 @@ export default function TextAlignButton({
                 // Load extension
                 startTransition(async () => {
                   try {
-                    const extension =
-                      await import('@tiptap/extension-text-align')
+                    const extension = await loadTextAlignExtension()
 
                     callbackRef.current = setTextAlign
 

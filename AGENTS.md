@@ -29,7 +29,7 @@ Write TypeScript and TSX using the repository formatter: two-space indentation, 
 
 ## Testing & Verification
 
-There is no standalone test command or coverage threshold currently configured. For every change, run `bun run check`, `bun run types:check`, and `bun run build`; verify UI and documentation changes in `bun run dev`. Add focused tests beside new behavior if test infrastructure is introduced.
+There is no standalone test command or coverage threshold currently configured. After code changes, verify formatting and lint by running `bun run fix && bun run check`. For every change, also run `bun run types:check` and `bun run build`; verify UI and documentation changes in `bun run dev`. Add focused tests beside new behavior if test infrastructure is introduced.
 
 ## Commits & Pull Requests
 

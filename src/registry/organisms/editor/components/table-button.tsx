@@ -13,6 +13,8 @@ const insertTable: NonNullable<CallbackRef['current']> = (editor) => {
     .run()
 }
 
+const loadTableExtension = () => import('@tiptap/extension-table')
+
 export default function TableButton({
   callbackRef,
   setExtensions,
@@ -45,7 +47,7 @@ export default function TableButton({
         // Load extension
         startTransition(async () => {
           try {
-            const { TableKit } = await import('@tiptap/extension-table')
+            const { TableKit } = await loadTableExtension()
             callbackRef.current = insertTable
             setExtensions((prev) => [
               ...prev,

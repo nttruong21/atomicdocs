@@ -1,6 +1,6 @@
 import { Input as InputPrimitive } from '@base-ui/react/input'
+import { cn } from 'cn'
 import type { ComponentProps } from 'react'
-import { cn } from '@/utils/ui'
 
 export type InputProps = ComponentProps<'input'>
 

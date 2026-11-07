@@ -1,7 +1,7 @@
 import { FlexRender } from '@tanstack/react-table'
+import { cn } from 'cn'
 // oxlint-disable import/no-cycle
 import { TableHead, TableHeader, TableRow } from '@/components/atoms/table'
-import { cn } from '@/utils/ui'
 import { getCommonPinningStyles } from '../lib/pinning'
 import { useTableContext } from '../lib/table'
 

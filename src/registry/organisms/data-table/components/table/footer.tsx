@@ -1,7 +1,7 @@
 import { FlexRender } from '@tanstack/react-table'
+import { cn } from 'cn'
 // oxlint-disable import/no-cycle
 import { TableCell, TableFooter, TableRow } from '@/components/atoms/table'
-import { cn } from '@/utils/ui'
 import { useTableContext } from '../lib/table'
 
 interface DataTableFooterProps {

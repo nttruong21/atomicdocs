@@ -5,10 +5,10 @@ import { Calendar, CalendarDayButton } from '@/components/atoms/calendar'
 import { Card, CardContent } from '@/components/atoms/card'
 
 export function CalendarCustomDays() {
-  const [range, setRange] = useState<DateRange | undefined>({
+  const [range, setRange] = useState<DateRange | undefined>(() => ({
     from: new Date(new Date().getFullYear(), 11, 8),
     to: addDays(new Date(new Date().getFullYear(), 11, 8), 10),
-  })
+  }))
 
   return (
     <Card className='mx-auto w-fit p-0'>

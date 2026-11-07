@@ -3,6 +3,7 @@ import type {
   ColumnVisibilityState,
   RowData,
 } from '@tanstack/react-table'
+import { cn } from 'cn'
 import { ChevronDownIcon } from 'lucide-react'
 import { useMemo } from 'react'
 // oxlint-disable import/no-cycle
@@ -18,7 +19,6 @@ import {
   ComboboxTrigger,
 } from '@/components/atoms/combobox'
 import { InputGroupAddon } from '@/components/atoms/input-group'
-import { cn } from '@/utils/ui'
 import type { DataTableFeatures } from '../lib/feature'
 import { useTableContext } from '../lib/table'
 

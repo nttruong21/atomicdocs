@@ -1,10 +1,10 @@
+import { cn } from 'cn'
 import { MinusIcon, PlusIcon } from 'lucide-react'
 import type { FocusEvent } from 'react'
 import { NumericFormat, type NumericFormatProps } from 'react-number-format'
 import { Button } from '@/components/atoms/button'
 import { ButtonGroup } from '@/components/atoms/button-group'
 import { Input, type InputProps } from '@/components/atoms/input'
-import { cn } from '@/utils/ui'
 
 export type NumberInputProps = NumericFormatProps<InputProps> & {
   isDisplayStepper?: boolean

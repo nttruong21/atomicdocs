@@ -5,7 +5,7 @@ import {
   type FormAsyncValidateOrFn,
   type FormValidateOrFn,
 } from '@tanstack/react-form'
-import z from 'zod'
+import { z } from 'zod'
 import type { Option } from '@/types/base'
 import {
   type SmartFilterOperation,

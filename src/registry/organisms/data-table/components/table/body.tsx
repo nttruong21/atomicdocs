@@ -1,8 +1,8 @@
 import { FlexRender, type RowData } from '@tanstack/react-table'
+import { cn } from 'cn'
 import { Fragment, useState, type ReactNode } from 'react'
 // oxlint-disable import/no-cycle
 import { TableBody, TableCell, TableRow } from '@/components/atoms/table'
-import { cn } from '@/utils/ui'
 import { getCommonPinningStyles } from '../lib/pinning'
 import { useTableContext, type AppDataTable } from '../lib/table'
 

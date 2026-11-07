@@ -1,3 +1,4 @@
+import { cn } from 'cn'
 import { CloudUploadIcon, FileIcon, XIcon } from 'lucide-react'
 import {
   createContext,
@@ -16,7 +17,6 @@ import {
 import { toast } from 'sonner'
 import { Button } from '@/components/atoms/button'
 import { Input } from '@/components/atoms/input'
-import { cn } from '@/utils/ui'
 import { getSizeText, type UploadedFile } from './lib'
 
 export type FileUploadValue = (File | UploadedFile)[]
@@ -48,6 +48,10 @@ export function useFileUploadContext() {
   return context
 }
 
+export const DEFAULT_MAX_FILES = 1
+
+export const DEFAULT_MAX_SIZE = 20 * 1024 * 1024
+
 export function FileUpload({
   value,
   replaceOnSelect: replaceOnSelectProp,
@@ -58,8 +62,8 @@ export function FileUpload({
   ...dropzoneOptions
 }: FileUploadProps) {
   const {
-    maxFiles = 1,
-    maxSize = 20 * 1024 * 1024,
+    maxFiles = DEFAULT_MAX_FILES,
+    maxSize = DEFAULT_MAX_SIZE,
     ...restDropzoneOptions
   } = dropzoneOptions
   const replaceOnSelect = maxFiles === 1 ? true : replaceOnSelectProp
@@ -176,6 +180,8 @@ export function FileUploadInput({
   ...restProps
 }: FileUploadInputProps) {
   const { dropzoneState, disabled } = useFileUploadContext()
+  const { getInputProps } = dropzoneState
+  const inputProps = getInputProps()
   const dropzoneRootProps = disabled ? {} : dropzoneState.getRootProps()
 
   return (
@@ -197,14 +203,7 @@ export function FileUploadInput({
           </span>
         </div>
       )}
-      <Input
-        disabled={disabled}
-        id={id}
-        // oxlint-disable-next-line react/react-compiler
-        ref={dropzoneState.inputRef}
-        // oxlint-disable-next-line react/react-compiler
-        {...dropzoneState.getInputProps()}
-      />
+      <Input disabled={disabled} id={id} {...inputProps} />
     </div>
   )
 }

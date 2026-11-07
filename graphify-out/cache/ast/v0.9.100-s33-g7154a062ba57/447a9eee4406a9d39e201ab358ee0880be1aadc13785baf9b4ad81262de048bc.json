@@ -1,0 +1,189 @@
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_cli_json",
+      "label": "cli.json",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_cli_schema",
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "$graphify-root$_cli_aliases",
+      "label": "aliases",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "$graphify-root$_cli_aliases_uidir",
+      "label": "uiDir",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "$graphify-root$_cli_aliases_componentsdir",
+      "label": "componentsDir",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "$graphify-root$_cli_aliases_layoutdir",
+      "label": "layoutDir",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "$graphify-root$_cli_aliases_cssdir",
+      "label": "cssDir",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "$graphify-root$_cli_aliases_libdir",
+      "label": "libDir",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "$graphify-root$_cli_basedir",
+      "label": "baseDir",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "$graphify-root$_cli_uilibrary",
+      "label": "uiLibrary",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "$graphify-root$_cli_framework",
+      "label": "framework",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "$graphify-root$_cli_commands",
+      "label": "commands",
+      "file_type": "code",
+      "source_file": "cli.json",
+      "source_location": "L13"
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_cli_json",
+      "target": "$graphify-root$_cli_schema",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_cli_json",
+      "target": "$graphify-root$_cli_aliases",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_cli_aliases",
+      "target": "$graphify-root$_cli_aliases_uidir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_cli_aliases",
+      "target": "$graphify-root$_cli_aliases_componentsdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_cli_aliases",
+      "target": "$graphify-root$_cli_aliases_layoutdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_cli_aliases",
+      "target": "$graphify-root$_cli_aliases_cssdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_cli_aliases",
+      "target": "$graphify-root$_cli_aliases_libdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_cli_json",
+      "target": "$graphify-root$_cli_basedir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_cli_json",
+      "target": "$graphify-root$_cli_uilibrary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_cli_json",
+      "target": "$graphify-root$_cli_framework",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_cli_json",
+      "target": "$graphify-root$_cli_commands",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cli.json",
+      "source_location": "L13",
+      "weight": 1.0
+    }
+  ]
+}

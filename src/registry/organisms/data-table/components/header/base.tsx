@@ -1,4 +1,5 @@
 import { Subscribe, type ColumnPinningPosition } from '@tanstack/react-table'
+import { cn } from 'cn'
 import {
   ChevronsUpDownIcon,
   EyeOffIcon,
@@ -14,7 +15,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/atoms/dropdown-menu'
-import { cn } from '@/utils/ui'
 import { useHeaderContext, useTableContext } from '../lib/table'
 
 function getIcon(pinningPosition: ColumnPinningPosition | false) {

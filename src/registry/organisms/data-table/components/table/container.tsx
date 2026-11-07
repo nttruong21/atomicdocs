@@ -1,6 +1,6 @@
+import { cn } from 'cn'
 import type { ReactNode } from 'react'
 import { LoadingOverlay } from '@/components/molecules/loading-overlay'
-import { cn } from '@/utils/ui'
 
 interface DataTableContainerProps {
   id?: string

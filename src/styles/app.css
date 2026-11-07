@@ -5,6 +5,7 @@
 @import '@fontsource-variable/geist-mono';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+@import './tiptap.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -71,28 +72,6 @@
     to {
       transform: translateY(calc(-100% - var(--gap)));
     }
-  }
-}
-
-@layer base {
-  html {
-    @apply scrollbar-gutter-stable font-sans;
-  }
-
-  body {
-    @apply bg-background text-foreground text-sm font-normal;
-
-    &[data-scroll-locked] {
-      @apply mr-0!;
-      --removed-body-scroll-bar-size: 0px !important;
-    }
-  }
-
-  code {
-    @apply font-geist-mono text-sm;
-  }
-  * {
-    @apply border-border outline-ring/50;
   }
 }
 
@@ -163,4 +142,26 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  html {
+    @apply scrollbar-gutter-stable font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground text-sm font-normal;
+
+    &[data-scroll-locked] {
+      @apply mr-0!;
+      --removed-body-scroll-bar-size: 0px !important;
+    }
+  }
+
+  code {
+    @apply font-geist-mono text-sm;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
 }

@@ -6,10 +6,10 @@ import { Card, CardContent, CardFooter } from '@/components/atoms/card'
 
 export function CalendarWithPresets() {
   const [date, setDate] = useState<Date | undefined>(
-    new Date(new Date().getFullYear(), 1, 12)
+    () => new Date(new Date().getFullYear(), 1, 12)
   )
   const [currentMonth, setCurrentMonth] = useState<Date>(
-    new Date(new Date().getFullYear(), new Date().getMonth(), 1)
+    () => new Date(new Date().getFullYear(), new Date().getMonth(), 1)
   )
 
   return (

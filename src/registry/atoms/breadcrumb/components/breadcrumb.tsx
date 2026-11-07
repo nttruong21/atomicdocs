@@ -1,8 +1,8 @@
 import { mergeProps } from '@base-ui/react/merge-props'
 import { useRender } from '@base-ui/react/use-render'
+import { cn } from 'cn'
 import { ChevronRightIcon, MoreHorizontalIcon } from 'lucide-react'
 import type { ComponentProps } from 'react'
-import { cn } from '@/utils/ui'
 
 export function Breadcrumb(props: ComponentProps<'nav'>) {
   return <nav aria-label='breadcrumb' data-slot='breadcrumb' {...props} />

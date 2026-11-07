@@ -1,9 +1,9 @@
 import { mergeProps } from '@base-ui/react/merge-props'
 import { useRender } from '@base-ui/react/use-render'
 import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from 'cn'
 import type { ComponentProps } from 'react'
 import { Separator } from '@/components/atoms/separator'
-import { cn } from '@/utils/ui'
 
 export function ItemGroup({ className, ...props }: ComponentProps<'div'>) {
   return (

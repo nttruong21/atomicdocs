@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useState, useSyncExternalStore } from 'react'
 import { Card, CardContent } from '@/components/atoms/card'
 import {
   Carousel,
@@ -9,28 +9,32 @@ import {
   CarouselPrevious,
 } from '@/components/atoms/carousel'
 
+const getServerSnapshot = () => 0
+
 export function CarouselDApiDemo() {
   const [api, setApi] = useState<CarouselApi>()
-  const [current, setCurrent] = useState(0)
-  const [count, setCount] = useState(0)
 
-  useEffect(() => {
-    if (!api) {
-      return
-    }
+  const subscribe = useCallback(
+    (onChange: () => void) => {
+      api?.on('select', onChange)
+      api?.on('reInit', onChange)
+      return () => {
+        api?.off('select', onChange)
+        api?.off('reInit', onChange)
+      }
+    },
+    [api]
+  )
 
-    // oxlint-disable-next-line react/react-compiler
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
+  const getCurrent = useCallback(
+    () => (api ? api.selectedScrollSnap() + 1 : 0),
+    [api]
+  )
 
-    api.on('select', () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-    })
+  const getCount = useCallback(() => api?.scrollSnapList().length ?? 0, [api])
 
-    return () => {
-      api.destroy()
-    }
-  }, [api])
+  const current = useSyncExternalStore(subscribe, getCurrent, getServerSnapshot)
+  const count = useSyncExternalStore(subscribe, getCount, getServerSnapshot)
 
   return (
     <div className='mx-auto max-w-40 sm:max-w-xs'>

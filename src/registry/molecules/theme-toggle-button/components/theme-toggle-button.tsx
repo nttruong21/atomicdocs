@@ -1,7 +1,7 @@
+import { cn } from 'cn'
 import { MoonIcon, SunIcon } from 'lucide-react'
 import { useState } from 'react'
 import { Button, type ButtonProps } from '@/components/atoms/button'
-import { cn } from '@/utils/ui'
 import {
   defaultThemeLocalStorageKey,
   getCircleBlurCx,

@@ -1,6 +1,6 @@
 import { Slider as SliderPrimitive } from '@base-ui/react/slider'
+import { cn } from 'cn'
 import { useMemo } from 'react'
-import { cn } from '@/utils/ui'
 
 export function Slider({
   className,

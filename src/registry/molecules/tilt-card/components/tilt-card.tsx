@@ -1,3 +1,4 @@
+import { cn } from 'cn'
 import {
   type MotionValue,
   motion,
@@ -14,7 +15,6 @@ import {
   useMemo,
   useRef,
 } from 'react'
-import { cn } from '@/utils/ui'
 
 interface TiltCardContextValue {
   rotateX: MotionValue<number>

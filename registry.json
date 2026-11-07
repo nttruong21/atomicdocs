@@ -13,14 +13,9 @@
           "path": "src/registry/atoms/accordion/components/accordion.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/accordion.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"]
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"]
     },
     {
       "name": "alert",
@@ -32,14 +27,9 @@
           "path": "src/registry/atoms/alert/components/alert.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/alert.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["class-variance-authority"]
+      "dependencies": ["class-variance-authority", "cn"]
     },
     {
       "name": "alert-dialog",
@@ -51,14 +41,9 @@
           "path": "src/registry/atoms/alert-dialog/components/alert-dialog.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/alert-dialog.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json"
@@ -74,14 +59,9 @@
           "path": "src/registry/atoms/autocomplete/components/autocomplete.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/autocomplete.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/input-group.json"
       ]
@@ -96,14 +76,9 @@
           "path": "src/registry/atoms/avatar/components/avatar.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/avatar.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "badge",
@@ -115,14 +90,9 @@
           "path": "src/registry/atoms/badge/components/badge.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/badge.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "class-variance-authority"]
+      "dependencies": ["@base-ui/react", "class-variance-authority", "cn"]
     },
     {
       "name": "breadcrumb",
@@ -134,14 +104,9 @@
           "path": "src/registry/atoms/breadcrumb/components/breadcrumb.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/breadcrumb.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"]
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"]
     },
     {
       "name": "button",
@@ -153,14 +118,9 @@
           "path": "src/registry/atoms/button/components/button.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/button.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "dependencies": ["@base-ui/react", "class-variance-authority", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json"
       ]
@@ -175,14 +135,9 @@
           "path": "src/registry/atoms/button-group/components/button-group.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/button-group.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "dependencies": ["@base-ui/react", "class-variance-authority", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/separator.json"
       ]
@@ -197,14 +152,9 @@
           "path": "src/registry/atoms/calendar/components/calendar.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/calendar.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["lucide-react", "react-day-picker"],
+      "dependencies": ["lucide-react", "react-day-picker", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json"
@@ -220,13 +170,9 @@
           "path": "src/registry/atoms/card/components/card.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/card.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
-      ]
+      ],
+      "dependencies": ["cn"]
     },
     {
       "name": "carousel",
@@ -238,14 +184,9 @@
           "path": "src/registry/atoms/carousel/components/carousel.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/carousel.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["embla-carousel-react", "lucide-react"],
+      "dependencies": ["embla-carousel-react", "lucide-react", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json"
@@ -261,14 +202,9 @@
           "path": "src/registry/atoms/checkbox/components/checkbox.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/checkbox.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"]
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"]
     },
     {
       "name": "combobox",
@@ -280,14 +216,9 @@
           "path": "src/registry/atoms/combobox/components/combobox.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/combobox.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json",
@@ -306,14 +237,9 @@
           "path": "src/registry/atoms/command/components/command.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/command.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["cmdk", "lucide-react"],
+      "dependencies": ["cmdk", "lucide-react", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/dialog.json",
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
@@ -327,20 +253,15 @@
       "name": "context-menu",
       "type": "registry:ui",
       "title": "Context Menu",
-      "description": "Displays a menu to the user — such as a set of actions or functions — triggered by a right-click.",
+      "description": "Displays a menu to the user \u2014 such as a set of actions or functions \u2014 triggered by a right-click.",
       "files": [
         {
           "path": "src/registry/atoms/context-menu/components/context-menu.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/context-menu.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"]
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"]
     },
     {
       "name": "date-picker",
@@ -372,14 +293,9 @@
           "path": "src/registry/atoms/dialog/components/dialog.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/dialog.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json"
@@ -395,33 +311,23 @@
           "path": "src/registry/atoms/drawer/components/drawer.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/drawer.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["vaul"]
+      "dependencies": ["vaul", "cn"]
     },
     {
       "name": "dropdown-menu",
       "type": "registry:ui",
       "title": "Dropdown Menu",
-      "description": "Displays a menu to the user — such as a set of actions or functions — triggered by a button.",
+      "description": "Displays a menu to the user \u2014 such as a set of actions or functions \u2014 triggered by a button.",
       "files": [
         {
           "path": "src/registry/atoms/dropdown-menu/components/dropdown-menu.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/dropdown-menu.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"]
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"]
     },
     {
       "name": "empty",
@@ -433,14 +339,9 @@
           "path": "src/registry/atoms/empty/components/empty.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/empty.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["class-variance-authority"]
+      "dependencies": ["class-variance-authority", "cn"]
     },
     {
       "name": "field",
@@ -452,14 +353,9 @@
           "path": "src/registry/atoms/field/components/field.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/field.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["class-variance-authority"],
+      "dependencies": ["class-variance-authority", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/label.json",
         "https://ntt-shadcn-registry.vercel.app/r/separator.json"
@@ -475,14 +371,9 @@
           "path": "src/registry/atoms/hover-card/components/hover-card.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/hover-card.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "input",
@@ -494,14 +385,9 @@
           "path": "src/registry/atoms/input/components/input.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/input.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "input-group",
@@ -513,14 +399,9 @@
           "path": "src/registry/atoms/input-group/components/input-group.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/input-group.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["class-variance-authority"],
+      "dependencies": ["class-variance-authority", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json",
@@ -538,14 +419,9 @@
           "path": "src/registry/atoms/input-otp/components/input-otp.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/input-otp.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["input-otp", "lucide-react"]
+      "dependencies": ["input-otp", "lucide-react", "cn"]
     },
     {
       "name": "item",
@@ -557,14 +433,9 @@
           "path": "src/registry/atoms/item/components/item.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/item.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "dependencies": ["@base-ui/react", "class-variance-authority", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/separator.json"
       ]
@@ -579,13 +450,9 @@
           "path": "src/registry/atoms/kbd/components/kbd.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/kbd.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
-      ]
+      ],
+      "dependencies": ["cn"]
     },
     {
       "name": "label",
@@ -597,13 +464,9 @@
           "path": "src/registry/atoms/label/components/label.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/label.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
-      ]
+      ],
+      "dependencies": ["cn"]
     },
     {
       "name": "menubar",
@@ -615,14 +478,9 @@
           "path": "src/registry/atoms/menubar/components/menubar.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/menubar.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/dropdown-menu.json"
       ]
@@ -637,17 +495,13 @@
           "path": "src/registry/atoms/navigation-menu/components/navigation-menu.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/navigation-menu.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
       "dependencies": [
         "@base-ui/react",
         "class-variance-authority",
-        "lucide-react"
+        "lucide-react",
+        "cn"
       ]
     },
     {
@@ -660,14 +514,9 @@
           "path": "src/registry/atoms/popover/components/popover.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/popover.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "progress",
@@ -679,33 +528,23 @@
           "path": "src/registry/atoms/progress/components/progress.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/progress.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "radio-group",
       "type": "registry:ui",
       "title": "Radio Group",
-      "description": "A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.",
+      "description": "A set of checkable buttons\u2014known as radio buttons\u2014where no more than one of the buttons can be checked at a time.",
       "files": [
         {
           "path": "src/registry/atoms/radio-group/components/radio-group.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/radio-group.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "resizable",
@@ -717,14 +556,9 @@
           "path": "src/registry/atoms/resizable/components/resizable.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/resizable.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["react-resizable-panels"]
+      "dependencies": ["react-resizable-panels", "cn"]
     },
     {
       "name": "scroll-area",
@@ -736,33 +570,23 @@
           "path": "src/registry/atoms/scroll-area/components/scroll-area.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/scroll-area.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
-      "description": "Displays a list of options for the user to pick from—triggered by a button.",
+      "description": "Displays a list of options for the user to pick from\u2014triggered by a button.",
       "files": [
         {
           "path": "src/registry/atoms/select/components/select.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/select.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"]
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"]
     },
     {
       "name": "separator",
@@ -774,14 +598,9 @@
           "path": "src/registry/atoms/separator/components/separator.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/separator.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "sheet",
@@ -793,14 +612,9 @@
           "path": "src/registry/atoms/sheet/components/sheet.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/sheet.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json"
@@ -821,17 +635,13 @@
           "path": "src/hooks/use-device.ts",
           "type": "registry:hook",
           "target": "src/hooks/use-device.ts"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
       "dependencies": [
         "@base-ui/react",
         "class-variance-authority",
-        "lucide-react"
+        "lucide-react",
+        "cn"
       ],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
@@ -853,13 +663,9 @@
           "path": "src/registry/atoms/skeleton/components/skeleton.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/skeleton.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
-      ]
+      ],
+      "dependencies": ["cn"]
     },
     {
       "name": "slider",
@@ -871,14 +677,9 @@
           "path": "src/registry/atoms/slider/components/slider.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/slider.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "sonner",
@@ -904,14 +705,9 @@
           "path": "src/registry/atoms/spinner/components/spinner.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/spinner.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["lucide-react"]
+      "dependencies": ["lucide-react", "cn"]
     },
     {
       "name": "switch",
@@ -923,14 +719,9 @@
           "path": "src/registry/atoms/switch/components/switch.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/switch.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "table",
@@ -942,32 +733,23 @@
           "path": "src/registry/atoms/table/components/table.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/table.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
-      ]
+      ],
+      "dependencies": ["cn"]
     },
     {
       "name": "tabs",
       "type": "registry:ui",
       "title": "Tabs",
-      "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "description": "A set of layered sections of content\u2014known as tab panels\u2014that are displayed one at a time.",
       "files": [
         {
           "path": "src/registry/atoms/tabs/components/tabs.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/tabs.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "textarea",
@@ -979,13 +761,9 @@
           "path": "src/registry/atoms/textarea/components/textarea.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/textarea.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
-      ]
+      ],
+      "dependencies": ["cn"]
     },
     {
       "name": "toggle",
@@ -997,14 +775,9 @@
           "path": "src/registry/atoms/toggle/components/toggle.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/toggle.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "class-variance-authority"]
+      "dependencies": ["@base-ui/react", "class-variance-authority", "cn"]
     },
     {
       "name": "toggle-group",
@@ -1016,14 +789,9 @@
           "path": "src/registry/atoms/toggle-group/components/toggle-group.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/toggle-group.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "dependencies": ["@base-ui/react", "class-variance-authority", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/toggle.json"
       ]
@@ -1038,14 +806,9 @@
           "path": "src/registry/atoms/tooltip/components/tooltip.tsx",
           "type": "registry:ui",
           "target": "src/components/atoms/tooltip.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react"]
+      "dependencies": ["@base-ui/react", "cn"]
     },
     {
       "name": "animated-testimonial",
@@ -1070,14 +833,9 @@
           "path": "src/registry/animated-text/components/animated-text.tsx",
           "type": "registry:ui",
           "target": "src/components/animated-text/animated-text.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["motion"]
+      "dependencies": ["motion", "cn"]
     },
     {
       "name": "color-picker",
@@ -1089,14 +847,9 @@
           "path": "src/registry/color-picker/components/color-picker.tsx",
           "type": "registry:ui",
           "target": "src/components/color-picker/color-picker.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:ui",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@base-ui/react", "color", "lucide-react"],
+      "dependencies": ["@base-ui/react", "color", "lucide-react", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json",
@@ -1119,18 +872,14 @@
           "path": "src/registry/file-upload/components/lib.ts",
           "type": "registry:file",
           "target": "src/components/file-upload/lib.ts"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
       "dependencies": [
         "lucide-react",
         "react-dropzone",
         "sonner",
-        "class-variance-authority"
+        "class-variance-authority",
+        "cn"
       ],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
@@ -1148,14 +897,9 @@
           "path": "src/registry/gradient-path-background/components/gradient-path-background.tsx",
           "type": "registry:ui",
           "target": "src/components/gradient-path-background/gradient-path-background.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["motion"]
+      "dependencies": ["motion", "cn"]
     },
     {
       "name": "highlighted-text",
@@ -1167,14 +911,9 @@
           "path": "src/registry/highlighted-text/components/highlighted-text.tsx",
           "type": "registry:ui",
           "target": "src/components/highlighted-text/highlighted-text.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["motion"]
+      "dependencies": ["motion", "cn"]
     },
     {
       "name": "loading-overlay",
@@ -1186,16 +925,12 @@
           "path": "src/registry/loading-overlay/components/loading-overlay.tsx",
           "type": "registry:ui",
           "target": "src/components/loading-overlay/loading-overlay.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json"
-      ]
+      ],
+      "dependencies": ["cn"]
     },
     {
       "name": "number-input",
@@ -1207,17 +942,13 @@
           "path": "src/registry/number-input/components/number-input.tsx",
           "type": "registry:ui",
           "target": "src/components/number-input/number-input.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
       "dependencies": [
         "lucide-react",
         "react-number-format",
-        "class-variance-authority"
+        "class-variance-authority",
+        "cn"
       ],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
@@ -1237,14 +968,9 @@
           "path": "src/registry/pagination/components/pagination.tsx",
           "type": "registry:ui",
           "target": "src/components/pagination/pagination.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["lucide-react"],
+      "dependencies": ["lucide-react", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json",
@@ -1287,14 +1013,9 @@
           "path": "src/types/base.ts",
           "type": "registry:file",
           "target": "src/types/base.ts"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["lucide-react", "react-phone-number-input"],
+      "dependencies": ["lucide-react", "react-phone-number-input", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json",
@@ -1320,14 +1041,9 @@
           "path": "src/registry/theme-toggle-button/components/lib.ts",
           "type": "registry:file",
           "target": "src/components/theme-toggle-button/lib.ts"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["lucide-react", "zod"],
+      "dependencies": ["lucide-react", "zod", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/button.json",
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json"
@@ -1343,14 +1059,9 @@
           "path": "src/registry/tilt-card/components/tilt-card.tsx",
           "type": "registry:ui",
           "target": "src/components/tilt-card/tilt-card.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["motion"]
+      "dependencies": ["motion", "cn"]
     },
     {
       "name": "data-table",
@@ -1419,11 +1130,6 @@
           "target": "src/components/data-table/lib.ts"
         },
         {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
-        },
-        {
           "path": "src/@types/tanstack-table.d.ts",
           "type": "registry:file",
           "target": "src/@types/tanstack-table.d.ts"
@@ -1433,7 +1139,8 @@
         "lucide-react",
         "@tanstack/react-table",
         "class-variance-authority",
-        "lodash.debounce"
+        "lodash.debounce",
+        "cn"
       ],
       "devDependencies": ["@types/lodash.debounce"],
       "registryDependencies": [
@@ -1603,11 +1310,6 @@
           "target": "src/components/editor/zoom-button.tsx"
         },
         {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
-        },
-        {
           "path": "src/@types/tiptap.d.ts",
           "type": "registry:file",
           "target": "src/@types/tiptap.d.ts"
@@ -1634,7 +1336,8 @@
         "@tiptap/extension-heading",
         "@tiptap/extension-table",
         "@tiptap/extension-text-style",
-        "@tiptap/pm"
+        "@tiptap/pm",
+        "cn"
       ],
       "devDependencies": ["@types/lodash.throttle"],
       "registryDependencies": [
@@ -1667,14 +1370,9 @@
           "path": "src/registry/native-pdf-viewer/components/native-pdf-viewer.tsx",
           "type": "registry:ui",
           "target": "src/components/native-pdf-viewer/native-pdf-viewer.tsx"
-        },
-        {
-          "path": "src/utils/ui.ts",
-          "type": "registry:file",
-          "target": "src/utils/ui.ts"
         }
       ],
-      "dependencies": ["@tanstack/react-query"],
+      "dependencies": ["@tanstack/react-query", "cn"],
       "registryDependencies": [
         "https://ntt-shadcn-registry.vercel.app/r/spinner.json"
       ]

@@ -1,4 +1,4 @@
-import z from 'zod'
+import { z } from 'zod'
 
 export const themeSchema = z.object({
   theme: z.union([z.literal('light'), z.literal('dark')]),

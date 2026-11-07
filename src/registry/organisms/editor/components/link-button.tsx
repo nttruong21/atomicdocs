@@ -1,5 +1,6 @@
 import { useForm } from '@tanstack/react-form'
 import { useEditorState } from '@tiptap/react'
+import { cn } from 'cn'
 import {
   CheckCircleIcon,
   CopyIcon,
@@ -10,7 +11,7 @@ import {
 } from 'lucide-react'
 import { type MouseEvent, useRef, useState } from 'react'
 import { toast } from 'sonner'
-import z from 'zod'
+import { z } from 'zod'
 import { Button } from '@/components/atoms/button'
 import { Checkbox } from '@/components/atoms/checkbox'
 import { Field, FieldError, FieldLabel } from '@/components/atoms/field'
@@ -25,7 +26,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/atoms/tooltip'
-import { cn } from '@/utils/ui'
 import { useInternalEditor } from './lib/base'
 
 const linkUrlRegex =

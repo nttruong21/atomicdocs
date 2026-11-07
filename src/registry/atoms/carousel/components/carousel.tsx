@@ -1,3 +1,4 @@
+import { cn } from 'cn'
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react'
@@ -13,7 +14,6 @@ import {
   useState,
 } from 'react'
 import { Button } from '@/components/atoms/button'
-import { cn } from '@/utils/ui'
 
 export type CarouselApi = UseEmblaCarouselType[1]
 export type UseCarouselParameters = Parameters<typeof useEmblaCarousel>

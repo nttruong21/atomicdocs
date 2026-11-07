@@ -5,13 +5,13 @@ import {
   type AnyFunctionMiddleware,
 } from '@tanstack/react-start'
 import { staticFunctionMiddleware } from '@tanstack/start-static-server-functions'
+import { cn } from 'cn'
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
 import { Suspense, use, useState, type lazy } from 'react'
-import z from 'zod'
+import { z } from 'zod'
 import { Card, CardContent } from '@/components/atoms/card'
 import { Spinner } from '@/components/atoms/spinner'
 import { registryLazyComponents } from '@/registry/lazy-components'
-import { cn } from '@/utils/ui'
 
 // Create a cache to store component instances
 const componentCache = new Map<string, ReturnType<typeof lazy>>()

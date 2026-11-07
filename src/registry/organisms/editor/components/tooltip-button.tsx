@@ -1,3 +1,4 @@
+import { cn } from 'cn'
 import type { LucideProps } from 'lucide-react'
 import type { ForwardRefExoticComponent, RefAttributes } from 'react'
 import { Button, type ButtonProps } from '@/components/atoms/button'
@@ -7,7 +8,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/atoms/tooltip'
-import { cn } from '@/utils/ui'
 
 export default function TooltipButton({
   Icon,

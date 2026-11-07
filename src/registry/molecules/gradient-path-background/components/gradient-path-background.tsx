@@ -1,6 +1,6 @@
+import { cn } from 'cn'
 import { motion } from 'motion/react'
 import type { PropsWithChildren } from 'react'
-import { cn } from '@/utils/ui'
 
 interface GradientPathBackgroundProps extends PropsWithChildren {
   className?: string

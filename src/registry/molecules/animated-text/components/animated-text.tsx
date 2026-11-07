@@ -1,6 +1,6 @@
+import { cn } from 'cn'
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
-import { cn } from '@/utils/ui'
 
 interface AnimatedTextProps {
   blurEffect?: boolean
@@ -14,7 +14,13 @@ interface AnimatedTextProps {
   text: string
 }
 
-export function AnimatedText({
+export function AnimatedText(props: AnimatedTextProps) {
+  return (
+    <AnimatedTextAnimation key={`${props.text}-${props.speed}`} {...props} />
+  )
+}
+
+function AnimatedTextAnimation({
   text,
   className,
   blurEffect = true,
@@ -126,8 +132,6 @@ export function AnimatedText({
   }
 
   useEffect(() => {
-    // oxlint-disable-next-line react/react-compiler
-    setVisibleCount(0)
     const intervalId = setInterval(
       () => {
         setVisibleCount((prev) => {

@@ -1,4 +1,4 @@
-import { cn } from '@/utils/ui'
+import { cn } from 'cn'
 
 export function Label({ className, ...props }: React.ComponentProps<'label'>) {
   return (

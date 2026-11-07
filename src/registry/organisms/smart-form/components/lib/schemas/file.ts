@@ -1,4 +1,4 @@
-import z from 'zod'
+import { z } from 'zod'
 import type { UploadedFile } from '@/components/molecules/file-upload/lib'
 
 /**

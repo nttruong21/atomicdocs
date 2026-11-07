@@ -1,6 +1,6 @@
+import { cn } from 'cn'
 import { motion } from 'motion/react'
 import { type HTMLAttributes, useEffect, useRef, useState } from 'react'
-import { cn } from '@/utils/ui'
 
 interface HighlightedTextProps extends HTMLAttributes<HTMLDivElement> {
   animate?: boolean

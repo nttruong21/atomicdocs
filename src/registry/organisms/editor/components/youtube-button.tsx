@@ -3,7 +3,7 @@ import { isValidYoutubeUrl } from '@tiptap/extension-youtube'
 import { useEditorState } from '@tiptap/react'
 import { CheckCircle, TvMinimalPlay } from 'lucide-react'
 import { useRef, useState, useTransition } from 'react'
-import z from 'zod'
+import { z } from 'zod'
 import { Button } from '@/components/atoms/button'
 import { Field, FieldError, FieldLabel } from '@/components/atoms/field'
 import { Input } from '@/components/atoms/input'
@@ -31,6 +31,8 @@ const youtubeFormSchema = z.object({
 const defaultYoutubeFormValue: z.input<typeof youtubeFormSchema> = {
   url: '',
 }
+
+const loadYoutubeExtension = () => import('./custom-youtube-extension')
 
 export default function YoutubeButton({
   id,
@@ -78,7 +80,7 @@ export default function YoutubeButton({
       startTransition(async () => {
         try {
           const { default: CustomYoutubeExtension } =
-            await import('./custom-youtube-extension')
+            await loadYoutubeExtension()
 
           callbackRef.current = setYoutubeVideo
 
