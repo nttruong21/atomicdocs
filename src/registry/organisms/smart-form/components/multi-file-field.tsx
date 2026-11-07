@@ -1,9 +1,11 @@
+import type { ComponentProps } from 'react'
 import type { DropzoneOptions } from 'react-dropzone'
 import {
   FileUpload,
   FileUploadContent,
   FileUploadInput,
   FileUploadItem,
+  type FileUploadProps,
   type FileUploadValue,
 } from '@/components/molecules/file-upload/file-upload'
 import SmartFormFieldContainer from './field-container'
@@ -15,14 +17,24 @@ const baseDropzoneOptions: DropzoneOptions = {
   maxFiles: 10,
 }
 
+export type MultiFileFieldProps = BaseSmartFormFieldComponentProps & {
+  fileUploadProps?: Omit<
+    FileUploadProps,
+    'value' | 'onValueChange' | 'disabled' | 'children'
+  >
+  inputProps?: Omit<
+    ComponentProps<typeof FileUploadInput>,
+    'id' | 'aria-invalid' | 'children'
+  >
+}
+
 export default function MultiFileField({
   label,
   disabled,
-  dropzoneOptions = baseDropzoneOptions,
+  fileUploadProps,
+  inputProps,
   ...props
-}: BaseSmartFormFieldComponentProps & {
-  dropzoneOptions?: DropzoneOptions
-}) {
+}: MultiFileFieldProps) {
   const field = useFieldContext<MultiFileFieldInputValue>()
   const invalid = field.state.meta.isTouched && !field.state.meta.isValid
 
@@ -39,11 +51,12 @@ export default function MultiFileField({
         onValueChange={field.handleChange}
         value={field.state.value}
         {...baseDropzoneOptions}
-        {...dropzoneOptions}
+        {...fileUploadProps}
       >
         <FileUploadInput
           aria-invalid={invalid}
           id={`${field.form.formId}-${field.name}`}
+          {...inputProps}
         />
         <FileUploadContent>
           {(field.state.value as FileUploadValue).map((value, index) => (

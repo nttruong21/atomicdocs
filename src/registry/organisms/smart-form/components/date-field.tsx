@@ -33,12 +33,12 @@ export default function DateField({
     >
       <DatePicker
         placeholder={`Select ${typeof label === 'string' ? label.toLowerCase() : 'information'}`}
-        {...datePickerProps}
         id={`${field.form.formId}-${field.name}`}
         value={field.state.value}
         invalid={invalid}
         disabled={disabled}
         onValueChange={field.handleChange as DatePickerProps['onValueChange']}
+        {...datePickerProps}
       />
     </SmartFormFieldContainer>
   )

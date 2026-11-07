@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react'
 import {
   Combobox,
   ComboboxChip,
@@ -12,6 +13,7 @@ import {
   useComboboxAnchor,
 } from '@/components/atoms/combobox'
 import { Spinner } from '@/components/atoms/spinner'
+import type { Option } from '@/types/base'
 import SmartFormFieldContainer from './field-container'
 import {
   type BaseSmartFormFieldComponentProps,
@@ -21,14 +23,64 @@ import { useFieldContext } from './lib/form'
 import { fetchNextPage, useGetOptionsInfiniteQuery } from './lib/query'
 import type { MultiSelectFieldInputValue } from './lib/schemas/multi-select'
 
+export type MultiSelectWithInfiniteQueryFieldProps =
+  BaseSmartFormFieldComponentProps &
+    Parameters<typeof useGetOptionsInfiniteQuery>[0] & {
+      comboboxProps?: Omit<
+        ComponentProps<typeof Combobox<Option, true>>,
+        | 'value'
+        | 'defaultValue'
+        | 'onValueChange'
+        | 'filteredItems'
+        | 'items'
+        | 'children'
+        | 'multiple'
+        | 'disabled'
+        | 'name'
+        | 'id'
+        | 'required'
+        | 'inputValue'
+        | 'defaultInputValue'
+        | 'onInputValueChange'
+        | 'filter'
+      >
+      comboboxChipsInputProps?: Omit<
+        ComponentProps<typeof ComboboxChipsInput>,
+        | 'id'
+        | 'name'
+        | 'disabled'
+        | 'required'
+        | 'aria-invalid'
+        | 'children'
+        | 'render'
+        | 'value'
+        | 'defaultValue'
+        | 'onChange'
+        | 'onValueChange'
+        | 'onBlur'
+        | 'data-invalid'
+      >
+      comboboxContentProps?: Omit<
+        ComponentProps<typeof ComboboxContent>,
+        'children' | 'render' | 'anchor'
+      >
+      comboboxChipsProps?: Omit<
+        ComponentProps<typeof ComboboxChips>,
+        'children' | 'ref' | 'render'
+      >
+    }
+
 export default function MultiSelectWithInfiniteQueryField({
   label,
   disabled,
   originalApiPath,
   dependencyFieldsValue,
+  comboboxProps,
+  comboboxChipsInputProps,
+  comboboxContentProps,
+  comboboxChipsProps,
   ...props
-}: BaseSmartFormFieldComponentProps &
-  Parameters<typeof useGetOptionsInfiniteQuery>[0]) {
+}: MultiSelectWithInfiniteQueryFieldProps) {
   const anchor = useComboboxAnchor()
   const field = useFieldContext<MultiSelectFieldInputValue>()
 
@@ -61,6 +113,7 @@ export default function MultiSelectWithInfiniteQueryField({
       {...props}
     >
       <Combobox
+        disabled={disabled}
         filter={null}
         inputValue={searchKeyword}
         items={options}
@@ -70,8 +123,9 @@ export default function MultiSelectWithInfiniteQueryField({
           field.handleChange(newValue.map((item) => item.value))
         }}
         value={value}
+        {...comboboxProps}
       >
-        <ComboboxChips ref={anchor}>
+        <ComboboxChips {...comboboxChipsProps} ref={anchor}>
           {getOptionsInfiniteQuery.isLoading && (
             <Spinner className='text-muted-foreground' />
           )}
@@ -85,19 +139,21 @@ export default function MultiSelectWithInfiniteQueryField({
           </ComboboxValue>
 
           <ComboboxChipsInput
-            aria-invalid={invalid}
-            data-invalid={invalid}
-            disabled={disabled || getOptionsInfiniteQuery.isLoading}
-            id={`${field.form.formId}-${field.name}`}
             placeholder={
               value.length > 0
                 ? undefined
                 : `Select ${typeof label === 'string' ? label.toLowerCase() : 'information'}`
             }
+            onBlur={field.handleBlur}
+            aria-invalid={invalid}
+            data-invalid={invalid}
+            disabled={disabled || getOptionsInfiniteQuery.isLoading}
+            id={`${field.form.formId}-${field.name}`}
+            {...comboboxChipsInputProps}
           />
         </ComboboxChips>
 
-        <ComboboxContent anchor={anchor}>
+        <ComboboxContent anchor={anchor} {...comboboxContentProps}>
           {getOptionsInfiniteQuery.isFetching &&
             !getOptionsInfiniteQuery.isFetchingNextPage && (
               <ComboboxStatus className='flex items-center gap-2'>

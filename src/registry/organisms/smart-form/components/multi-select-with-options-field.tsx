@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react'
 import {
   Combobox,
   ComboboxChip,
@@ -16,14 +17,63 @@ import type { BaseSmartFormFieldComponentProps } from './lib/base'
 import { useFieldContext } from './lib/form'
 import type { MultiSelectFieldInputValue } from './lib/schemas/multi-select'
 
+export type MultiSelectWithOptionsFieldProps =
+  BaseSmartFormFieldComponentProps & {
+    options: Option[]
+  } & {
+    comboboxProps?: Omit<
+      ComponentProps<typeof Combobox<Option, true>>,
+      | 'value'
+      | 'defaultValue'
+      | 'onValueChange'
+      | 'filteredItems'
+      | 'items'
+      | 'children'
+      | 'multiple'
+      | 'disabled'
+      | 'name'
+      | 'id'
+      | 'required'
+      | 'inputValue'
+      | 'defaultInputValue'
+      | 'onInputValueChange'
+    >
+    comboboxChipsInputProps?: Omit<
+      ComponentProps<typeof ComboboxChipsInput>,
+      | 'id'
+      | 'name'
+      | 'disabled'
+      | 'required'
+      | 'aria-invalid'
+      | 'children'
+      | 'render'
+      | 'value'
+      | 'defaultValue'
+      | 'onChange'
+      | 'onValueChange'
+      | 'onBlur'
+      | 'data-invalid'
+    >
+    comboboxContentProps?: Omit<
+      ComponentProps<typeof ComboboxContent>,
+      'children' | 'render' | 'anchor'
+    >
+    comboboxChipsProps?: Omit<
+      ComponentProps<typeof ComboboxChips>,
+      'children' | 'ref' | 'render'
+    >
+  }
+
 export default function MultiSelectWithOptionsField({
   label,
   disabled,
   options,
+  comboboxProps,
+  comboboxChipsInputProps,
+  comboboxContentProps,
+  comboboxChipsProps,
   ...props
-}: BaseSmartFormFieldComponentProps & {
-  options: Option[]
-}) {
+}: MultiSelectWithOptionsFieldProps) {
   const anchor = useComboboxAnchor()
   const field = useFieldContext<MultiSelectFieldInputValue>()
   const invalid = field.state.meta.isTouched && !field.state.meta.isValid
@@ -39,14 +89,16 @@ export default function MultiSelectWithOptionsField({
       {...props}
     >
       <Combobox
+        disabled={disabled}
         items={options}
         multiple
         onValueChange={(newValue) => {
           field.handleChange(newValue.map((item) => item.value))
         }}
         value={value}
+        {...comboboxProps}
       >
-        <ComboboxChips ref={anchor}>
+        <ComboboxChips ref={anchor} {...comboboxChipsProps}>
           <ComboboxValue>
             {(selectedValue: typeof options) =>
               selectedValue.map((item) => (
@@ -55,6 +107,7 @@ export default function MultiSelectWithOptionsField({
             }
           </ComboboxValue>
           <ComboboxChipsInput
+            onBlur={field.handleBlur}
             aria-invalid={invalid}
             data-invalid={invalid}
             disabled={disabled}
@@ -64,10 +117,11 @@ export default function MultiSelectWithOptionsField({
                 ? undefined
                 : `Select ${typeof label === 'string' ? label.toLowerCase() : 'information'}`
             }
+            {...comboboxChipsInputProps}
           />
         </ComboboxChips>
 
-        <ComboboxContent anchor={anchor}>
+        <ComboboxContent anchor={anchor} {...comboboxContentProps}>
           <ComboboxEmpty>No items found.</ComboboxEmpty>
           <ComboboxList>
             {(item: (typeof options)[number]) => (

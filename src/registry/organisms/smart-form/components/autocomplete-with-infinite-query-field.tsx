@@ -1,3 +1,5 @@
+import type { AutocompleteRootProps } from '@base-ui/react/autocomplete'
+import type { ComponentProps } from 'react'
 import {
   Autocomplete,
   AutocompleteContent,
@@ -14,14 +16,62 @@ import { useFieldContext } from './lib/form'
 import { fetchNextPage, useGetOptionsInfiniteQuery } from './lib/query'
 import type { AutocompleteFieldInputValue } from './lib/schemas/autocomplete'
 
+export type AutocompleteWithInfiniteQueryFieldProps =
+  BaseSmartFormFieldComponentProps &
+    Pick<
+      Parameters<typeof useGetOptionsInfiniteQuery>[0],
+      'originalApiPath' | 'dependencyFieldsValue'
+    > & {
+      autocompleteProps?: Omit<
+        AutocompleteRootProps<string>,
+        | 'value'
+        | 'defaultValue'
+        | 'onValueChange'
+        | 'filteredItems'
+        | 'items'
+        | 'children'
+        | 'multiple'
+        | 'disabled'
+        | 'name'
+        | 'id'
+        | 'required'
+        | 'inputValue'
+        | 'defaultInputValue'
+        | 'onInputValueChange'
+        | 'filter'
+      >
+      inputProps?: Omit<
+        ComponentProps<typeof AutocompleteInput>,
+        | 'id'
+        | 'name'
+        | 'disabled'
+        | 'required'
+        | 'aria-invalid'
+        | 'children'
+        | 'render'
+        | 'value'
+        | 'defaultValue'
+        | 'onChange'
+        | 'onValueChange'
+        | 'onBlur'
+        | 'data-invalid'
+      >
+      autocompleteContentProps?: Omit<
+        ComponentProps<typeof AutocompleteContent>,
+        'children' | 'render' | 'anchor'
+      >
+    }
+
 export default function AutocompleteWithInfiniteQueryField({
   label,
   disabled,
   originalApiPath,
   dependencyFieldsValue,
+  autocompleteProps,
+  inputProps,
+  autocompleteContentProps,
   ...props
-}: BaseSmartFormFieldComponentProps &
-  Parameters<typeof useGetOptionsInfiniteQuery>[0]) {
+}: AutocompleteWithInfiniteQueryFieldProps) {
   const field = useFieldContext<AutocompleteFieldInputValue>()
   const invalid = field.state.meta.isTouched && !field.state.meta.isValid
   const { getOptionsInfiniteQuery, options } = useGetOptionsInfiniteQuery({
@@ -40,10 +90,12 @@ export default function AutocompleteWithInfiniteQueryField({
       {...props}
     >
       <Autocomplete
-        items={options}
+        disabled={disabled}
+        items={options.map((option) => option.label)}
         onValueChange={field.handleChange}
-        openOnInputClick
+        openOnInputClick={autocompleteProps?.openOnInputClick ?? true}
         value={field.state.value}
+        {...autocompleteProps}
       >
         <AutocompleteInput
           aria-invalid={invalid}
@@ -54,7 +106,9 @@ export default function AutocompleteWithInfiniteQueryField({
               ? `Enter ${label.toLowerCase()}`
               : undefined
           }
-          showClear
+          showClear={inputProps?.showClear ?? true}
+          onBlur={field.handleBlur}
+          {...inputProps}
         >
           {getOptionsInfiniteQuery.isLoading && (
             <InputGroupAddon>
@@ -63,7 +117,7 @@ export default function AutocompleteWithInfiniteQueryField({
           )}
         </AutocompleteInput>
 
-        <AutocompleteContent>
+        <AutocompleteContent {...autocompleteContentProps}>
           <AutocompleteList
             onScroll={(event) =>
               fetchNextPage({ event, infiniteQuery: getOptionsInfiniteQuery })

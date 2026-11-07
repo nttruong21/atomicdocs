@@ -68,22 +68,18 @@ const form = useAppForm({
     <FieldSet>
       <div className='space-y-6'>
         <form.AppField name='email'>
-          {(field) => <field.Input label='Email' isRequired />}
+          {(field) => <field.Input label='Email' required />}
         </form.AppField>
 
         <form.AppField name='password'>
-          {(field) => <field.Password label='Password' isRequired />}
+          {(field) => <field.Password label='Password' required />}
         </form.AppField>
 
         <form.Subscribe
           selector={(state) => [state.canSubmit, state.isSubmitting]}
         >
           {([canSubmit, isSubmitting]) => (
-            <Button
-              type='submit'
-              disabled={!canSubmit}
-              isLoading={isSubmitting}
-            >
+            <Button type='submit' disabled={!canSubmit} loading={isSubmitting}>
               Submit
             </Button>
           )}
@@ -93,3 +89,46 @@ const form = useAppForm({
   </form.AppForm>
 </form>
 ```
+
+## Customize field controls
+
+Top-level `className` styles the field wrapper. Use the nested primitive props for the control itself. Each field exports its own named props type, such as `InputFieldProps` or `SelectWithOptionsFieldProps`.
+
+```tsx
+<field.Input
+  label='Email'
+  className='col-span-2'
+  inputProps={{
+    className: 'border-red-500',
+    type: 'email',
+    autoComplete: 'email',
+    placeholder: 'you@example.com',
+  }}
+/>
+
+<field.SelectWithOptions
+  label='Department'
+  options={departments}
+  inputProps={{ placeholder: 'Choose a department', showClear: false }}
+  contentProps={{ side: 'bottom', sideOffset: 8 }}
+/>
+```
+
+| Field | Customization props |
+| --- | --- |
+| Input | `inputProps` |
+| Checkbox | `checkboxProps` |
+| Textarea | `textareaProps` |
+| Number | `numberInputProps` |
+| Password | `passwordInputProps` |
+| PhoneNumber | `phoneNumberInputProps` |
+| Date | `datePickerProps` |
+| Editor | `editorProps` |
+| File, MultiFile | `fileUploadProps`, `inputProps` |
+| Select variants | `comboboxProps`, `inputProps`, `contentProps` |
+| MultiSelect variants | `comboboxProps`, `inputProps`, `contentProps`, `chipsProps` |
+| Autocomplete variants | `autocompleteProps`, `inputProps`, `contentProps` |
+
+SmartForm manages values, change handlers, generated control IDs, and validation state. Set `disabled` at the field level. `required` marks the label; configure validation through your field schema. Nested props exclude bindings managed by SmartForm. Defaults such as placeholders remain customizable.
+
+MultiFile's `dropzoneOptions` remains supported for compatibility; prefer `fileUploadProps` for new code. When both are supplied, `fileUploadProps` takes precedence. File always accepts one file; use MultiFile for multiple files.

@@ -1,3 +1,5 @@
+import type { AutocompleteRootProps } from '@base-ui/react/autocomplete'
+import type { ComponentProps } from 'react'
 import {
   Autocomplete,
   AutocompleteContent,
@@ -13,14 +15,57 @@ import { useFieldContext } from './lib/form'
 import { useGetOptionsQuery } from './lib/query'
 import type { AutocompleteFieldInputValue } from './lib/schemas/autocomplete'
 
+export type AutocompleteWithQueryFieldProps = BaseSmartFormFieldComponentProps &
+  Parameters<typeof useGetOptionsQuery>[0] & {
+    autocompleteProps?: Omit<
+      AutocompleteRootProps<string>,
+      | 'value'
+      | 'defaultValue'
+      | 'onValueChange'
+      | 'filteredItems'
+      | 'items'
+      | 'children'
+      | 'multiple'
+      | 'disabled'
+      | 'name'
+      | 'id'
+      | 'required'
+      | 'inputValue'
+      | 'defaultInputValue'
+      | 'onInputValueChange'
+    >
+    inputProps?: Omit<
+      ComponentProps<typeof AutocompleteInput>,
+      | 'id'
+      | 'name'
+      | 'disabled'
+      | 'required'
+      | 'aria-invalid'
+      | 'children'
+      | 'render'
+      | 'value'
+      | 'defaultValue'
+      | 'onChange'
+      | 'onValueChange'
+      | 'onBlur'
+      | 'data-invalid'
+    >
+    autocompleteContentProps?: Omit<
+      ComponentProps<typeof AutocompleteContent>,
+      'children' | 'render' | 'anchor'
+    >
+  }
+
 export default function AutocompleteWithQueryField({
   label,
   disabled,
   originalApiPath,
   dependencyFieldsValue,
+  autocompleteProps,
+  inputProps,
+  autocompleteContentProps,
   ...props
-}: BaseSmartFormFieldComponentProps &
-  Parameters<typeof useGetOptionsQuery>[0]) {
+}: AutocompleteWithQueryFieldProps) {
   const field = useFieldContext<AutocompleteFieldInputValue>()
   const invalid = field.state.meta.isTouched && !field.state.meta.isValid
   const { getOptionsQuery, options } = useGetOptionsQuery({
@@ -37,10 +82,12 @@ export default function AutocompleteWithQueryField({
       {...props}
     >
       <Autocomplete
-        items={options}
+        value={field.state.value}
+        disabled={disabled}
+        items={options.map((option) => option.label)}
         onValueChange={field.handleChange}
         openOnInputClick
-        value={field.state.value}
+        {...autocompleteProps}
       >
         <AutocompleteInput
           aria-invalid={invalid}
@@ -52,6 +99,8 @@ export default function AutocompleteWithQueryField({
               : undefined
           }
           showClear
+          onBlur={field.handleBlur}
+          {...inputProps}
         >
           {getOptionsQuery.isLoading && (
             <InputGroupAddon>
@@ -60,7 +109,7 @@ export default function AutocompleteWithQueryField({
           )}
         </AutocompleteInput>
 
-        <AutocompleteContent>
+        <AutocompleteContent {...autocompleteContentProps}>
           <AutocompleteList>
             {(item: string) => (
               <AutocompleteItem key={item} value={item}>

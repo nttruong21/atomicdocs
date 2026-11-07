@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react'
 import {
   FileUpload,
   FileUploadContent,
@@ -10,14 +11,27 @@ import type { BaseSmartFormFieldComponentProps } from './lib/base'
 import { useFieldContext } from './lib/form'
 import type { FileFieldInputValue } from './lib/schemas/file'
 
-type FileFieldProps = BaseSmartFormFieldComponentProps & {
-  fileUploadProps: Partial<FileUploadProps>
+export type FileFieldProps = BaseSmartFormFieldComponentProps & {
+  fileUploadProps?: Omit<
+    FileUploadProps,
+    | 'value'
+    | 'onValueChange'
+    | 'disabled'
+    | 'children'
+    | 'maxFiles'
+    | 'multiple'
+  >
+  inputProps?: Omit<
+    ComponentProps<typeof FileUploadInput>,
+    'id' | 'aria-invalid' | 'children'
+  >
 }
 
 export default function FileField({
   label,
   disabled,
   fileUploadProps,
+  inputProps,
   ...props
 }: FileFieldProps) {
   const field = useFieldContext<FileFieldInputValue>()
@@ -32,14 +46,17 @@ export default function FileField({
       {...props}
     >
       <FileUpload
+        value={field.state.value ? [field.state.value] : []}
+        maxFiles={1}
+        multiple={false}
         disabled={disabled}
         onValueChange={(files) => field.handleChange(files[0] ?? null)}
-        value={field.state.value ? [field.state.value] : []}
         {...fileUploadProps}
       >
         <FileUploadInput
           aria-invalid={invalid}
           id={`${field.form.formId}-${field.name}`}
+          {...inputProps}
         />
         <FileUploadContent>
           {field.state.value && (

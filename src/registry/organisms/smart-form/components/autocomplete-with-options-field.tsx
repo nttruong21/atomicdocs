@@ -1,3 +1,5 @@
+import type { AutocompleteRootProps } from '@base-ui/react/autocomplete'
+import type { ComponentProps } from 'react'
 import {
   Autocomplete,
   AutocompleteContent,
@@ -10,14 +12,58 @@ import type { BaseSmartFormFieldComponentProps } from './lib/base'
 import { useFieldContext } from './lib/form'
 import type { AutocompleteFieldInputValue } from './lib/schemas/autocomplete'
 
+export type AutocompleteWithOptionsFieldProps =
+  BaseSmartFormFieldComponentProps & {
+    options: string[]
+  } & {
+    autocompleteProps?: Omit<
+      AutocompleteRootProps<string>,
+      | 'value'
+      | 'defaultValue'
+      | 'onValueChange'
+      | 'filteredItems'
+      | 'items'
+      | 'children'
+      | 'multiple'
+      | 'disabled'
+      | 'name'
+      | 'id'
+      | 'required'
+      | 'inputValue'
+      | 'defaultInputValue'
+      | 'onInputValueChange'
+    >
+    inputProps?: Omit<
+      ComponentProps<typeof AutocompleteInput>,
+      | 'id'
+      | 'name'
+      | 'disabled'
+      | 'required'
+      | 'aria-invalid'
+      | 'children'
+      | 'render'
+      | 'value'
+      | 'defaultValue'
+      | 'onChange'
+      | 'onValueChange'
+      | 'onBlur'
+      | 'data-invalid'
+    >
+    autocompleteContentProps?: Omit<
+      ComponentProps<typeof AutocompleteContent>,
+      'children' | 'render' | 'anchor'
+    >
+  }
+
 export default function AutocompleteWithOptionsField({
   label,
   disabled,
   options,
+  autocompleteProps,
+  inputProps,
+  autocompleteContentProps,
   ...props
-}: BaseSmartFormFieldComponentProps & {
-  options: string[]
-}) {
+}: AutocompleteWithOptionsFieldProps) {
   const field = useFieldContext<AutocompleteFieldInputValue>()
   const invalid = field.state.meta.isTouched && !field.state.meta.isValid
 
@@ -30,10 +76,12 @@ export default function AutocompleteWithOptionsField({
       {...props}
     >
       <Autocomplete
+        disabled={disabled}
         items={options}
         onValueChange={field.handleChange}
         openOnInputClick
         value={field.state.value}
+        {...autocompleteProps}
       >
         <AutocompleteInput
           aria-invalid={invalid}
@@ -45,8 +93,10 @@ export default function AutocompleteWithOptionsField({
               : undefined
           }
           showClear
+          onBlur={field.handleBlur}
+          {...inputProps}
         />
-        <AutocompleteContent>
+        <AutocompleteContent {...autocompleteContentProps}>
           <AutocompleteList>
             {(item: string) => (
               <AutocompleteItem key={item} value={item}>
