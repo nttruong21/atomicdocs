@@ -1,2 +1,2 @@
 // oxlint-disable-next-line oxc/no-barrel-file
-export * from '@/registry/organisms/editor/components/lib'
+export * from '@/registry/organisms/editor/components/lib/base'

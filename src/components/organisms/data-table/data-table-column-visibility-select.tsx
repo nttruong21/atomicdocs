@@ -1,2 +1,2 @@
 // oxlint-disable-next-line oxc/no-barrel-file
-export * from '@/registry/organisms/data-table/components/data-table-column-visibility-select'
+export * from '@/registry/organisms/data-table/components/table/column-visibility-selection'
