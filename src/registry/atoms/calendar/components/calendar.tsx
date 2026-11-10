@@ -61,7 +61,7 @@ export function Calendar({
           defaultClassNames.caption_label
         ),
         day: cn(
-          'group/day relative aspect-square h-full w-full select-none rounded-(--cell-radius) p-0 text-center [&:last-child[data-selected=true]_button]:rounded-r-(--cell-radius)',
+          'group/day relative aspect-square h-full w-full select-none rounded-(--cell-radius) p-0 text-center',
           props.showWeekNumber
             ? '[&:nth-child(2)[data-selected=true]_button]:rounded-l-(--cell-radius)'
             : '[&:first-child[data-selected=true]_button]:rounded-l-(--cell-radius)',
@@ -113,7 +113,7 @@ export function Calendar({
         ),
         root: cn('w-fit', defaultClassNames.root),
         today: cn(
-          'rounded-(--cell-radius) bg-muted text-foreground data-[selected=true]:rounded-none',
+          'rounded-(--cell-radius) bg-muted text-foreground dark:hover:bg-muted/50',
           defaultClassNames.today
         ),
         week: cn('mt-2 flex w-full', defaultClassNames.week),
@@ -196,7 +196,7 @@ export function CalendarDayButton({
       className={cn(
         'relative isolate z-10 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 border-0 font-normal leading-none data-[range-end=true]:rounded-(--cell-radius) data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-start=true]:rounded-l-(--cell-radius) data-[range-end=true]:bg-primary data-[range-middle=true]:bg-muted data-[range-start=true]:bg-primary data-[selected-single=true]:bg-primary data-[range-end=true]:text-primary-foreground data-[range-middle=true]:text-foreground data-[range-start=true]:text-primary-foreground data-[selected-single=true]:text-primary-foreground group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 dark:hover:text-foreground [&>span]:text-xs [&>span]:opacity-70',
         'data-[outside=false]:text-foreground',
-        'data-[range-start=true]:data-[range-end=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-r-none data-[range-end=true]:rounded-l-none data-[range-end=true]:hover:bg-primary data-[range-start=true]:hover:bg-primary data-[selected-single=true]:hover:bg-primary data-[range-end=true]:hover:text-primary-foreground data-[range-start=true]:hover:text-primary-foreground data-[selected-single=true]:hover:text-primary-foreground',
+        'data-[range-start=true]:data-[range-end=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-r-none data-[range-end=true]:rounded-l-none data-[range-end=true]:hover:bg-primary! data-[range-start=true]:hover:bg-primary! data-[selected-single=true]:hover:bg-primary! data-[range-end=true]:hover:text-primary-foreground! data-[range-start=true]:hover:text-primary-foreground! data-[selected-single=true]:hover:text-primary-foreground!',
         defaultClassNames.day,
         className
       )}

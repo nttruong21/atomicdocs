@@ -2,6 +2,7 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 import { RootProvider } from 'fumadocs-ui/provider/tanstack'
 import type { ReactNode } from 'react'
+import { TooltipProvider } from '@/components/atoms/tooltip'
 import { appName } from '@/lib/shared'
 import { queryClient } from '@/lib/tanstack-query'
 import appCss from '@/styles/app.css?url'
@@ -54,7 +55,7 @@ function RootComponent({ children }: { children: ReactNode }) {
       <body cz-shortcut-listen='true'>
         <RootProvider>
           <QueryClientProvider client={queryClient}>
-            {children}
+            <TooltipProvider>{children}</TooltipProvider>
           </QueryClientProvider>
         </RootProvider>
         <Scripts />

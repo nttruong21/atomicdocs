@@ -129,7 +129,7 @@ export function Pagination({
           // Previous jumping
           if (displayedPage === Number.NEGATIVE_INFINITY) {
             return (
-              <TooltipProvider delay={400} key={displayedPage}>
+              <TooltipProvider key={displayedPage}>
                 <Tooltip>
                   <TooltipTrigger
                     render={
@@ -155,7 +155,7 @@ export function Pagination({
           // Next jumping
           if (displayedPage === Number.POSITIVE_INFINITY) {
             return (
-              <TooltipProvider delay={400} key={displayedPage}>
+              <TooltipProvider key={displayedPage}>
                 <Tooltip>
                   <TooltipTrigger
                     render={

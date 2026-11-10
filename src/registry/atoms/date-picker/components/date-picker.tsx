@@ -56,20 +56,23 @@ export function DatePicker({
                 </span>
               </Button>
 
-              <Button
-                className="text-muted-foreground absolute top-1/2 right-1.5 -translate-y-1/2 [&_svg:not([class*='size-'])]:size-4"
-                disabled={disabled}
-                onClick={(e) => {
-                  if (canRemove) {
-                    e.stopPropagation()
-                    onValueChange(null)
-                  }
-                }}
-                size='icon-xs'
-                variant='ghost'
-              >
-                {canRemove ? <XIcon /> : <CalendarIcon />}
-              </Button>
+              <div className="text-muted-foreground absolute top-1/2 right-1.5 -translate-y-1/2 [&_svg:not([class*='size-'])]:size-4">
+                {canRemove ? (
+                  <Button
+                    disabled={disabled}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      onValueChange(null)
+                    }}
+                    size='icon-xs'
+                    variant='ghost'
+                  >
+                    <XIcon />
+                  </Button>
+                ) : (
+                  <CalendarIcon className='mr-2' />
+                )}
+              </div>
             </div>
           }
         />
@@ -133,20 +136,23 @@ export function DateRangePicker({
                 </span>
               </Button>
 
-              <Button
-                className="text-muted-foreground absolute top-1/2 right-1.5 -translate-y-1/2 [&_svg:not([class*='size-'])]:size-4"
-                disabled={disabled}
-                onClick={(e) => {
-                  if (canRemove) {
-                    e.stopPropagation()
-                    onValueChange({ from: undefined, to: undefined })
-                  }
-                }}
-                size='icon-xs'
-                variant='ghost'
-              >
-                {canRemove ? <XIcon /> : <CalendarIcon />}
-              </Button>
+              <div className="text-muted-foreground absolute top-1/2 right-1.5 -translate-y-1/2 [&_svg:not([class*='size-'])]:size-4">
+                {canRemove ? (
+                  <Button
+                    disabled={disabled}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      onValueChange({ from: undefined, to: undefined })
+                    }}
+                    size='icon-xs'
+                    variant='ghost'
+                  >
+                    <XIcon />
+                  </Button>
+                ) : (
+                  <CalendarIcon className='mr-2' />
+                )}
+              </div>
             </div>
           }
         />

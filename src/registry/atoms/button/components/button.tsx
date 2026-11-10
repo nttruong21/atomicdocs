@@ -59,7 +59,7 @@ export function Button({
 
   return (
     <ButtonPrimitive
-      className={cn(buttonVariants({ className, size, variant }))}
+      className={cn(buttonVariants({ size, variant, className }))}
       data-loading={loading}
       data-slot='button'
       disabled={disabled}
