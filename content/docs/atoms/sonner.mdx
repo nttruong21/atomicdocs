@@ -43,6 +43,18 @@ import { toast } from 'sonner'
 toast('Event has been created.')
 ```
 
+## Sound
+
+Success, info, warning, and error toasts play soft synthesized tones by default. Success rises, error falls, warning double-taps, and info plays a single note. Toasts without a variant use the info sound. Loading toasts are silent. Promise toasts play the resulting success or error tone. Updating a toast with the same status does not repeat its sound.
+
+Audio becomes available after a click or key press, subject to browser autoplay settings. Sounds blocked before interaction are skipped.
+
+Set `sound={false}` to mute the toaster, or set `volume` from `0` to `1` (default: `0.5`). Existing `toast` calls from `sonner` work unchanged.
+
+```tsx
+<Toaster sound volume={0.5} />
+```
+
 ## Examples
 
 ### Types
