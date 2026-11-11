@@ -99,6 +99,7 @@ export function FieldContent({ className, ...props }: ComponentProps<'div'>) {
 
 export function FieldLabel({
   className,
+  htmlFor,
   ...props
 }: ComponentProps<typeof Label>) {
   return (
@@ -109,6 +110,7 @@ export function FieldLabel({
         className
       )}
       data-slot='field-label'
+      htmlFor={htmlFor}
       {...props}
     />
   )

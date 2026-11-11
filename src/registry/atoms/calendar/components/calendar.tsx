@@ -4,29 +4,53 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from 'lucide-react'
-import { type ComponentProps, useEffect, useRef } from 'react'
+import {
+  type ChangeEvent,
+  type ComponentProps,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import {
   type ChevronProps,
   type DayButtonProps,
   DayPicker,
+  type DropdownProps,
   getDefaultClassNames,
   type RootProps,
   type WeekNumberProps,
 } from 'react-day-picker'
 import { enUS } from 'react-day-picker/locale'
 import { Button, buttonVariants } from '@/components/atoms/button'
-
-const defaultClassNames = getDefaultClassNames()
+import {
+  Popover,
+  PopoverContent,
+  PopoverTitle,
+  PopoverTrigger,
+} from '@/components/atoms/popover'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/atoms/select'
 
 const defaultLocale = enUS
+const defaultClassNames = getDefaultClassNames()
+const defaultStartMonth = new Date(1000, 0, 1)
+const defaultEndMonth = new Date(9999, 11, 31)
+const defaultDropdownOptions: NonNullable<DropdownProps['options']> = []
 
 export function Calendar({
   className,
   classNames,
   showOutsideDays = true,
-  captionLayout = 'label',
+  captionLayout = 'dropdown',
   buttonVariant = 'ghost',
   locale = defaultLocale,
+  startMonth = defaultStartMonth,
+  endMonth = defaultEndMonth,
   formatters,
   components,
   ...props
@@ -135,6 +159,8 @@ export function Calendar({
       components={{
         Chevron: CalendarChevron,
         DayButton: CalendarDayButton,
+        MonthsDropdown: CalendarMonthsDropdown,
+        YearsDropdown: CalendarYearsPopover,
         Root: CalendarRoot,
         WeekNumber: CalendarWeekNumber,
         ...components,
@@ -146,8 +172,172 @@ export function Calendar({
       }}
       locale={locale}
       showOutsideDays={showOutsideDays}
+      startMonth={startMonth}
+      endMonth={endMonth}
       {...props}
     />
+  )
+}
+
+export function dropdownChange(value: string): ChangeEvent<HTMLSelectElement> {
+  return { target: { value } } as ChangeEvent<HTMLSelectElement>
+}
+
+export function CalendarMonthsDropdown({
+  id,
+  value,
+  options = defaultDropdownOptions,
+  disabled,
+  name,
+  style,
+  tabIndex,
+  'aria-label': ariaLabel,
+  onChange,
+}: DropdownProps) {
+  return (
+    <Select
+      value={Number(value)}
+      items={options}
+      name={name}
+      disabled={disabled}
+      onValueChange={(nextValue) => {
+        if (nextValue !== null) {
+          onChange?.(dropdownChange(String(nextValue)))
+        }
+      }}
+    >
+      <SelectTrigger
+        id={id}
+        size='sm'
+        className='relative h-8 px-2'
+        aria-label={ariaLabel}
+        style={style}
+        tabIndex={tabIndex}
+      >
+        <SelectValue />
+      </SelectTrigger>
+
+      <SelectContent>
+        {options.map((option) => (
+          <SelectItem
+            key={option.value}
+            value={option.value}
+            disabled={option.disabled}
+          >
+            {option.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
+}
+
+export function CalendarYearsPopover({
+  id,
+  value,
+  options = defaultDropdownOptions,
+  disabled,
+  style,
+  tabIndex,
+  'aria-label': ariaLabel,
+  onChange,
+}: DropdownProps) {
+  const selectedYear = Number(value)
+  const [open, setOpen] = useState(false)
+  const [decade, setDecade] = useState(Math.floor(selectedYear / 10) * 10)
+  const enabledYears = options.filter((option) => !option.disabled)
+  const minimumYear = options.length
+    ? Math.min(...enabledYears.map((option) => option.value))
+    : 1000
+  const maximumYear = options.length
+    ? Math.max(...enabledYears.map((option) => option.value))
+    : 9999
+  const years = Array.from({ length: 12 }, (_, index) => decade - 1 + index)
+  const selectedOption = options.find((option) => option.value === selectedYear)
+
+  return (
+    <Popover
+      open={open}
+      onOpenChange={(nextOpen) => {
+        setOpen(nextOpen)
+        if (nextOpen) {
+          setDecade(Math.floor(selectedYear / 10) * 10)
+        }
+      }}
+    >
+      <PopoverTrigger
+        render={<Button variant='outline' size='sm' />}
+        aria-label={ariaLabel}
+        className='relative h-8 gap-1.5 px-2'
+        disabled={disabled}
+        id={id}
+        style={style}
+        tabIndex={tabIndex}
+      >
+        {selectedOption?.label ?? value}
+        <ChevronDownIcon className='text-muted-foreground size-3.5' />
+      </PopoverTrigger>
+      <PopoverContent className='w-64 gap-3 p-3'>
+        <div className='flex items-center justify-between gap-2'>
+          <Button
+            aria-label='Previous decade'
+            disabled={disabled || decade - 1 < minimumYear}
+            onClick={() => setDecade(decade - 10)}
+            size='icon-sm'
+            type='button'
+            variant='ghost'
+          >
+            <ChevronLeftIcon />
+          </Button>
+          <PopoverTitle aria-live='polite'>
+            {decade}–{decade + 9}
+          </PopoverTitle>
+          <Button
+            aria-label='Next decade'
+            disabled={disabled || decade + 10 > maximumYear}
+            onClick={() => setDecade(decade + 10)}
+            size='icon-sm'
+            type='button'
+            variant='ghost'
+          >
+            <ChevronRightIcon />
+          </Button>
+        </div>
+        <fieldset
+          aria-label={ariaLabel ?? 'Choose year'}
+          className='grid min-w-0 grid-cols-3 gap-2 border-0 p-0'
+        >
+          {years.map((year) => {
+            const option = options.find((item) => item.value === year)
+            const unavailable =
+              year < minimumYear ||
+              year > maximumYear ||
+              (options.length > 0 && (!option || option.disabled))
+
+            return (
+              <Button
+                aria-pressed={year === selectedYear}
+                className={cn(
+                  'h-9 font-normal',
+                  (year < decade || year > decade + 9) &&
+                    'text-muted-foreground'
+                )}
+                disabled={disabled || unavailable}
+                key={year}
+                onClick={() => {
+                  onChange?.(dropdownChange(String(year)))
+                  setOpen(false)
+                }}
+                type='button'
+                variant={year === selectedYear ? 'default' : 'ghost'}
+              >
+                {option?.label ?? year}
+              </Button>
+            )
+          })}
+        </fieldset>
+      </PopoverContent>
+    </Popover>
   )
 }
 
