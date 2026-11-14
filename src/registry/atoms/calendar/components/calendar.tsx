@@ -3,6 +3,8 @@ import {
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  ChevronsLeftIcon,
+  ChevronsRightIcon,
 } from 'lucide-react'
 import {
   type ChangeEvent,
@@ -243,8 +245,10 @@ export function CalendarYearsPopover({
   onChange,
 }: DropdownProps) {
   const selectedYear = Number(value)
+
   const [open, setOpen] = useState(false)
   const [decade, setDecade] = useState(Math.floor(selectedYear / 10) * 10)
+
   const enabledYears = options.filter((option) => !option.disabled)
   const minimumYear = options.length
     ? Math.min(...enabledYears.map((option) => option.value))
@@ -257,6 +261,7 @@ export function CalendarYearsPopover({
 
   return (
     <Popover
+      modal
       open={open}
       onOpenChange={(nextOpen) => {
         setOpen(nextOpen)
@@ -266,43 +271,68 @@ export function CalendarYearsPopover({
       }}
     >
       <PopoverTrigger
-        render={<Button variant='outline' size='sm' />}
+        id={id}
         aria-label={ariaLabel}
         className='relative h-8 gap-1.5 px-2'
         disabled={disabled}
-        id={id}
         style={style}
         tabIndex={tabIndex}
+        render={<Button variant='outline' size='sm' />}
       >
         {selectedOption?.label ?? value}
         <ChevronDownIcon className='text-muted-foreground size-3.5' />
       </PopoverTrigger>
+
       <PopoverContent className='w-64 gap-3 p-3'>
-        <div className='flex items-center justify-between gap-2'>
+        <div className='flex items-center justify-between'>
           <Button
+            size='icon-sm'
+            variant='ghost'
+            aria-label='Previous decade'
+            disabled={disabled || decade - 1 < minimumYear}
+            onClick={() => setDecade(decade - 100)}
+          >
+            <ChevronsLeftIcon />
+          </Button>
+
+          <Button
+            size='icon-sm'
+            variant='ghost'
             aria-label='Previous decade'
             disabled={disabled || decade - 1 < minimumYear}
             onClick={() => setDecade(decade - 10)}
-            size='icon-sm'
-            type='button'
-            variant='ghost'
           >
             <ChevronLeftIcon />
           </Button>
-          <PopoverTitle aria-live='polite'>
-            {decade}–{decade + 9}
+
+          <PopoverTitle
+            aria-live='polite'
+            className='grow text-center tabular-nums'
+          >
+            {decade} - {decade + 9}
           </PopoverTitle>
+
           <Button
+            size='icon-sm'
+            variant='ghost'
             aria-label='Next decade'
             disabled={disabled || decade + 10 > maximumYear}
             onClick={() => setDecade(decade + 10)}
-            size='icon-sm'
-            type='button'
-            variant='ghost'
           >
             <ChevronRightIcon />
           </Button>
+
+          <Button
+            size='icon-sm'
+            variant='ghost'
+            aria-label='Previous decade'
+            disabled={disabled || decade - 1 < minimumYear}
+            onClick={() => setDecade(decade + 100)}
+          >
+            <ChevronsRightIcon />
+          </Button>
         </div>
+
         <fieldset
           aria-label={ariaLabel ?? 'Choose year'}
           className='grid min-w-0 grid-cols-3 gap-2 border-0 p-0'
@@ -316,20 +346,19 @@ export function CalendarYearsPopover({
 
             return (
               <Button
+                key={year}
+                type='button'
+                variant={year === selectedYear ? 'default' : 'ghost'}
                 aria-pressed={year === selectedYear}
                 className={cn(
-                  'h-9 font-normal',
                   (year < decade || year > decade + 9) &&
                     'text-muted-foreground'
                 )}
                 disabled={disabled || unavailable}
-                key={year}
                 onClick={() => {
                   onChange?.(dropdownChange(String(year)))
                   setOpen(false)
                 }}
-                type='button'
-                variant={year === selectedYear ? 'default' : 'ghost'}
               >
                 {option?.label ?? year}
               </Button>
