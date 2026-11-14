@@ -15,10 +15,7 @@ export default function DataTableHeader({ className }: DataTableHeaderProps) {
   return (
     <TableHeader className={cn('sticky top-0 z-20 [&_th]:border-b', className)}>
       {table.getHeaderGroups().map((headerGroup) => (
-        <TableRow
-          key={headerGroup.id}
-          className='bg-background hover:bg-background border-b'
-        >
+        <TableRow key={headerGroup.id} className='bg-table-muted border-b'>
           {headerGroup.headers
             .filter((header) => header.column.getIsVisible())
             .map((header, headerIndex) => {
@@ -42,7 +39,7 @@ export default function DataTableHeader({ className }: DataTableHeaderProps) {
                         style={{
                           flexGrow: headerInstance.getSize(),
                           width: headerInstance.getSize(),
-                          ...getCommonPinningStyles({ column }),
+                          ...getCommonPinningStyles({ column, isHeader: true }),
                         }}
                       >
                         <FlexRender header={headerInstance} />

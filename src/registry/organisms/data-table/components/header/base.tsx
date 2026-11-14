@@ -65,57 +65,55 @@ export default function DataTableBaseHeader({
           const pinningPosition = canPin ? column.getIsPinned() : false
 
           return (
-            <div className='flex items-center gap-1'>
-              <span>{label}</span>
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                  render={
-                    <Button variant='ghost' size='icon-sm' className='group' />
-                  }
-                >
-                  {getIcon(pinningPosition)}
-                </DropdownMenuTrigger>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={
+                  <Button variant='ghost' className='group -ml-2.5'>
+                    <span className='whitespace-nowrap'>{label}</span>
+                    {getIcon(pinningPosition)}
+                  </Button>
+                }
+              />
 
-                <DropdownMenuContent align='start'>
-                  {canPin && (
-                    <>
-                      <DropdownMenuItem
-                        onClick={() => column.pin('start')}
-                        disabled={pinningPosition === 'start'}
-                      >
-                        <PinIcon className='text-muted-foreground/70 mr-2' />
-                        Pin left
+              <DropdownMenuContent align='start'>
+                {canPin && (
+                  <>
+                    <DropdownMenuItem
+                      onClick={() => column.pin('start')}
+                      disabled={pinningPosition === 'start'}
+                    >
+                      <PinIcon className='text-muted-foreground/70 mr-2' />
+                      Pin left
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={() => column.pin('end')}
+                      disabled={pinningPosition === 'end'}
+                    >
+                      <PinIcon className='text-muted-foreground/70 mr-2 rotate-180' />
+                      Pin right
+                    </DropdownMenuItem>
+                    {pinningPosition ? (
+                      <DropdownMenuItem onClick={() => column.pin(false)}>
+                        <PinOffIcon className='text-muted-foreground/70 mr-2' />
+                        Unpin
                       </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => column.pin('end')}
-                        disabled={pinningPosition === 'end'}
-                      >
-                        <PinIcon className='text-muted-foreground/70 mr-2 rotate-180' />
-                        Pin right
-                      </DropdownMenuItem>
-                      {pinningPosition ? (
-                        <DropdownMenuItem onClick={() => column.pin(false)}>
-                          <PinOffIcon className='text-muted-foreground/70 mr-2' />
-                          Unpin
-                        </DropdownMenuItem>
-                      ) : null}
-                    </>
-                  )}
+                    ) : null}
+                  </>
+                )}
 
-                  {canHide && (
-                    <>
-                      {canPin ? <DropdownMenuSeparator /> : null}
-                      <DropdownMenuItem
-                        onClick={() => column.toggleVisibility(false)}
-                      >
-                        <EyeOffIcon className='text-muted-foreground/70 mr-2' />
-                        Hide
-                      </DropdownMenuItem>
-                    </>
-                  )}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
+                {canHide && (
+                  <>
+                    {canPin ? <DropdownMenuSeparator /> : null}
+                    <DropdownMenuItem
+                      onClick={() => column.toggleVisibility(false)}
+                    >
+                      <EyeOffIcon className='text-muted-foreground/70 mr-2' />
+                      Hide
+                    </DropdownMenuItem>
+                  </>
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
           )
         }}
       </Subscribe>

@@ -90,10 +90,11 @@ export default function DataTableBody<TData extends RowData>({
                           ...getCommonPinningStyles({
                             column: cellInstance.column,
                             isSelected: row.getIsSelected(),
+                            isHovered,
                           }),
                         }}
                         className={cn('not-last:border-r', {
-                          'bg-muted/50 hover:bg-muted/50':
+                          'bg-table-muted hover:bg-table-muted':
                             isHovered && !row.getIsSelected(),
                         })}
                         onMouseEnter={() =>

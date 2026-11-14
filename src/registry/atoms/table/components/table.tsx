@@ -36,7 +36,7 @@ export function TableBody(props: ComponentProps<'tbody'>) {
 export function TableFooter({ className, ...props }: ComponentProps<'tfoot'>) {
   return (
     <tfoot
-      className={cn('bg-muted/50 font-medium', className)}
+      className={cn('bg-table-muted font-medium', className)}
       data-slot='table-footer'
       {...props}
     />

@@ -1,8 +1,4 @@
-import type {
-  Column,
-  ColumnPinningPosition,
-  RowData,
-} from '@tanstack/react-table'
+import type { Column, RowData } from '@tanstack/react-table'
 import type { CSSProperties } from 'react'
 import type { DataTableFeatures } from './feature'
 
@@ -23,25 +19,34 @@ function getBoxShadow({
 
 function getBackground({
   isSelected = false,
-  pinningPosition,
+  isHovered = false,
+  isHeader = false,
 }: {
   isSelected?: boolean
-  pinningPosition: ColumnPinningPosition
+  isHovered?: boolean
+  isHeader?: boolean
 }) {
   if (isSelected) {
     return 'var(--muted)'
   }
-  if (pinningPosition) {
-    return 'var(--background)'
+
+  if (isHeader || isHovered) {
+    return 'var(--color-table-muted)'
   }
+
+  return 'var(--background)'
 }
 
 export function getCommonPinningStyles<TData extends RowData>({
   column,
   isSelected = false,
+  isHovered = false,
+  isHeader = false,
 }: {
   column: Column<DataTableFeatures, TData>
   isSelected?: boolean
+  isHovered?: boolean
+  isHeader?: boolean
 }): CSSProperties {
   const pinningPosition = column.getIsPinned()
   const isLastLeftPinnedColumn =
@@ -61,7 +66,8 @@ export function getCommonPinningStyles<TData extends RowData>({
     position: pinningPosition ? 'sticky' : 'relative',
     background: getBackground({
       isSelected,
-      pinningPosition,
+      isHovered,
+      isHeader,
     }),
     minWidth: column.getSize(),
     zIndex: pinningPosition ? 1 : 0,
