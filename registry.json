@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "NTT Shadcn Registry",
-  "homepage": "https://atomicdocs.vercel.app",
+  "name": "Atomicdocs",
+  "homepage": "https://github.com/nttruong21/atomicdocs",
   "items": [
     {
       "name": "accordion",
