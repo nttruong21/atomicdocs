@@ -5,7 +5,7 @@
   "sideEffects": false,
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "bun run registry:check && vite build",
     "start": "vite preview",
     "preview": "vite preview",
     "types:check": "fumadocs-mdx && tsc --noEmit",
@@ -14,7 +14,8 @@
     "fix": "ultracite fix",
     "gen-lazy-components": "bun scripts/generate-lazy-components.ts",
     "lint-staged": "lint-staged",
-    "prepare": "husky"
+    "prepare": "husky",
+    "registry:check": "shadcn registry validate"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
@@ -52,6 +53,7 @@
     "cn": "^0.5.2",
     "cnfast": "^0.2.0",
     "color": "^5.0.3",
+    "date-fns": "^4.4.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "fumadocs-core": "16.18.1",
@@ -64,6 +66,7 @@
     "lucide": "^1.70.0",
     "lucide-react": "^1.70.0",
     "morphicons": "^2.0.2",
+    "motion": "^14.10.1",
     "oxfmt": "^0.77.0",
     "react": "^19.3.1",
     "react-day-picker": "^10.0.2",

@@ -5,7 +5,12 @@ import {
   CodeBlockTabsTrigger,
 } from 'fumadocs-ui/components/codeblock'
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock'
-import { siteUrl } from '@/lib/shared'
+import { githubRepoUrl } from '@/lib/shared'
+
+export const registryRepository = new URL(githubRepoUrl).pathname
+  .split('/')
+  .slice(1, 3)
+  .join('/')
 
 const packageManagers = ['bun', 'pnpm', 'npm', 'yarn'] as const
 
@@ -25,7 +30,7 @@ interface InstallationTabsProps {
 export function InstallationTabs({ name }: InstallationTabsProps) {
   const commands = packageManagers.map((packageManager) => ({
     packageManager,
-    content: `${commandPrefixes[packageManager]} shadcn@latest add ${siteUrl}/r/${name}.json`,
+    content: `${commandPrefixes[packageManager]} shadcn@latest add ${registryRepository}/${name}`,
   }))
 
   return (

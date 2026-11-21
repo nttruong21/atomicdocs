@@ -3,14 +3,20 @@ title: Installation
 description: How to install NTT Shadcn Component in your project.
 ---
 
-import { siteUrl } from '@/lib/shared'
-import { InstallationTabs } from '@/components/installation-tabs'
+import {
+  InstallationTabs,
+  registryRepository,
+} from '@/components/installation-tabs'
 
-export const baseInstallationCommand = `shadcn add ${siteUrl}/<component>.json`
+export const baseInstallationCommand = `bunx --bun shadcn@latest add ${registryRepository}/<component>`
 
 It doesn't matter what framework or package manager you are using. Installing NTT Shadcn Component is as simple as running the <code>{baseInstallationCommand}</code> command and replacing `<component>` with the name of the component you want to install.
 
 The entire install process is handled by the `shadcn` CLI tool and works identically to how you would install any other Shadcn component.
+
+Components are installed directly from the [GitHub registry](https://ui.shadcn.com/docs/registry/github). No hosted registry URL is required.
+
+Query-enabled Smart Form and Smart Filter components include an Axios client. Configure its API base URL and authentication in `src/lib/axios.ts` for your application.
 
 ## Example
 
